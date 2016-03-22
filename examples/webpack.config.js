@@ -16,7 +16,7 @@ module.exports = {
     devtool: 'eval',
     hot: true,        //Live-reload
     inline: true,
-    port: 8000,        //Port Number
+    port: 3000,        //Port Number
     host: 'localhost'  //Change to '0.0.0.0' for external facing server
   },
   module: {

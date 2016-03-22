@@ -1,16 +1,21 @@
-<template lang="jade">
-  Paper(:circle="true", :shadow-depth="10")
-  //- div(class="fjioafjioajf")
+<template>
+  <basebutton :show='true'></basebutton>
+  <!-- <paper circle="ffannnvznvina" :shadow-depth='fass'></paper> -->
 </template>
 
 <script type="text/javascript">
-import {Paper} from '../lib/mtv.js'
+import {Paper as paper, BaseButton as basebutton} from '../lib/mtv.js'
 
-console.log(Paper);
+// console.log(Paper);
 
 export default {
+  ready: function() {
+    console.log('fas');
+    var a = 314
+  },
   components: {
-    Paper
+    paper,
+    basebutton
   },
   data: function() {
     return {

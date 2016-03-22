@@ -10,7 +10,6 @@ function hyphenate(string) {
 }
 
 function prefix(prop, val) {
-  // const propCache = Object.create(null)
   if (!testEl) {
     testEl = document.createElement('div')
   }

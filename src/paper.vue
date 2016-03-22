@@ -4,7 +4,6 @@
 </template>
 
 <script type="text/javascript">
-
 import getStyles from './utils/getStyles'
 
 export default {
