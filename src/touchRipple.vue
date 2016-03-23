@@ -33,9 +33,6 @@ export default {
   props: {
 
   },
-  // components: {
-  //   CircleRipple
-  // }
   methods: {
     handleMouseDown: function(event) {
       this.addRipple(event)
@@ -44,13 +41,13 @@ export default {
       this.removeRipple(event)
     },
     addRipple: function(event) {
-      var ripple = Object.create(null)
+      const ripple = Object.create(null)
       ripple.style = this.getRippleStyle(event)
       this.ripples.push(ripple)
       console.log('add one');
     },
     removeRipple: function(event) {
-      // setTimeout(()=>this.ripples.shift(), 2000)
+      setTimeout(()=>this.ripples.shift(), 2000)
     },
     getRippleStyle(event) {
       const style = Object.create(null)
@@ -105,14 +102,13 @@ export default {
 .touch-transition {
   transform: scale(1);
   opacity: 0;
-  /*transition: all .2s;*/
 }
 .touch-enter {
   transform: scale(0);
   opacity:1
 }
-.touch-leave {
+/*.touch-leave {
   transform: scale(0);
   opacity: 0.1
-}
+}*/
 </style>

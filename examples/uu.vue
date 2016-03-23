@@ -1,5 +1,5 @@
 <template>
-  <basebutton :show='true'></basebutton>
+  <basebutton :shadow-depth="2" :label="labelaa" icon-class="fa fa-archive" :disabled=true></basebutton>
   <!-- <paper circle="ffannnvznvina" :shadow-depth='fass'></paper> -->
 </template>
 
@@ -19,7 +19,8 @@ export default {
   },
   data: function() {
     return {
-      dp:9
+      dp:9,
+      labelaa:'fjaoij'
     }
   }
 }
