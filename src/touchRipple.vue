@@ -28,10 +28,21 @@ export default {
       },
       mergedStyles: null,
       ripples: [],
+      centerStyle: {
+        position: 'absolute',
+        top: '0',
+        left: '0',
+        height: '100%',
+        width: '100%',
+        borderRadius: '50%',
+        transition: `${Transitions.easeOut('2s', 'opacity')}, ${
+        Transitions.easeOut('1s', 'transform')}`,
+        backgroundColor: 'rgb(251, 158, 53)'
+      }
     }
   },
   props: {
-
+    center: Boolean
   },
   methods: {
     handleMouseDown: function(event) {
@@ -42,7 +53,7 @@ export default {
     },
     addRipple: function(event) {
       const ripple = Object.create(null)
-      ripple.style = this.getRippleStyle(event)
+      ripple.style = this.center ? getStyles(this.centerStyle, null) : this.getRippleStyle(event)
       this.ripples.push(ripple)
       console.log('add one');
     },
@@ -78,21 +89,7 @@ export default {
       style.top = `${top}px`;
       style.left = `${left}px`;
 
-      const transitionValue = `${Transitions.easeOut('2s', 'opacity')}, ${
-      Transitions.easeOut('1s', 'transform')}`
-
-      const untriggerStyle = {
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        height: '100%',
-        width: '100%',
-        borderRadius: '50%',
-        transition: transitionValue,
-        backgroundColor: 'rgb(251, 158, 53)'
-      }
-
-      return getStyles(untriggerStyle, style)
+      return getStyles(this.centerStyle, style)
     }
   }
 }
@@ -100,7 +97,7 @@ export default {
 
 <style media="screen">
 .touch-transition {
-  transform: scale(1);
+  transform: scale(2);
   opacity: 0;
 }
 .touch-enter {
