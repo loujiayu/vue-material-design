@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 import getStyles from 'utils/getStyles'
-import BaseButton from 'Button'
+import BaseButton from 'BaseButton'
 import IconButton from 'IconButton'
 import {baseTheme} from 'styles/muiTheme'
 
@@ -43,6 +43,9 @@ export default {
   },
   created: function() {
     this.mergedStyles = getStyles(this.style, this.originStyle)
+  },
+  ready: function() {
+    console.log('obj');
   },
   components: {
     BaseButton,

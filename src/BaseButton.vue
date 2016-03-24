@@ -12,9 +12,9 @@
 
 <script type="text/javascript">
 import getStyles from 'utils/getStyles'
+import touchRipple from 'touchRipple'
 import Transitions from 'styles/transitions'
 import {baseTheme} from 'styles/muiTheme'
-import touchRipple from 'touchRipple'
 import {zDepthShadows} from 'styles/common'
 
 export default {
@@ -22,7 +22,7 @@ export default {
     const {button} = baseTheme
     return {
       originStyles: {
-        width: '88px',
+        minWidth: '88px',
         height: button.height,
         border: '11px',
         padding: '0',
@@ -44,7 +44,9 @@ export default {
       labelStyle: {
         fontSize: '14px',
         letterSpacing: '0',
-        color: this.labelColor
+        color: this.labelColor,
+        paddingLeft: '24px',
+        paddingRight: '24px'
       },
       iconStyle: {
         verticalAlign: 'middle',
@@ -62,6 +64,7 @@ export default {
     backgroundColor: String,
     iconFront: Boolean,
     labelColor: String,
+    link: String,
     style: Object
   },
   created: function() {
@@ -78,6 +81,11 @@ export default {
       this.$el.style.backgroundColor = 'rgba(0, 0, 0, 0)'
     },
     handleClick: function() {
+      if (this.link && this.link.startsWith('http')) {
+        window.open(link)
+      } else if (this.link) {
+        console.warn(`${this.link} is not a valid URL`)
+      }
       // this.cursur += '<div></div>'
     }
   }

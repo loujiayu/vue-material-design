@@ -1,16 +1,19 @@
 <template>
   <div class="">
-    <nav-bar>
-      <icon-button icon-class="fa fa-bars fa-2x" slot="leftNav"></icon-button>
-      <base-button slot="title" label="title"></base-button>
-      <icon-button slot="rightNav" icon-class="fa fa-github fa-2x">
-      <!-- <base-button slot="rightNav" v-for="y in yy" :label="y"></base-button> -->
-    </nav-bar>
+    <menu>
+      <menu-item :is-horizen=true label="ljfafankfhaiofafanfasny" slot="list"></menu-item>
+      <menu-item :is-horizen=true label="ykf" slot="list"></menu-item>
+    </menu>
+    <!-- <nav-bar>
+      <icon-button icon-class="fa fa-google fa-2x" slot="leftNav"></icon-button>
+      <base-button v-for="y in yy" slot="title" label="title"></base-button>
+      <icon-button icon-class="fa fa-google fa-2x" slot="rightNav"></icon-button>
+    </nav-bar> -->
   </div>
 </template>
 
 <script type="text/javascript">
-import {Paper, BaseButton, NavBar, IconButton} from '../lib/mtv.js'
+import { BaseButton, NavBar, IconButton, Menu, MenuItem} from '../lib/mtv.js'
 
 // console.log(paper);
 
@@ -20,7 +23,8 @@ export default {
     var a = 314
   },
   components: {
-    Paper,
+    Menu,
+    MenuItem,
     // 'base-button':BaseButton,
     BaseButton,
     NavBar,

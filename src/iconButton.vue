@@ -1,11 +1,11 @@
 <template>
   <button :style="mergedStyles"
-        v-bind="{disabled: disabled}"
-        @mouseenter="handleMouseEnter"
-        @mouseleave="handleMouseLeave"
-        @click="handleClick" >
-      <span :class="iconClass"></span>
-      <touch-ripple v-if="!disabled" :center=true></touch-ripple>
+      v-bind="{disabled: disabled}"
+      @mouseenter="handleMouseEnter"
+      @mouseleave="handleMouseLeave"
+      @click="handleClick" >
+    <span :class="iconClass"></span>
+    <touch-ripple v-if="!disabled" :center=true></touch-ripple>
   </button>
 </template>
 
@@ -39,7 +39,8 @@ export default {
     onMouseEnter: Function,
     onMouseLeave: Function,
     iconClass: String,
-    backgroundColor: String
+    backgroundColor: String,
+    link: String
   },
   created: function() {
     this.mergedStyles = getStyles(this.style, this.originStyles)
@@ -53,6 +54,11 @@ export default {
     handleMouseLeave: function() {
     },
     handleClick: function() {
+      if (this.link && this.link.startsWith('http')) {
+        window.open(link)
+      } else if (this.link) {
+        console.warn(`${this.link} is not a valid URL`)
+      }
     }
   }
 }

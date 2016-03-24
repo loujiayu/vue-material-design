@@ -105,8 +105,4 @@ export default {
   transform: scale(0);
   opacity:1
 }
-/*.touch-leave {
-  transform: scale(0);
-  opacity: 0.1
-}*/
 </style>

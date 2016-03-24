@@ -1,4 +1,5 @@
-export Paper from 'paper.vue'
-export BaseButton from 'Button.vue'
+export BaseButton from 'BaseButton.vue'
 export NavBar from 'NavBar.vue'
 export IconButton from 'IconButton'
+export Menu from 'Menu'
+export MenuItem from 'MenuItem'
