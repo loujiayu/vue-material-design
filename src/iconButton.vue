@@ -10,17 +10,27 @@
 </template>
 
 <script type="text/javascript">
+import touchRipple from './touchRipple'
+import getStyles from './utils/getStyles'
+import {baseTheme} from 'styles/muiTheme'
+
 export default {
   data: function() {
-    originStyles: {
-      borderRadius: '50%',
-      height: '48px',
-      width: '48px',
-      display: 'inline-block',
-      position: 'relative',
-      outline: 'none',
-      textDecoration: 'none',
-      overflow: 'hidden'
+    const { button } = baseTheme
+    return {
+      originStyles: {
+        borderRadius: '50%',
+        height: button.iconHeight,
+        width: '48px',
+        border: '10px',
+        display: 'inline-block',
+        position: 'relative',
+        outline: 'none',
+        textDecoration: 'none',
+        overflow: 'hidden',
+        backgroundColor: 'rgba(0,0,0,0)',
+        cursor: 'pointer'
+      }
     }
   },
   props: {
@@ -35,7 +45,7 @@ export default {
     this.mergedStyles = getStyles(this.style, this.originStyles)
   },
   components: {
-    'touch-ripple': touchRipple
+    touchRipple
   },
   methods: {
     handleMouseEnter: function() {

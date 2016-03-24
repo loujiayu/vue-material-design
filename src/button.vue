@@ -11,18 +11,19 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from './utils/getStyles'
-import Transitions from './styles/transitions'
-import touchRipple from './touchRipple'
-import {zDepthShadows} from './styles/common'
+import getStyles from 'utils/getStyles'
+import Transitions from 'styles/transitions'
+import {baseTheme} from 'styles/muiTheme'
+import touchRipple from 'touchRipple'
+import {zDepthShadows} from 'styles/common'
 
 export default {
   data: function() {
+    const {button} = baseTheme
     return {
       originStyles: {
         width: '88px',
-        height: '36px',
-        lineHeight: '36px',
+        height: button.height,
         border: '11px',
         padding: '0',
         position: 'relative',
@@ -35,6 +36,7 @@ export default {
         textDecoration: 'none',
         transition: Transitions.easeOut(),
         overflow: 'hidden',
+        cursor: 'pointer',
         borderRadius: '2px',
         boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
       },
@@ -59,7 +61,8 @@ export default {
     iconClass: String,
     backgroundColor: String,
     iconFront: Boolean,
-    labelColor: String
+    labelColor: String,
+    style: Object
   },
   created: function() {
     this.mergedStyles = getStyles(this.style, this.originStyles)

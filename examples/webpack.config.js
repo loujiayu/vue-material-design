@@ -6,6 +6,7 @@ module.exports = {
     'webpack/hot/dev-server',
     'webpack/hot/only-dev-server',
     'font-awesome-webpack!./font/font-awesome.config.js',
+    './main.css',
     './main.js'
   ],
   output: {
@@ -25,8 +26,9 @@ module.exports = {
     loaders: [
       { test: /\.vue$/, loader: 'vue' },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-      { test: /\.less$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!less?outputStyle=expanded&sourceMap' },
-      { test: /\.scss$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap' },
+      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.less$/, loader: 'style!css!autoprefixer!less' },
+      { test: /\.scss$/, loader: 'style!css!autoprefixer!sass' },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
       { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },

@@ -21,7 +21,12 @@ function prefix(prop, val) {
       return `${prefixes[index]}${lower}:${val}`
     }
   })
-  return `${lower}:${val}`
+  if (prop in testEl.style) {
+    return `${lower}:${val}`
+  }
+  else {
+    console.warn(`${prop} is not a valid CSS properties`)
+  }
 }
 
 function toCssText(styleObj) {

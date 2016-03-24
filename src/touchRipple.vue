@@ -49,16 +49,17 @@ export default {
       this.addRipple(event)
     },
     handleMouseUp: function() {
-      this.removeRipple(event)
+      // this.removeRipple(event)
     },
     addRipple: function(event) {
       const ripple = Object.create(null)
       ripple.style = this.center ? getStyles(this.centerStyle, null) : this.getRippleStyle(event)
       this.ripples.push(ripple)
+      setTimeout(() => this.ripples.shift(), 2000)
       console.log('add one');
     },
     removeRipple: function(event) {
-      setTimeout(()=>this.ripples.shift(), 2000)
+
     },
     getRippleStyle(event) {
       const style = Object.create(null)
@@ -71,8 +72,8 @@ export default {
       const isTouchEvent = event.touches && event.touches.length;
       const pageX = isTouchEvent ? event.touches[0].pageX : event.pageX;
       const pageY = isTouchEvent ? event.touches[0].pageY : event.pageY;
-      const pointerX = pageX - offsetTop;
-      const pointerY = pageY - offsetLeft;
+      const pointerX = pageX - offsetLeft;
+      const pointerY = pageY - offsetTop;
       const topLeftDiag = calcDiag(pointerX, pointerY);
       const topRightDiag = calcDiag(elWidth - pointerX, pointerY);
       const botRightDiag = calcDiag(elWidth - pointerX, elHeight - pointerY);
@@ -97,7 +98,7 @@ export default {
 
 <style media="screen">
 .touch-transition {
-  transform: scale(2);
+  transform: scale(1);
   opacity: 0;
 }
 .touch-enter {
