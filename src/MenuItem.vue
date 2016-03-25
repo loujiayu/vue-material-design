@@ -13,7 +13,7 @@
       :label-color="labelColor"
       :link="link"
       :style="style">
-    <base-button>
+    </base-button>
   </div>
 </template>
 

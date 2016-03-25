@@ -1,6 +1,7 @@
 <template>
   <div :style="mergedStyles">
-    <slot name="list"></slot>
+    <slot name="list">
+    </slot>
   </div>
 </template>
 
@@ -14,13 +15,15 @@ export default {
     return {
       originStyles: {
         boxShadow: this.shadowDepth ? zDepthShadows[this.shadowDepth-1] : zDepthShadows[0],
-        maxHeight: '200px'
+        maxHeight: '200px',
+        display:'inline-block'
       },
       mergedStyles: null
     }
   },
   props: {
     shadowDepth: Number,
+    style: Object
   },
   components: {
     MenuItem

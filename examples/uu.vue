@@ -1,9 +1,13 @@
 <template>
   <div class="">
-    <menu>
-      <menu-item :is-horizen=true label="ljfafankfhaiofafanfasny" slot="list"></menu-item>
-      <menu-item :is-horizen=true label="ykf" slot="list"></menu-item>
-    </menu>
+    <icon-menu icon-class="fa fa-at fa-2x" vertical="top" horizontal="right">
+      <menu-item  label="ljy" slot="list"></menu-item>
+      <menu-item  label="ykf" slot="list"></menu-item>
+    </icon-menu>
+    <!-- <menu>
+      <menu-item  label="ljy" slot="list"></menu-item>
+      <menu-item  label="ykf" slot="list"></menu-item>
+    </menu> -->
     <!-- <nav-bar>
       <icon-button icon-class="fa fa-google fa-2x" slot="leftNav"></icon-button>
       <base-button v-for="y in yy" slot="title" label="title"></base-button>
@@ -13,10 +17,9 @@
 </template>
 
 <script type="text/javascript">
-import { BaseButton, NavBar, IconButton, Menu, MenuItem} from '../lib/mtv.js'
+import { BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu} from '../lib/mtv.js'
 
 // console.log(paper);
-
 export default {
   ready: function() {
     console.log('fas');
@@ -28,7 +31,8 @@ export default {
     // 'base-button':BaseButton,
     BaseButton,
     NavBar,
-    IconButton
+    IconButton,
+    IconMenu
   },
   data: function() {
     return {
