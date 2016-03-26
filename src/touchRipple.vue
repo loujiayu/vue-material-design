@@ -56,7 +56,6 @@ export default {
       ripple.style = this.center ? getStyles(this.centerStyle, null) : this.getRippleStyle(event)
       this.ripples.push(ripple)
       setTimeout(() => this.ripples.shift(), 2000)
-      console.log('add one');
     },
     removeRipple: function(event) {
 

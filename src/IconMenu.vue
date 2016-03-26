@@ -1,6 +1,7 @@
 <template>
-  <div @click="" :style="originStyles">
+  <div @click="handleClick($event)" :style="originStyles">
     <icon-button
+      v-ref:iconb
       :disabled="disabled"
       :on-click="onClick"
       :on-mouseEnter="onMouseEnter"
@@ -8,9 +9,13 @@
       :link="link"
       >
     </icon-button>
-    <div :style="menuStyles">
-      <slot name="list"></slot>
+
+    <div :style="menuWrapper">
+      <div :style="menuStyles">
+        <slot name="list"></slot>
+      </div>
     </div>
+
   </div>
 </template>
 
@@ -18,16 +23,11 @@
 import BaseMenu from 'BaseMenu'
 import IconButton from 'IconButton'
 import getStyles from 'utils/getStyles'
+import Transitions from 'styles/transitions'
 import Menu from 'Menu'
 
 export default {
   data: function () {
-    // var menu = {
-    //   position: 'absolute',
-    //   maxHeight: '200px',
-    //   display: 'inline-block'
-    // }
-
     return {
       originStyles: {
         display: 'inline-block',
@@ -35,12 +35,20 @@ export default {
       },
       mergedStyles: null,
       menuStyles: {
-        position: 'absolute',
+        // position: 'absolute',
         maxHeight: '200px',
+        display: 'inline-block',
+        willChange: 'transform',
+        opacity: '0',
+        transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
+        transform: 'scale(0)',
+      },
+      menuWrapper: {
+        position:'absolute',
+        visibility: 'hidden',
         display: 'inline-block'
       },
-      iconHeight: null,
-      iconWidth: null
+      open: false
     }
   },
   props: {
@@ -63,14 +71,44 @@ export default {
     this.mergedStyles = getStyles(this.style, this.originStyles)
   },
   ready: function() {
+    window.addEventListener('click', function(event) {
+      if (!(this.$el && this.$el.contains(event.target) ) && this.open) {
+        this.clickAway()
+      }
+    }.bind(this))
     const node = this.$el.children[1]
-    const {height, width} = node.getBoundingClientRect()
-    this.iconHeight = height
-    this.iconWidth = width
-    const vOrient = this.vertical=='top' ? 'bottom:0' : `top:${this.iconHeight}px`
-    const hOrient = this.horizontal=='left' ? 'right:0' : 'left:0'
-    node.style.cssText += `${vOrient};${hOrient}`
-    // Object.assign(this.menuStyles, vOrient, hOrient)
+    const {height, width} = this.$refs.iconb.$el.getBoundingClientRect()
+    const vOrient = this.vertical=='top' ? `top:${height}px` :`bottom:${height}px`
+    const hOrient = this.horizontal=='left' ? 'left:0' :'right:0'
+    var transformOrigin = this.horizontal=='left' ? '0 ' : `100% `
+    transformOrigin += this.vertical=='top' ? '0' : '100%'
+    node.style.cssText += `${vOrient};${hOrient};${transformOrigin};`
+    this.menuStyles.transformOrigin = transformOrigin
+  },
+  destroyed: function() {
+    window.removeEventListener('click')
+  },
+  methods: {
+    handleClick: function(event) {
+      if(event.stopPropagation) {
+        event.stopPropagation();
+      }
+      else if(event.cancelBubble) {
+        event.cancelBubble = true
+      }
+      this.menuStyles.transform = 'scale(1)'
+      this.menuStyles.opacity = '1'
+      this.menuWrapper.visibility = 'visible'
+      this.open = true
+      // setTimeout(() => this.open = true, 0)
+    },
+    clickAway: function() {
+      this.open = false
+      this.menuStyles.transform = 'scale(0)'
+      this.menuStyles.opacity = '0'
+      this.menuWrapper.visibility = 'hidden'
+    }
   }
+
 }
 </script>
