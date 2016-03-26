@@ -1,5 +1,5 @@
 <template>
-  <div :style="mergedStyles">
+  <div :style="mergedStyles" :class="className">
     <base-button
       :shadow-depth="shadowDepth"
       :disabled="disabled"
@@ -43,7 +43,8 @@ export default {
     iconFront: Boolean,
     labelColor: String,
     link: String,
-    style: Object
+    style: Object,
+    className: String
   },
   components: {
     BaseButton

@@ -23,14 +23,16 @@ export default {
     return {
       originStyles: {
         minWidth: '88px',
+        width: '100%',
         height: button.height,
         border: '11px',
         padding: '0',
+        margin: '0',
         position: 'relative',
         direction: this.iconFront ? 'rtl' : 'ltr',
         backgroundColor: this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)',
         boxSizing: "border-box",
-        display: "inline-block",
+        display: "block",
         fontFamily: 'Roboto, sans-serif',
         outline: 'none',
         textDecoration: 'none',
@@ -81,11 +83,13 @@ export default {
       this.$el.style.backgroundColor = 'rgba(0, 0, 0, 0)'
     },
     handleClick: function() {
+      console.log('inside button');
       if (this.link && this.link.startsWith('http')) {
         window.open(link)
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }
+      // this.onClick && this.onClick
       // this.cursur += '<div></div>'
     }
   }

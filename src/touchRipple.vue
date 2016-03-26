@@ -1,6 +1,6 @@
 <template>
   <div :style="originStyle"
-    @mousedown="handleMouseDown"
+    @click="handleClick"
     @mouseup="handleMouseUp"
   >
     <div v-for="ripple in ripples" :style="ripple.style" transition="touch"></div>
@@ -45,7 +45,9 @@ export default {
     center: Boolean
   },
   methods: {
-    handleMouseDown: function(event) {
+    handleClick: function(event) {
+      event.preventDefault()
+      console.log('asifninfasna');
       this.addRipple(event)
     },
     handleMouseUp: function() {
