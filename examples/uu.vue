@@ -12,7 +12,7 @@
     <!-- <base-button v-for="y in yy" slot="title" label="title"></base-button>
     <snack-bar message="hahaha" :open=true :undo=true>
     </snack-bar> -->
-    <icon-button tooltip="我爱袁柯芳" icon-class="fa fa-google fa-2x"> </icon-button>
+    <base-button label="title"></base-button>
   </div>
 </template>
 
@@ -26,16 +26,16 @@ export default {
     var a = 314
   },
   components: {
-    Menu,
-    MenuItem,
-    DownMenu,
-    SnackBar,
+    // Menu,
+    // MenuItem,
+    // DownMenu,
+    // SnackBar,
     // 'base-button':BaseButton,
     BaseButton,
-    NavBar,
-    IconButton,
-    IconMenu,
-    MenuBar
+    // NavBar,
+    // IconButton,
+    // IconMenu,
+    // MenuBar
   },
   data: function() {
     return {

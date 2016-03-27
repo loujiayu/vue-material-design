@@ -39,7 +39,7 @@ export default {
         transition: Transitions.easeOut(),
         overflow: 'hidden',
         cursor: 'pointer',
-        borderRadius: '2px',
+        borderRadius: '5px',
         boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
       },
       mergedStyles: null,
@@ -74,7 +74,10 @@ export default {
     this.mergedStyles = getStyles(this.originStyles,this.styleObj)
   },
   components: {
-    'touch-ripple': touchRipple
+    touchRipple
+  },
+  ready: function() {
+    console.log('obj');
   },
   methods: {
     handleMouseEnter: function() {
