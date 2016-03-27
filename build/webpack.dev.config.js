@@ -48,6 +48,9 @@ module.exports = {
   },
   // devtool: '#source-map',
   plugins: [
-    new webpack.NoErrorsPlugin()
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      __DEVELOPMENT__: true,
+    }),
   ]
 }

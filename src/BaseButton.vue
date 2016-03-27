@@ -22,9 +22,9 @@ export default {
     const {button} = baseTheme
     return {
       originStyles: {
-        minWidth: '88px',
+        minWidth: '58px',
         width: '100%',
-        height: button.height,
+        minHeight: button.height,
         border: '11px',
         padding: '0',
         margin: '0',
@@ -66,21 +66,26 @@ export default {
     backgroundColor: String,
     iconFront: Boolean,
     labelColor: String,
+    hover: Boolean,
     link: String,
-    style: Object
+    styleObj: Object
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyles)
+    this.mergedStyles = getStyles(this.originStyles,this.styleObj)
   },
   components: {
     'touch-ripple': touchRipple
   },
   methods: {
     handleMouseEnter: function() {
-      this.$el.style.backgroundColor = 'rgb(125, 121, 136)'
+      if (this.hover) {
+        this.$el.style.backgroundColor = 'rgb(125, 121, 136)'
+      }
     },
     handleMouseLeave: function() {
-      this.$el.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+      if (!this.hover) {
+        this.$el.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+      }
     },
     handleClick: function() {
       console.log('inside button');

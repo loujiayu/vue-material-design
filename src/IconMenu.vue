@@ -49,7 +49,7 @@ export default {
     onMouseLeave: Function,
     iconClass: String,
     link: String,
-    style: Object,
+    styleObj: Object,
     vertical: String,
     horizontal: String
   },
@@ -57,7 +57,7 @@ export default {
     IconButton
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyles)
+    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   ready: function() {
     window.addEventListener('click',this.clickAway )

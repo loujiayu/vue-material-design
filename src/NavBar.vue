@@ -39,10 +39,10 @@ export default {
     barLeft: Array,
     barRight: Array,
     title: Array,
-    style: Object
+    styleObj: Object
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyle)
+    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   ready: function() {
     console.log('obj');

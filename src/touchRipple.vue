@@ -37,7 +37,7 @@ export default {
         borderRadius: '50%',
         transition: `${Transitions.easeOut('2s', 'opacity')}, ${
         Transitions.easeOut('1s', 'transform')}`,
-        backgroundColor: 'rgb(251, 158, 53)'
+        backgroundColor: 'rgba(148, 154, 144, 0.5)'
       }
     }
   },

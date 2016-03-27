@@ -55,13 +55,13 @@ export default {
     disabled: Boolean,
     label: String,
     labelColor: String,
-    style: Object
+    styleObj: Object
   },
   components: {
     BaseButton
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyles)
+    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   ready: function() {
     window.addEventListener('click',this.clickAway)

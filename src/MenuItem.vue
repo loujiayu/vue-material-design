@@ -43,14 +43,14 @@ export default {
     iconFront: Boolean,
     labelColor: String,
     link: String,
-    style: Object,
+    styleObj: Object,
     className: String
   },
   components: {
     BaseButton
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyles)
+    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   }
 }
 </script>

@@ -40,10 +40,11 @@ export default {
     onMouseLeave: Function,
     iconClass: String,
     backgroundColor: String,
-    link: String
+    link: String,
+    styleObj: Object
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyles)
+    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   components: {
     touchRipple

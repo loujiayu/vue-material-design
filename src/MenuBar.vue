@@ -30,10 +30,11 @@ export default {
     }
   },
   props: {
-    open: Boolean
+    open: Boolean,
+    styleObj: Object
   },
   created: function() {
-    this.mergedStyles = getStyles(this.style, this.originStyles)
+    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   }
 }
 </script>
