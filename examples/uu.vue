@@ -9,9 +9,10 @@
       <base-button v-for="y in yy" slot="title" label="title"></base-button>
       <icon-button icon-class="fa fa-google fa-2x" slot="rightNav"></icon-button>
     </nav-bar> -->
-    <base-button v-for="y in yy" slot="title" label="title"></base-button>
+    <!-- <base-button v-for="y in yy" slot="title" label="title"></base-button>
     <snack-bar message="hahaha" :open=true :undo=true>
-    </snack-bar>
+    </snack-bar> -->
+    <icon-button tooltip="我爱袁柯芳" icon-class="fa fa-google fa-2x"> </icon-button>
   </div>
 </template>
 
@@ -54,10 +55,10 @@ export default {
 
 <style>
 .test {
-  /*position: absolute;
+  position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);*/
+  transform: translate(-50%, -50%);
 }
   /*.test {
 

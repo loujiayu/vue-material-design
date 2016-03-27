@@ -4,14 +4,16 @@
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
       @click="handleClick" >
+    <tooltip v-if="tooltip" :note="msg" :message="tooltip"></tooltip>
     <span :class="iconClass"></span>
-    <touch-ripple v-if="!disabled" :center=true></touch-ripple>
+    <touch-ripple v-if="!disabled" :center=true v-ref:touch></touch-ripple>
   </button>
 </template>
 
 <script type="text/javascript">
 import touchRipple from './touchRipple'
 import getStyles from './utils/getStyles'
+import Tooltip from 'Tooltip'
 import {baseTheme} from 'styles/muiTheme'
 
 export default {
@@ -27,14 +29,16 @@ export default {
         position: 'relative',
         outline: 'none',
         textDecoration: 'none',
-        overflow: 'hidden',
+        // overflow: 'hidden',
         backgroundColor: 'rgba(0,0,0,0)',
         cursor: 'pointer'
-      }
+      },
+      msg: true
     }
   },
   props: {
     disabled: Boolean,
+    tooltip: String,
     onClick: Function,
     onMouseEnter: Function,
     onMouseLeave: Function,
@@ -47,12 +51,15 @@ export default {
     this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   components: {
-    touchRipple
+    touchRipple,
+    Tooltip
   },
   methods: {
     handleMouseEnter: function() {
+      this.msg = true
     },
     handleMouseLeave: function() {
+      this.msg = false
     },
     handleClick: function() {
       if (this.link && this.link.startsWith('http')) {

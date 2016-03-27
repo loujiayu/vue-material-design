@@ -30,12 +30,9 @@ export default {
       },
       menuStyles: {
         position:'absolute',
-        // visibility: 'hidden',
         display: 'inline-block',
         left: '0',
-        // opacity: '0',
         willChange: 'transform',
-        // maxHeight: '0',
         overflow: 'scroll',
         transition: Transitions.easeOut('550ms', ['max-height', 'opacity']),
         boxShadow: zDepthShadows[0],
