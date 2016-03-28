@@ -1,9 +1,9 @@
 <template>
   <div class="test">
-    <!-- <icon-menu :open="open" icon-class="fa fa-at fa-2x" vertical="bottom" horizontal="left">
+    <!-- <down-menu :open="open" icon-class="fa fa-at fa-2x" vertical="bottom" horizontal="left">
       <menu-item  label="ljy" slot="list"></menu-item>
       <menu-item  label="ykf" slot="list"></menu-item>
-    </icon-menu> -->
+    </down-menu> -->
     <!-- <nav-bar>
       <icon-button icon-class="fa fa-google fa-2x" slot="leftNav"></icon-button>
       <base-button v-for="y in yy" slot="title" label="title"></base-button>
@@ -12,12 +12,13 @@
     <!-- <base-button v-for="y in yy" slot="title" label="title"></base-button>
     <snack-bar message="hahaha" :open=true :undo=true>
     </snack-bar> -->
-    <base-button label="title"></base-button>
+    <!-- <base-button label="title"></base-button> -->
+    <text-field float-content="fiasof" hint-content="hint text"></text-field>
   </div>
 </template>
 
 <script type="text/javascript">
-import { BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, DownMenu, SnackBar} from '../lib/mtv.js'
+import { BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
 
 // console.log(paper);
 export default {
@@ -27,10 +28,11 @@ export default {
   },
   components: {
     // Menu,
-    // MenuItem,
-    // DownMenu,
+    MenuItem,
+    DownMenu,
     // SnackBar,
     // 'base-button':BaseButton,
+    TextField,
     BaseButton,
     // NavBar,
     // IconButton,
