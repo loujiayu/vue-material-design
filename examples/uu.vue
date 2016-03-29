@@ -1,9 +1,17 @@
 <template>
   <div class="test">
-    <!-- <down-menu :open="open" icon-class="fa fa-at fa-2x" vertical="bottom" horizontal="left">
+    <icon-menu :open="open" icon-class="fa fa-at fa-2x" vertical="bottom" horizontal="left">
       <menu-item  label="ljy" slot="list"></menu-item>
-      <menu-item  label="ykf" slot="list"></menu-item>
-    </down-menu> -->
+      <menu-item  label="ykf" slot="list">
+        <menu-item  label="ljy" slot="nest"></menu-item>
+      </menu-item>
+    </icon-menu>
+    <!-- <menu-item  label="ykf">
+      <menu-item  label="ljy" slot="nest"></menu-item>
+      <menu-item  label="ljy" slot="nest"></menu-item>
+      <menu-item  label="ljy" slot="nest"></menu-item>
+      <menu-item  label="ljy" slot="nest"></menu-item>
+    </menu-item> -->
     <!-- <nav-bar>
       <icon-button icon-class="fa fa-google fa-2x" slot="leftNav"></icon-button>
       <base-button v-for="y in yy" slot="title" label="title"></base-button>
@@ -13,7 +21,7 @@
     <snack-bar message="hahaha" :open=true :undo=true>
     </snack-bar> -->
     <!-- <base-button label="title"></base-button> -->
-    <text-field float-content="fiasof" hint-content="hint text"></text-field>
+    <!-- <text-field  hint-content="hint text"></text-field> -->
   </div>
 </template>
 
@@ -36,7 +44,7 @@ export default {
     BaseButton,
     // NavBar,
     // IconButton,
-    // IconMenu,
+    IconMenu,
     // MenuBar
   },
   data: function() {

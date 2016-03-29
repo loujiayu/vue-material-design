@@ -4,12 +4,12 @@
     <div :style="hintStyle" v-show="show">
       {{hintContent}}
     </div>
-    <div :style="underline" v-if="underline">
+    <div>
       <hr :style="underlineStyle" />
       <hr :style="forcusUnderlineStyle" />
     </div>
-    <input type="text" :style="inputStyle" id="sp"
-           @focus="handleForcus" @blur="handleBlur"
+    <input :disabled="disabled" type="text" :style="inputStyle" id="sp"
+           @focus="handleForcus" @blur="handleBlur($event)"
            @input="handleInput($event)" />
   </div>
 </template>
@@ -22,7 +22,23 @@ import Transitions from 'styles/transitions'
 import TextFieldHint from './TextFieldHint'
 
 export default {
-  data: function(){
+  data: function() {
+    const lineStyle = {
+      border: 'none',
+      width: '100%',
+      borderBottom: this.disabled ? 'dotted 2px' : 'solid 1px',
+      boxSizing: 'content-box',
+      position: 'absolute',
+      bottom: this.floatContent ? '25px' : '15px',
+      borderColor: '#e0e0e0',
+      margin: '0'
+    }
+    const forcusStyle = {
+      borderColor: 'rgb(0, 188, 212)',
+      transform: 'scaleX(0)',
+      borderBottom: 'solid 2px',
+      transition: Transitions.easeOut(),
+    }
     return {
       originStyles: {
         fontSize: '16px',
@@ -41,7 +57,6 @@ export default {
         top: '25px',
         willChange: 'transform',
         transition: Transitions.easeOut(),
-        zIndex: '1px', // Needed to display label above Chrome's autocomplete field background
         cursor: this.disabled ? 'default' : 'text',
         transformOrigin: 'left top',
         color: 'rgb(192, 198, 201)'
@@ -62,12 +77,8 @@ export default {
         fontSize: 'inherit',
         fontFamily: 'inherit'
       },
-      underlineStyle: {
-        
-      },
-      forcusUnderlineStyle: {
-
-      },
+      underlineStyle: lineStyle,
+      forcusUnderlineStyle: Object.assign({}, lineStyle, forcusStyle),
       mergedStyles:null,
       isForcused: false,
       show: (this.isForcused && this.floatContent && this.hintContent) ||
@@ -80,7 +91,10 @@ export default {
     backgroundColor: String,
     floatContent: String,
     shrink: Boolean,
-    disabled: Boolean,
+    disabled: {
+      type: Boolean,
+      default: false
+    },
     hintContent: String,
     defaultContent: String
   },
@@ -94,17 +108,20 @@ export default {
     handleForcus: function() {
       this.isForcused = true
       this.show = event.target.value ? false : true
+      this.$set('forcusUnderlineStyle.transform', 'scaleX(1)')
       this.$set('floatStyle.transform', 'perspective(1px) scale(0.75) translate3d(0, -28px, 0)')
       this.$set('floatStyle.pointerEvents', 'none')
       this.$set('floatStyle.color', 'rgb(105, 189, 242)')
     },
-    handleBlur: function() {
+    handleBlur: function(event) {
       this.isForcused = false
-      this.$set('floatStyle.transform', 'scale(1) translate3d(0, 0, 0)')
-      this.$set('floatStyle.pointerEvents', 'auto')
-      this.$set('floatStyle.color', 'rgb(192, 198, 201)')
-      // this.floatStyle.transform = 'scale(1) translate3d(0, 0, 0)'
-      // this.floatStyle.pointerEvents = 'auto'
+      this.show = (this.floatContent || event.target.value) ? false : true
+      this.$set('forcusUnderlineStyle.transform', 'scaleX(0)')
+      if (!event.target.value) {
+        this.$set('floatStyle.transform', 'scale(1) translate3d(0, 0, 0)')
+        this.$set('floatStyle.pointerEvents', 'auto')
+        this.$set('floatStyle.color', 'rgb(192, 198, 201)')
+      }
     },
     handleInput: function(event) {
       this.show = event.target.value ? false :
