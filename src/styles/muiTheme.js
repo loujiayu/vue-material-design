@@ -1,5 +1,5 @@
 const navPadding = '24px'
-const navHeight = '64px'
+const navHeight = '48px'
 
 export const baseTheme = {
   navBar: {

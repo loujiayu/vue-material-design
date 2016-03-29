@@ -1,5 +1,5 @@
 <template >
-  <div :style="mergedStyles" v-show="open" transition="slide">
+  <div :style="mRootStyle" v-show="open" transition="slide">
     <slot name="list"></slot>
   </div>
 </template>
@@ -13,28 +13,48 @@ import {zDepthShadows} from 'styles/common'
 
 export default {
   data: function() {
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         height:'100%',
         width: '256px',
         position: 'fixed',
-        // transform: this.open ? 'translateX(0)' : 'translateX(-100%)',
         left: '0',
         top: '0',
         transition: Transitions.easeOut(null, 'transform', null),
         fontFamily: 'Roboto, sans-serif',
-        boxShadow: zDepthShadows[1],
+        boxShadow: zDepthShadows[this.shadowDepth - 1],
         overflow: 'scroll'
-      },
-      mergedStyles: null
+      }
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj)
     }
   },
   props: {
+    shadowDepth: {
+      type: Number,
+      default: 1
+    },
     open: Boolean,
-    styleObj: Object
+    styleObj: Object,
+    docked: Boolean
   },
   created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
+    if (this.docked) {
+      window.addEventListener('click',this.clickAway )
+    }
+  },
+  destroyed: function() {
+    if (this.docked) {
+      window.removeEventListener('click', clickAway)
+    }
+  },
+  methods: {
+    clickAway: function() {
+      if (!(this.$el && this.$el.contains(event.target) ) && this.open) {
+        this.open = false
+      }
+    }
   }
 }
 </script>

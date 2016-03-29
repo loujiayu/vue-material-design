@@ -1,5 +1,5 @@
 <template>
-  <div :style="mergedStyles" v-show="note" transition="tooltip" @click="handleClick">
+  <div :style="mRootStyle" v-show="note" transition="tooltip" @click="handleClick">
     {{message}}
   </div>
 </template>
@@ -11,8 +11,8 @@ import Transitions from 'styles/transitions'
 
 export default {
   data: function(){
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         position: 'absolute',
         color: '#fff',
         fontSize: '10px',
@@ -31,8 +31,10 @@ export default {
         top: this.verticalPosition==='top' ? '100%' : '-50%',
         left: this.horizontalPosition==='left' ? '0' :
               this.horizontalPosition==='center' ? '-50%' : '-100%',
-      },
-      mergedStyles:null
+      }
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj)
     }
   },
   props: {

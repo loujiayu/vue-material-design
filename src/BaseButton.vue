@@ -1,12 +1,12 @@
 <template>
-  <button :style="mergedStyles"
+  <button :style="mRootStyle"
       v-bind="{disabled: disabled}"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
       @click="handleClick" >
-    <span v-if="label" :style="labelStyle">{{label}}</span>
-    <span v-if="iconClass" :class="iconClass" :style="iconStyle"></span>
-    <touch-ripple v-if="!disabled"></touch-ripple>
+    <span v-if="label" :style="mLabelStyle">{{label}}</span>
+    <span v-if="iconClass" :class="iconClass" :style="mIconStyle"></span>
+    <touch-ripple v-if="!disabled && ripple"></touch-ripple>
   </button>
 </template>
 
@@ -20,11 +20,12 @@ import {zDepthShadows} from 'styles/common'
 export default {
   data: function() {
     const {button} = baseTheme
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         minWidth: '58px',
         width: '100%',
         minHeight: button.height,
+        height: '100%',
         border: '11px',
         padding: '0',
         margin: '0',
@@ -40,19 +41,24 @@ export default {
         overflow: 'hidden',
         cursor: 'pointer',
         borderRadius: '5px',
+        lineHeight: 'inherit',
         boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
       },
-      mergedStyles: null,
-      labelStyle: {
+      label: {
         fontSize: '14px',
         letterSpacing: '0',
         color: this.labelColor,
         paddingLeft: '24px',
         paddingRight: '24px'
       },
-      iconStyle: {
+      icon: {
         verticalAlign: 'middle',
       }
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mLabelStyle: getStyles(styles.label, this.labelStyle),
+      mIconStyle: getStyles(styles.icon, this.iconStyle)
     }
   },
   props: {
@@ -68,11 +74,17 @@ export default {
     labelColor: String,
     hover: Boolean,
     link: String,
-    styleObj: Object
+    styleObj: Object,
+    labelStyle: Object,
+    iconStyle: Object,
+    ripple: {
+      type: Boolean,
+      default: true
+    }
   },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles,this.styleObj)
-  },
+  // created: function() {
+  //   this.mergedStyles = getStyles(this.originStyles,this.styleObj)
+  // },
   components: {
     touchRipple
   },

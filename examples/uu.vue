@@ -1,76 +1,61 @@
 <template>
   <div class="test">
-    <icon-menu :open="open" icon-class="fa fa-at fa-2x" vertical="bottom" horizontal="left">
-      <menu-item  label="ljy" slot="list"></menu-item>
-      <menu-item  label="ykf" slot="list">
-        <menu-item  label="ljy" slot="nest"></menu-item>
-      </menu-item>
-    </icon-menu>
-    <!-- <menu-item  label="ykf">
-      <menu-item  label="ljy" slot="nest"></menu-item>
-      <menu-item  label="ljy" slot="nest"></menu-item>
-      <menu-item  label="ljy" slot="nest"></menu-item>
-      <menu-item  label="ljy" slot="nest"></menu-item>
-    </menu-item> -->
-    <!-- <nav-bar>
-      <icon-button icon-class="fa fa-google fa-2x" slot="leftNav"></icon-button>
-      <base-button v-for="y in yy" slot="title" label="title"></base-button>
-      <icon-button icon-class="fa fa-google fa-2x" slot="rightNav"></icon-button>
-    </nav-bar> -->
-    <!-- <base-button v-for="y in yy" slot="title" label="title"></base-button>
-    <snack-bar message="hahaha" :open=true :undo=true>
-    </snack-bar> -->
-    <!-- <base-button label="title"></base-button> -->
-    <!-- <text-field  hint-content="hint text"></text-field> -->
+    <nav-bar>
+      <icon-button icon-class="fa fa-bars fa-2x fa-hover" slot="leftNav" @click="handleClick"></icon-button>
+      <span slot="title" class="">title</span>
+      <icon-button icon-class="fa fa-github fa-2x" slot="rightNav"></icon-button>
+    </nav-bar>
+    <menu-bar :open="open">
+      <menu-item class="header item" slot="list" label="HOME" icon-class="fa fa-caret-left"></menu-item>
+      <menu-item class="item" slot="list" label="function"></menu-item>
+      <menu-item class="item" slot="list" label="function"></menu-item>
+      <menu-item class="item" slot="list" label="function"></menu-item>
+      <menu-item class="item" slot="list" label="function"></menu-item>
+    </menu-bar>
   </div>
 </template>
 
 <script type="text/javascript">
 import { BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
 
-// console.log(paper);
 export default {
-  ready: function() {
-    console.log('fas');
-    var a = 314
-  },
   components: {
-    // Menu,
+    Menu,
     MenuItem,
     DownMenu,
-    // SnackBar,
-    // 'base-button':BaseButton,
+    SnackBar,
     TextField,
     BaseButton,
-    // NavBar,
-    // IconButton,
+    NavBar,
+    IconButton,
     IconMenu,
-    // MenuBar
+    MenuBar
   },
   data: function() {
     return {
-      open: false,
-      dp:9,
-      labelaa:'fjaoij',
-      yy:['a','b','c']
+      open: false
     }
   },
   methods: {
     handleClick: function() {
-      this.open = !this.open
+      this.open = true
     }
   }
 }
 </script>
 
 <style>
-.test {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-  /*.test {
+.header {
+  background-color: rgb(41, 43, 38);
 
-  }*/
+}
+.item {
+  line-height: 48px;
+  height: 48px;
+}
+
+.fa {
+  color: white;
+}
+
 </style>

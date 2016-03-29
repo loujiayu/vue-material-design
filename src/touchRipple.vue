@@ -1,5 +1,5 @@
 <template>
-  <div :style="originStyle"
+  <div :style="mRootStyle"
     @click="handleClick"
     @mouseup="handleMouseUp"
   >
@@ -17,8 +17,8 @@ function calcDiag(a, b) {
 
 export default {
   data: function() {
-    return {
-      originStyle: {
+    const styles = {
+      root: {
         width: '100%',
         height: '100%',
         position: 'absolute',
@@ -26,7 +26,10 @@ export default {
         left: '0',
         overflow: 'hidden'
       },
-      mergedStyles: null,
+
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
       ripples: [],
       centerStyle: {
         position: 'absolute',

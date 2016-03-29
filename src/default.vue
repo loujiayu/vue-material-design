@@ -1,5 +1,5 @@
 <template>
-  <div :style="mergedStyles">
+  <div :style="mRootStyle">
 
   </div>
 </template>
@@ -11,17 +11,11 @@ import Transitions from 'styles/transitions'
 export default {
   data: function(){
     return {
-      originStyles: {
-
-      },
-      mergedStyles:null,
+      mRootStyle: getStyles(styles.root, this.styleObj),
     }
   },
   props: {
     styleObj: Object
-  },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
-  },
+  }
 }
 </script>

@@ -1,14 +1,14 @@
 <template>
-  <div :style="mergedStyles" :class="className">
-    <label v-if="floatContent" for="sp" :style="floatStyle">{{floatContent}}</label>
-    <div :style="hintStyle" v-show="show">
+  <div :style="mRootStyle" :class="className">
+    <label v-if="mFloatStyle" for="sp" :style="floatStyle">{{floatContent}}</label>
+    <div :style="mHintStyle" v-show="show">
       {{hintContent}}
     </div>
     <div>
-      <hr :style="underlineStyle" />
-      <hr :style="forcusUnderlineStyle" />
+      <hr :style="mUnderlineStyle" />
+      <hr :style="mForcusUnderlineStyle" />
     </div>
-    <input :disabled="disabled" type="text" :style="inputStyle" id="sp"
+    <input :disabled="disabled" type="text" :style="mInputStyle" id="sp"
            @focus="handleForcus" @blur="handleBlur($event)"
            @input="handleInput($event)" />
   </div>
@@ -18,8 +18,6 @@
 import getStyles from 'utils/getStyles'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
-
-import TextFieldHint from './TextFieldHint'
 
 export default {
   data: function() {
@@ -39,8 +37,8 @@ export default {
       borderBottom: 'solid 2px',
       transition: Transitions.easeOut(),
     }
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         fontSize: '16px',
         lineHeight: '24px',
         width: '256px',
@@ -51,7 +49,7 @@ export default {
         fontFamily: 'Roboto, sans-serif',
         transition: Transitions.easeOut('200ms', 'height'),
       },
-      floatStyle: {
+      float: {
         position: 'absolute',
         lineHeight: '22px',
         top: '25px',
@@ -61,13 +59,13 @@ export default {
         transformOrigin: 'left top',
         color: 'rgb(192, 198, 201)'
       },
-      hintStyle: {
+      hint: {
         position:'absolute',
         lineHeight: '22px',
         top: this.floatContent ? '25px' : '13px',
         color: 'rgb(192, 198, 201)'
       },
-      inputStyle: {
+      input: {
         padding: '0',
         width: '100%',
         height: '100%',
@@ -77,9 +75,25 @@ export default {
         fontSize: 'inherit',
         fontFamily: 'inherit'
       },
-      underlineStyle: lineStyle,
-      forcusUnderlineStyle: Object.assign({}, lineStyle, forcusStyle),
-      mergedStyles:null,
+      underline: {
+        border: 'none',
+        width: '100%',
+        borderBottom: this.disabled ? 'dotted 2px' : 'solid 1px',
+        boxSizing: 'content-box',
+        position: 'absolute',
+        bottom: this.floatContent ? '25px' : '15px',
+        borderColor: '#e0e0e0',
+        margin: '0'
+      },
+      forcusUnderline: Object.assign({}, lineStyle, forcusStyle),
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mFloatStyle: styles.float,
+      mHintStyle: getStyles(styles.hint, this.hintStyle),
+      mInputStyle: getStyles(styles.input, this.inputStyle),
+      mUnderlineStyle: getStyles(styles.underline, this.underlineStyle),
+      mForcusUnderlineStyle: styles.forcusUnderline,
       isForcused: false,
       show: (this.isForcused && this.floatContent && this.hintContent) ||
             (this.hintContent && !this.defaultContent && !this.floatContent)
@@ -87,6 +101,11 @@ export default {
   },
   props: {
     styleObj: Object,
+    floatStyle: Object,
+    hintStyle: Object,
+    inputStyle: Object,
+    underlineStyle: Object,
+    forcusUnderlineStyle: Object,
     className: String,
     backgroundColor: String,
     floatContent: String,
@@ -97,12 +116,6 @@ export default {
     },
     hintContent: String,
     defaultContent: String
-  },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
-  },
-  components: {
-    TextFieldHint
   },
   methods: {
     handleForcus: function() {

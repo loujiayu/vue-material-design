@@ -1,8 +1,8 @@
 <template>
-  <div :style="originStyles" v-show="open" :class="className" transition="snack">
-    <div :style="snackWrapper">
-      <span :style="messageStyles">{{message}}</span>
-      <base-button :style-obj="undoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
+  <div :style="mRootStyle" v-show="open" :class="className" transition="snack">
+    <div :style="mSnackWrapper">
+      <span :style="mMessageStyles">{{message}}</span>
+      <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
     </div>
   </div>
 </template>
@@ -15,8 +15,8 @@ import Transitions from 'styles/transitions'
 
 export default {
   data: function(){
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         minWidth: '288px',
         position: 'fixed',
         justifyContent: 'space-between',
@@ -28,12 +28,11 @@ export default {
         transition: `${Transitions.easeOut('400ms', 'transform')},
                      ${Transitions.easeOut('400ms', 'visibility')}`,
       },
-      mergedStyles:null,
-      snackWrapper: {
+      snack: {
         display: 'flex',
         width: '100%'
       },
-      messageStyles: {
+      message: {
         textAlign: 'center',
         fontSize: '14px',
         color: 'white',
@@ -43,11 +42,17 @@ export default {
         textTransform: 'uppercase',
         flex: '1'
       },
-      undoStyles: {
+      undo: {
         color: 'red',
         width: '60px',
         flex: '1'
       }
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mSnackWrapper: getStyles(styles.snack, this.snackStyle),
+      mMessageStyles: getStyles(styles.message, this.messageStyle),
+      mUndoStyles: getStyles(styles.undo, this.undoStyle)
     }
   },
   props: {
@@ -55,15 +60,13 @@ export default {
     message: String,
     className: String,
     undo: Boolean,
-    styleObj: Object
+    styleObj: Object,
+    snackStyle: Object,
+    messageStyle: Object,
+    undoStyle: Object
   },
   components: {
     BaseButton
-  },
-  created: function() {
-    console.log(this.originStyles);
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
-    console.log(this.mergedStyles);
   },
   ready: function() {
     window.addEventListener('click',this.clickAway)

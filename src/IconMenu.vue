@@ -1,5 +1,5 @@
 <template>
-  <div @click="handleClick($event)" :style="mergedStyles">
+  <div @click="handleClick($event)" :style="mRootStyle">
     <icon-button
       v-ref:iconb
       :disabled="disabled"
@@ -9,7 +9,7 @@
       :link="link"
       >
     </icon-button>
-    <div :style="menuStyles" v-show="open" transition="iconSlide">
+    <div :style="mMenuStyles" v-show="open" transition="iconSlide">
       <slot name="list"></slot>
     </div>
   </div>
@@ -23,13 +23,12 @@ import {zDepthShadows} from 'styles/common'
 
 export default {
   data: function () {
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         display: 'inline-block',
         position: 'relative'
       },
-      mergedStyles: null,
-      menuStyles: {
+      menu: {
         boxShadow: zDepthShadows[0],
         position:'absolute',
         display: 'inline-block',
@@ -39,6 +38,10 @@ export default {
         willChange: 'transform',
         transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
       },
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mMenuStyles: getStyles(styles.menu, this.menuStyle),
       open: false
     }
   },
@@ -50,14 +53,12 @@ export default {
     iconClass: String,
     link: String,
     styleObj: Object,
+    menuStyle: Object,
     vertical: String,
     horizontal: String
   },
   components: {
     IconButton
-  },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   ready: function() {
     window.addEventListener('click',this.clickAway )

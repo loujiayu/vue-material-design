@@ -1,5 +1,5 @@
 <template>
-  <div @click="handleClick($event)" :style="originStyles">
+  <div @click="handleClick($event)" :style="mRootStyle">
     <base-button
       v-ref:downb
       :disabled="disabled"
@@ -8,7 +8,7 @@
       :style="style"
       >
     </base-button>
-    <div :style="menuStyles" v-show="open" transition="downSlide">
+    <div :style="mMenuStyles" v-show="open" transition="downSlide">
       <slot name="list"></slot>
     </div>
   </div>
@@ -22,13 +22,13 @@ import Transitions from 'styles/transitions'
 
 export default {
   data: function() {
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         display: 'inline-block',
         position: 'relative',
         fontFamily: 'Roboto, sans-serif'
       },
-      menuStyles: {
+      menu: {
         position:'absolute',
         display: 'inline-block',
         left: '0',
@@ -37,28 +37,23 @@ export default {
         transition: Transitions.easeOut('550ms', ['max-height', 'opacity']),
         boxShadow: zDepthShadows[0],
         padding: '8px 0'
-      },
-      menuWrapper: {
-        position:'absolute',
-        visibility: 'hidden',
-        display: 'inline-block',
-        left: '0',
-      },
-      open: false,
-      mergedStyles: null
+      }
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mMenuStyles: getStyles(styles.menu, this.menuStyle),
+      open: false
     }
   },
   props: {
     disabled: Boolean,
     label: String,
     labelColor: String,
-    styleObj: Object
+    styleObj: Object,
+    menuStyle: Object
   },
   components: {
     BaseButton
-  },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   },
   ready: function() {
     window.addEventListener('click',this.clickAway)

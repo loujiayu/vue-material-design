@@ -1,5 +1,5 @@
 <template>
-  <button :style="mergedStyles"
+  <button :style="mRootStyle"
       v-bind="{disabled: disabled}"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
@@ -19,8 +19,8 @@ import {baseTheme} from 'styles/muiTheme'
 export default {
   data: function() {
     const { button } = baseTheme
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         borderRadius: '50%',
         height: button.iconHeight,
         width: '48px',
@@ -33,6 +33,9 @@ export default {
         backgroundColor: 'rgba(0,0,0,0)',
         cursor: 'pointer'
       },
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
       msg: true
     }
   },

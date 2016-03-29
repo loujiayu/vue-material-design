@@ -1,5 +1,5 @@
 <template>
-  <div :style="mergedStyles" :class="className">
+  <div :style="mRootStyle">
     <base-button
       :shadow-depth="shadowDepth"
       :disabled="disabled"
@@ -23,11 +23,13 @@ import getStyles from 'utils/getStyles'
 
 export default {
   data: function() {
-    return {
-      originStyles: {
+    const styles = {
+      root: {
         display: this.isHorizen ? 'inline-block' : 'block'
       },
-      mergedStyles: null
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj)
     }
   },
   props: {
@@ -43,14 +45,10 @@ export default {
     iconFront: Boolean,
     labelColor: String,
     link: String,
-    styleObj: Object,
-    className: String
+    styleObj: Object
   },
   components: {
     BaseButton
-  },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
   }
 }
 </script>

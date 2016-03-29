@@ -1,9 +1,9 @@
 <template >
-  <div :style="mergedStyles">
+  <div :style="mRootStyle">
     <div :style="">
       <slot name="leftNav"></slot>
     </div>
-    <div :style="titleStyle">
+    <div :style="mTitleStyle">
       <slot name="title"></slot>
     </div>
     <div :style="">
@@ -21,31 +21,34 @@ import {baseTheme} from 'styles/muiTheme'
 export default {
   data: function() {
     const {button, navBar} = baseTheme
-    return {
-      originStyle: {
+    const styles = {
+      root: {
         display: 'flex',
-        backgroundColor: 'transparent',
+        // backgroundColor: '#4fc08d',
+        backgroundColor: 'rgb(41, 43, 38)',
         paddingLeft: navBar.padding,
         paddingRight: navBar.padding,
-        lineHeight: navBar.lineHeight
+        lineHeight: navBar.lineHeight,
       },
-      mergedStyles: null,
-      titleStyle: {
-        flex: '1'
+      title: {
+        flex: '1',
+        padding: '0 20px',
+        color: 'white',
+        fontWeight: '700',
+        fontSize: '20px'
       }
+    }
+    return {
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mTitleStyle: getStyles(styles.title, this.titleStyle)
     }
   },
   props: {
     barLeft: Array,
     barRight: Array,
     title: Array,
-    styleObj: Object
-  },
-  created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
-  },
-  ready: function() {
-    console.log('obj');
+    styleObj: Object,
+    titleStyle: Object
   },
   components: {
     BaseButton,
