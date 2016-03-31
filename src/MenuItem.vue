@@ -1,54 +1,77 @@
 <template>
   <div :style="mRootStyle">
     <base-button
+      :style="mButtonStyle"
       :shadow-depth="shadowDepth"
-      :disabled="disabled"
-      :on-click="onClick"
-      :on-mouseEnter="onMouseEnter"
-      :on-mouseLeave="onMouseLeave"
       :label="label"
-      :icon-class="iconClass"
-      :background-color="backgroundColor"
-      :icon-front="iconFront"
-      :label-color="labelColor"
+      :hover="ripple"
       :link="link"
-      :style="style">
+      :style-obj="buttonStyle"
+      :label-style="labelStyle"
+      :ripple="ripple"
+    >
     </base-button>
+    <icon-button
+      v-if="iconClass"
+      :style="mIconStyle"
+      :icon-style="iconStyle"
+      :icon-class="iconClass"
+      :on-click="onClick"
+    >
+    </icon-button>
   </div>
 </template>
 
 <script type="text/javascript">
 import BaseButton from 'BaseButton'
+import IconButton from 'IconButton'
 import getStyles from 'utils/getStyles'
 
 export default {
   data: function() {
     const styles = {
       root: {
-        display: this.isHorizen ? 'inline-block' : 'block'
+        display: 'flex',
+        justifyContent: 'space-between'
       },
+      icon: {
+        flex: '2'
+      },
+      button: {
+        flex: '5'
+      }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj)
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mButtonStyle: getStyles(styles.button, this.buttonStyle),
+      mIconStyle: getStyles(styles.icon, this.iconStyle)
     }
   },
   props: {
+    styleObj: Object,
     isHorizen: Boolean,
+
     shadowDepth: Number,
-    disabled: Boolean,
-    onClick: Function,
-    onMouseEnter: Function,
-    onMouseLeave: Function,
     label: String,
-    iconClass: String,
-    backgroundColor: String,
-    iconFront: Boolean,
-    labelColor: String,
+    hover: Boolean,
     link: String,
-    styleObj: Object
+    buttonStyle: Object,
+    labelStyle: Object,
+    ripple: {
+      type: Boolean,
+      default: true
+    },
+
+    iconClass: String,
+    iconStyle: Object,
+    onClick: Function
   },
   components: {
-    BaseButton
+    BaseButton,
+    IconButton
+  },
+  methods: {
+
   }
 }
 </script>

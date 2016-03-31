@@ -25,13 +25,16 @@ function prefix(prop, val) {
     return `${lower}:${val}`
   }
   else {
-    console.warn(`${prop} is not a valid CSS properties`)
+    console.warn(`${prop} is not a valid CSS property`)
   }
 }
 
 function toCssText(styleObj) {
   var cssList = []
   for (let prop in styleObj) {
+    if (styleObj[prop] == null) {
+      continue
+    }
     cssList.push(prefix(prop, styleObj[prop]))
   }
   return cssList.join(';')

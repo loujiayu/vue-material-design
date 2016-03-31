@@ -40,14 +40,13 @@ export default {
         transition: Transitions.easeOut(),
         overflow: 'hidden',
         cursor: 'pointer',
-        borderRadius: '5px',
+        borderRadius: '2px',
         lineHeight: 'inherit',
         boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
       },
       label: {
         fontSize: '14px',
         letterSpacing: '0',
-        color: this.labelColor,
         paddingLeft: '24px',
         paddingRight: '24px'
       },
@@ -71,8 +70,10 @@ export default {
     iconClass: String,
     backgroundColor: String,
     iconFront: Boolean,
-    labelColor: String,
-    hover: Boolean,
+    hover: {
+      type: Boolean,
+      default: true
+    },
     link: String,
     styleObj: Object,
     labelStyle: Object,
@@ -82,9 +83,6 @@ export default {
       default: true
     }
   },
-  // created: function() {
-  //   this.mergedStyles = getStyles(this.originStyles,this.styleObj)
-  // },
   components: {
     touchRipple
   },
@@ -98,7 +96,7 @@ export default {
       }
     },
     handleMouseLeave: function() {
-      if (!this.hover) {
+      if (this.hover) {
         this.$el.style.backgroundColor = 'rgba(0, 0, 0, 0)'
       }
     },
@@ -109,8 +107,6 @@ export default {
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }
-      // this.onClick && this.onClick
-      // this.cursur += '<div></div>'
     }
   }
 }

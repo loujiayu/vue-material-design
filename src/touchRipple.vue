@@ -50,7 +50,7 @@ export default {
   methods: {
     handleClick: function(event) {
       event.preventDefault()
-      console.log('asifninfasna');
+      console.log('asifninfasna')
       this.addRipple(event)
     },
     handleMouseUp: function() {
@@ -73,26 +73,26 @@ export default {
       const rect = el.getBoundingClientRect()
       const offsetTop = rect.top + document.body.scrollTop
       const offsetLeft = rect.left + document.body.scrollLeft
-      const isTouchEvent = event.touches && event.touches.length;
-      const pageX = isTouchEvent ? event.touches[0].pageX : event.pageX;
-      const pageY = isTouchEvent ? event.touches[0].pageY : event.pageY;
-      const pointerX = pageX - offsetLeft;
-      const pointerY = pageY - offsetTop;
-      const topLeftDiag = calcDiag(pointerX, pointerY);
-      const topRightDiag = calcDiag(elWidth - pointerX, pointerY);
-      const botRightDiag = calcDiag(elWidth - pointerX, elHeight - pointerY);
-      const botLeftDiag = calcDiag(pointerX, elHeight - pointerY);
+      const isTouchEvent = event.touches && event.touches.length
+      const pageX = isTouchEvent ? event.touches[0].pageX : event.pageX
+      const pageY = isTouchEvent ? event.touches[0].pageY : event.pageY
+      const pointerX = pageX - offsetLeft
+      const pointerY = pageY - offsetTop
+      const topLeftDiag = calcDiag(pointerX, pointerY)
+      const topRightDiag = calcDiag(elWidth - pointerX, pointerY)
+      const botRightDiag = calcDiag(elWidth - pointerX, elHeight - pointerY)
+      const botLeftDiag = calcDiag(pointerX, elHeight - pointerY)
       const rippleRadius = Math.max(
         topLeftDiag, topRightDiag, botRightDiag, botLeftDiag
-      );
-      const rippleSize = rippleRadius * 2;
-      const left = pointerX - rippleRadius;
-      const top = pointerY - rippleRadius;
+      )
+      const rippleSize = rippleRadius * 2
+      const left = pointerX - rippleRadius
+      const top = pointerY - rippleRadius
 
-      style.height = `${rippleSize}px`;
-      style.width = `${rippleSize}px`;
-      style.top = `${top}px`;
-      style.left = `${left}px`;
+      style.height = `${rippleSize}px`
+      style.width = `${rippleSize}px`
+      style.top = `${top}px`
+      style.left = `${left}px`
 
       return getStyles(this.centerStyle, style)
     }
@@ -107,6 +107,6 @@ export default {
 }
 .touch-enter {
   transform: scale(0);
-  opacity:1
+  opacity:1;
 }
 </style>

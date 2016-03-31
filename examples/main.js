@@ -1,13 +1,25 @@
 import Vue from 'vue'
-// var paper = require
-// require('./main.css')
+import Router from 'vue-router'
+import configRouter from './routes'
+import button from './components/button.vue'
 
-var app = require('./uu.vue')
-var pp = Vue
+Vue.use(Router)
+// const router = new Router({
+//   history: true,
+//   saveScrollPosition: true
+// })
 
-new Vue({
-  el: 'body',
-  components: {
-    app
-  }
-})
+var router = new Router()
+
+configRouter(router)
+
+var App = require('./app.vue')
+
+router.start(App, '#app')
+
+// new Vue({
+//   el: 'body',
+//   components: {
+//     app
+//   }
+// })

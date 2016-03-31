@@ -65,11 +65,20 @@ export default {
       this.msg = false
     },
     handleClick: function() {
+      if(event.stopPropagation) {
+        event.stopPropagation();
+      } else if(event.cancelBubble) {
+        event.cancelBubble = true
+      }
+
       if (this.link && this.link.startsWith('http')) {
         window.open(link)
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }
+      console.log('icon button click');
+      if (this.onClick) { this.onClick() }
+
     }
   }
 }

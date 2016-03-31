@@ -15,6 +15,7 @@
     "less": "^2.6.1",
     "less-loader": "^2.2.2",
     "node-sass": "^3.4.2",
-    "sass-loader": "^3.2.0"
+    "sass-loader": "^3.2.0",
+    "vue-router": "^0.7.11"
   }
 }
