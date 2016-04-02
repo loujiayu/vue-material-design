@@ -1,5 +1,9 @@
 <template>
   <div class="test">
+    <check-box></check-box>
+  </div>
+
+  <!-- <div class="test">
     <nav-bar>
       <icon-button icon-class="fa fa-bars fa-2x fa-hover" slot="leftNav" @click="handleClick"></icon-button>
       <span slot="title" class="">title</span>
@@ -19,11 +23,11 @@
       <menu-item class="item" slot="list" label="function"></menu-item>
     </menu-bar>
     <router-view class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
-  </div>
+  </div> -->
 </template>
 
 <script type="text/javascript">
-import { BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
+import { CheckBox, BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
 
 export default {
   components: {
@@ -34,6 +38,7 @@ export default {
     TextField,
     BaseButton,
     NavBar,
+    CheckBox,
     IconButton,
     IconMenu,
     MenuBar
@@ -41,7 +46,6 @@ export default {
   data: function() {
     return {
       open: false,
-
     }
   },
   methods: {
@@ -50,7 +54,6 @@ export default {
     },
     hideMenu: function() {
       this.open = false
-
     },
     linkTo: function(path) {
       this.$route.router.go(path)
@@ -60,6 +63,11 @@ export default {
 </script>
 
 <style lang="less">
+.test {
+  top: 100px;
+  left: 100px;
+  position: absolute;
+}
 .header {
   background-color: rgb(41, 43, 38);
   button {

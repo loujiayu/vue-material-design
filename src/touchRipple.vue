@@ -26,7 +26,6 @@ export default {
         left: '0',
         overflow: 'hidden'
       },
-
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
@@ -45,6 +44,7 @@ export default {
     }
   },
   props: {
+    styleObj: Object,
     center: Boolean
   },
   methods: {

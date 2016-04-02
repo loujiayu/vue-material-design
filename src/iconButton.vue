@@ -11,7 +11,7 @@
 </template>
 
 <script type="text/javascript">
-import touchRipple from './touchRipple'
+import touchRipple from 'touchRipple'
 import getStyles from './utils/getStyles'
 import Tooltip from 'Tooltip'
 import {baseTheme} from 'styles/muiTheme'
