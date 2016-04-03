@@ -1,7 +1,7 @@
 <template>
   <div :style="mRootStyle" @click="handleClick">
-    <check-box-inline :trigger="trigger" v-if="!disabled"></check-box-inline>
-    <check-box-outline :trigger="trigger" :disabled="disabled"></check-box-outline>
+    <radio-checked :trigger="trigger" v-if="!disabled"></radio-checked>
+    <radio-unchecked :trigger="trigger" :disabled="disabled"></radio-unchecked>
     <touch-ripple :style-obj="zoom" v-if="!disabled" :center=true></touch-ripple>
   </div>
 </template>
@@ -12,8 +12,8 @@ import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 
 import touchRipple from 'touchRipple'
-import CheckBoxOutline from 'svg/CheckBoxOutline'
-import CheckBoxInline from 'svg/CheckBoxInline'
+import RadioChecked from 'svg/RadioChecked'
+import RadioUnchecked from 'svg/RadioUnchecked'
 
 export default {
   data: function() {
@@ -37,15 +37,15 @@ export default {
   },
   props: {
     styleObj: Object,
-    disabled: Boolean,
     trigger: {
       type: Boolean,
       default: false
-    }
+    },
+    disabled: Boolean
   },
   components: {
-    CheckBoxOutline,
-    CheckBoxInline,
+    RadioChecked,
+    RadioUnchecked,
     touchRipple
   },
   methods: {

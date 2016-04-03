@@ -1,6 +1,7 @@
 <template>
   <div class="test">
-    <check-box></check-box>
+    <radio :disabled=true> </radio>
+    <toggle :disabled=true><toggle>
   </div>
 
   <!-- <div class="test">
@@ -27,21 +28,24 @@
 </template>
 
 <script type="text/javascript">
-import { CheckBox, BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
+// import { Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
+import { Toggle, Radio} from '../lib/mtv.js'
 
 export default {
   components: {
-    Menu,
-    MenuItem,
-    DownMenu,
-    SnackBar,
-    TextField,
-    BaseButton,
-    NavBar,
-    CheckBox,
-    IconButton,
-    IconMenu,
-    MenuBar
+    // Menu,
+    // MenuItem,
+    // DownMenu,
+    // SnackBar,
+    // TextField,
+    // BaseButton,
+    // NavBar,
+    // CheckBox,
+    // IconButton,
+    // IconMenu,
+    Radio,
+    Toggle,
+    // MenuBar
   },
   data: function() {
     return {

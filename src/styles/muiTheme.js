@@ -9,7 +9,8 @@ export const baseTheme = {
   button: {
     height:'36px',
     iconHeight: '48px'
-  }
+  },
+  disabledColor: 'rgba(0, 0, 0, 0.3)'
 }
 
 // export default baseTheme

@@ -8,6 +8,7 @@
 import getStyles from 'utils/getStyles'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
+import {baseTheme} from 'styles/muiTheme'
 
 export default {
   data: function() {
@@ -16,7 +17,8 @@ export default {
         position: 'absolute',
         height: 'inherit',
         width: 'inherit',
-        fill: this.trigger ? "rgb(44, 107, 201)" : "rgb(0,0,0)",
+        fill: this.disabled ? baseTheme.disabledColor : this.trigger ? "rgb(44, 107, 201)" : "rgb(0,0,0)",
+        // fill: this.disabled ? "rgb(16, 186, 78)" :  "rgb(0,0,0)"
       }
     }
     return {
@@ -31,7 +33,8 @@ export default {
   },
   props: {
     styleObj: Object,
-    trigger: Boolean
+    trigger: Boolean,
+    disabled: Boolean
   }
 }
 </script>
