@@ -65,11 +65,11 @@ export default {
       this.msg = false
     },
     handleClick: function() {
-      if(event.stopPropagation) {
-        event.stopPropagation();
-      } else if(event.cancelBubble) {
-        event.cancelBubble = true
-      }
+      // if(event.stopPropagation) {
+      //   event.stopPropagation();
+      // } else if(event.cancelBubble) {
+      //   event.cancelBubble = true
+      // }
 
       if (this.link && this.link.startsWith('http')) {
         window.open(link)

@@ -75,12 +75,12 @@ export default {
   },
   methods: {
     handleClick: function(event) {
-      if(event.stopPropagation) {
-        event.stopPropagation();
-      }
-      else if(event.cancelBubble) {
-        event.cancelBubble = true
-      }
+      // if(event.stopPropagation) {
+      //   event.stopPropagation();
+      // }
+      // else if(event.cancelBubble) {
+      //   event.cancelBubble = true
+      // }
       this.open = true
     },
     clickAway: function() {

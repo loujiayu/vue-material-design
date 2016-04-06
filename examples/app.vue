@@ -1,11 +1,12 @@
 <template>
   <div class="test">
-    <radio :disabled=true> </radio>
-    <toggle :disabled=true><toggle>
-  </div>
-
-  <!-- <div class="test">
-    <nav-bar>
+    <div class="table">
+      <table-wrapper>
+        <table-header :headers="headers" slot="header"></table-header>
+        <table-body :body-content="bodyContent" slot="body"></table-body>
+      </table-wrapper>
+    </div>
+    <!-- <nav-bar>
       <icon-button icon-class="fa fa-bars fa-2x fa-hover" slot="leftNav" @click="handleClick"></icon-button>
       <span slot="title" class="">title</span>
       <icon-button icon-class="fa fa-github fa-2x" slot="rightNav"></icon-button>
@@ -23,33 +24,37 @@
       <menu-item class="item" slot="list" label="function"></menu-item>
       <menu-item class="item" slot="list" label="function"></menu-item>
     </menu-bar>
-    <router-view class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
-  </div> -->
+    <router-view class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view> -->
+  </div>
 </template>
 
 <script type="text/javascript">
-// import { Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, Menu, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
-import { Toggle, Radio} from '../lib/mtv.js'
+import { TableWrapper, TableBody,TableHeader,Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
+// import { Toggle, Radio} from '../lib/mtv.js'
 
 export default {
   components: {
-    // Menu,
-    // MenuItem,
-    // DownMenu,
-    // SnackBar,
-    // TextField,
-    // BaseButton,
-    // NavBar,
-    // CheckBox,
-    // IconButton,
-    // IconMenu,
+    TableWrapper,
+    TableBody,
+    TableHeader,
+    MenuItem,
+    DownMenu,
+    SnackBar,
+    TextField,
+    BaseButton,
+    NavBar,
+    CheckBox,
+    IconButton,
+    IconMenu,
     Radio,
     Toggle,
-    // MenuBar
+    MenuBar
   },
   data: function() {
     return {
       open: false,
+      bodyContent: [[{val:1},{val:1},{val:1}],[{val:'楼嘉宇'},{val:1},{val:1}]],
+      headers: [{val:1},{val:1},{val:1}],
     }
   },
   methods: {
@@ -67,10 +72,13 @@ export default {
 </script>
 
 <style lang="less">
+.table {
+  width: 800px;
+}
 .test {
-  top: 100px;
-  left: 100px;
-  position: absolute;
+  // top: 100px;
+  // left: 100px;
+  // position: absolute;
 }
 .header {
   background-color: rgb(41, 43, 38);
