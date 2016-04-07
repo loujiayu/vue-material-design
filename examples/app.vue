@@ -53,7 +53,7 @@ export default {
   data: function() {
     return {
       open: false,
-      bodyContent: [[{val:1},{val:1},{val:1}],[{val:'楼嘉宇'},{val:1},{val:1}]],
+      bodyContent: [[{val:1},{val:1},{val:1}],[{val:'fa'},{val:1},{val:1}]],
       headers: [{val:1},{val:1},{val:1}],
     }
   },

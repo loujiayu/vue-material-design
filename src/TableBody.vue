@@ -2,8 +2,9 @@
   <div>
     <table :style="mRootStyle">
       <tbody>
-        <tr v-for="row in bodyContent" :style="mTrStyle" @click="handleClick" key="{{$index}}">
-          <td v-if="select" :style="mSelectStyle"><check-box></check-box></td>
+        <tr v-for="row in bodyContent" :style="mTrStyle" @click="handleClick"
+            key="{{$index}}" :class="selectedRow[$index] ? 'selected':''">
+          <td v-if="select" :style="mSelectStyle"><check-box :trigger="selectedRow[$index]"></check-box></td>
           <td v-for="col in row" :style="mTdStyle">
             {{col.val}}
           </td>
@@ -47,13 +48,14 @@ export default {
       },
       select: {
         width: '24px'
-      }
+      },
     }
     return {
       mTrStyle: Object.assign(styles.tr, this.trStyle),
       mRootStyle: getStyles(styles.root, this.styleObj),
       mTdStyle: getStyles(styles.td, this.tdStyle),
-      mSelectStyle: getStyles(Object.assign({}, styles.td, styles.select), this.tdStyle)
+      mSelectStyle: getStyles(Object.assign({}, styles.td, styles.select), this.tdStyle),
+      selectedRow: Array(this.bodyContent.length).fill(false)
     }
   },
   props: {
@@ -71,9 +73,24 @@ export default {
   },
   methods: {
     handleClick: function(e) {
-      // this.mTrStyle.backgroundColor
-      console.log('loujiayu7');
+      var node
+      if (e.target.nodeName === 'TR') {
+        node = e.target.nodeName
+      } else {
+        node = e.target.closest('tr')
+      }
+      const rowIndex = node.getAttribute('key')
+      const prev = this.selectedRow[rowIndex]
+      this.selectedRow.$set(rowIndex, !prev)
+      // console.log(obj);
+      // this.$refs.sel.$el.click()
     }
   }
 }
 </script>
+
+<style media="screen">
+  .selected {
+    background-color: rgb(224, 224, 224);
+  }
+</style>
