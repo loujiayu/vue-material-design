@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import configRouter from './routes'
-import button from './components/button.vue'
 
 Vue.use(Router)
 // const router = new Router({

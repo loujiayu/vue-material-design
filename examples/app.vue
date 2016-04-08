@@ -1,15 +1,15 @@
 <template>
   <div class="test">
-    <div class="table">
+    <!-- <div class="table">
       <table-wrapper>
         <table-header :headers="headers" slot="header"></table-header>
         <table-body :body-content="bodyContent" slot="body"></table-body>
       </table-wrapper>
-    </div>
-    <!-- <nav-bar>
-      <icon-button icon-class="fa fa-bars fa-2x fa-hover" slot="leftNav" @click="handleClick"></icon-button>
+    </div> -->
+    <nav-bar>
+      <icon-button icon-class="fa fa-bars fa-2x fa-hover anti-color" slot="leftNav" @click="handleClick"></icon-button>
       <span slot="title" class="">title</span>
-      <icon-button icon-class="fa fa-github fa-2x" slot="rightNav"></icon-button>
+      <icon-button icon-class="fa fa-github fa-2x anti-color" slot="rightNav"></icon-button>
     </nav-bar>
     <menu-bar :open="open">
       <menu-item class="header item"
@@ -24,12 +24,12 @@
       <menu-item class="item" slot="list" label="function"></menu-item>
       <menu-item class="item" slot="list" label="function"></menu-item>
     </menu-bar>
-    <router-view class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view> -->
+    <router-view class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
   </div>
 </template>
 
 <script type="text/javascript">
-import { TableWrapper, TableBody,TableHeader,Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from '../lib/mtv.js'
+import { TableWrapper, TableBody,TableHeader,Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from 'mtv.js'
 // import { Toggle, Radio} from '../lib/mtv.js'
 
 export default {
@@ -104,7 +104,7 @@ export default {
   line-height: 48px;
   height: 48px;
 }
-.fa {
+.anti-color {
   color: white;
 }
 

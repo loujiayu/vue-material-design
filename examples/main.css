@@ -1,4 +1,10 @@
 body {
   margin: 0;
+  font-size: 15px;
+  line-height: 24px;
   /*flex-direction: column;*/
+}
+html {
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }

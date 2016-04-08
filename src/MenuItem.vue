@@ -1,19 +1,18 @@
 <template>
   <div :style="mRootStyle">
     <base-button
-      :style="mButtonStyle"
+      :style-obj="mButtonStyle"
       :shadow-depth="shadowDepth"
       :label="label"
       :hover="ripple"
       :link="link"
-      :style-obj="buttonStyle"
       :label-style="labelStyle"
       :ripple="ripple"
     >
     </base-button>
     <icon-button
       v-if="iconClass"
-      :style="mIconStyle"
+      :style-obj="mIconStyle"
       :icon-style="iconStyle"
       :icon-class="iconClass"
       :on-click="onClick"
@@ -38,13 +37,15 @@ export default {
         flex: '2'
       },
       button: {
-        flex: '5'
+        flex: '5',
+        width: '100%',
+        display: 'block'
       }
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
-      mButtonStyle: getStyles(styles.button, this.buttonStyle),
-      mIconStyle: getStyles(styles.icon, this.iconStyle)
+      mButtonStyle: Object.assign(styles.button, this.buttonStyle),
+      mIconStyle: Object.assign(styles.icon, this.iconStyle)
     }
   },
   props: {

@@ -82,8 +82,6 @@ export default {
       const rowIndex = node.getAttribute('key')
       const prev = this.selectedRow[rowIndex]
       this.selectedRow.$set(rowIndex, !prev)
-      // console.log(obj);
-      // this.$refs.sel.$el.click()
     }
   }
 }

@@ -13,6 +13,14 @@ module.exports = {
     path: './build',
     filename: './bundle.js'
   },
+  resolve: {
+    extensions: ['', '.js', '.vue', '.json'],
+    modulesDirectories: [
+      'lib',
+      'components',
+      'node_modules'
+    ],
+  },
   devServer:{
     contentBase: 'examples/src/build',  //Relative directory for base of server
     devtool: 'eval',
@@ -25,7 +33,7 @@ module.exports = {
     // avoid webpack trying to shim process
     loaders: [
       { test: /\.vue$/, loader: 'vue' },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel', query: {compact: false} },
       { test: /\.css$/, loader: 'style!css' },
       { test: /\.less$/, loader: 'style!css!autoprefixer!less' },
       { test: /\.scss$/, loader: 'style!css!autoprefixer!sass' },

@@ -14,6 +14,7 @@
 import getStyles from 'utils/getStyles'
 import touchRipple from 'touchRipple'
 import Transitions from 'styles/transitions'
+import ColorManipulator from 'styles/colorManipulator';
 import {baseTheme} from 'styles/muiTheme'
 import {zDepthShadows} from 'styles/common'
 
@@ -23,7 +24,7 @@ export default {
     const styles = {
       root: {
         minWidth: '58px',
-        width: '100%',
+        // width: '100%',
         minHeight: button.height,
         height: '100%',
         border: '11px',
@@ -33,13 +34,13 @@ export default {
         direction: this.iconFront ? 'rtl' : 'ltr',
         backgroundColor: this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)',
         boxSizing: "border-box",
-        display: "block",
-        fontFamily: 'Roboto, sans-serif',
+        display: "inline-block",
+        fontFamily: "Roboto, sans-serif",
         outline: 'none',
         textDecoration: 'none',
         transition: Transitions.easeOut(),
         overflow: 'hidden',
-        cursor: 'pointer',
+        cursor: this.disabled ? 'default' : 'pointer',
         borderRadius: '2px',
         lineHeight: 'inherit',
         boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
@@ -48,10 +49,13 @@ export default {
         fontSize: '14px',
         letterSpacing: '0',
         paddingLeft: '24px',
-        paddingRight: '24px'
+        paddingRight: '24px',
+        fontWeight: '600'
       },
       icon: {
         verticalAlign: 'middle',
+        marginLeft: this.iconFront ? '10px' : '0',
+        marginRight: this.iconFront ? '0' : '10px'
       }
     }
     return {
@@ -92,18 +96,22 @@ export default {
   methods: {
     handleMouseEnter: function() {
       if (this.hover) {
-        this.$el.style.backgroundColor = 'rgb(125, 121, 136)'
+        if (this.backgroundColor) {
+          this.$el.style.backgroundColor = ColorManipulator.fade(this.backgroundColor, 0.8)
+        } else {
+          this.$el.style.backgroundColor = 'rgba(163, 163, 163, 0.71)';
+        }
       }
     },
     handleMouseLeave: function() {
       if (this.hover) {
-        this.$el.style.backgroundColor = 'rgba(0, 0, 0, 0)'
+        this.$el.style.backgroundColor = this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)'
       }
     },
     handleClick: function() {
       console.log('inside button');
       if (this.link && this.link.startsWith('http')) {
-        window.open(link)
+        window.open(this.link)
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }

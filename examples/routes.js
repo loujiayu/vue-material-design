@@ -1,4 +1,4 @@
-import button from './components/button.vue'
+import ButtonView from './components/ButtonView.vue'
 
 export default function configRouter (router) {
 
@@ -6,10 +6,10 @@ export default function configRouter (router) {
   router.map({
     // basic example
     '/components': {
-      component: button,
+      component: ButtonView,
       subRoutes: {
         '/button': {
-          component: button
+          component: ButtonView
         }
       }
     }
