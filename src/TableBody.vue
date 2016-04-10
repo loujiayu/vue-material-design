@@ -2,11 +2,11 @@
   <div>
     <table :style="mRootStyle">
       <tbody>
-        <tr v-for="row in bodyContent" :style="mTrStyle" @click="handleClick"
+        <tr v-for="row in bodyContent | orderBy firstLetter" :style="mTrStyle" @click="handleClick"
             key="{{$index}}" :class="selectedRow[$index] ? 'selected':''">
           <td v-if="select" :style="mSelectStyle"><check-box :trigger="selectedRow[$index]"></check-box></td>
-          <td v-for="col in row" :style="mTdStyle">
-            {{col.val}}
+          <td v-for="col in row " :style="mTdStyle">
+            {{col}}
           </td>
         </tr>
       </tbody>
@@ -34,7 +34,7 @@ export default {
       },
       td: {
         fontWeight: 'normal',
-        fontSize: '13px',
+        fontSize: '14px',
         paddingLeft: '24px',
         paddingRight: '24px',
         height: '56px',
@@ -63,10 +63,9 @@ export default {
     bodyContent: Array,
     striped: Boolean,
     selectable: Boolean,
-    select: {
-      type: Boolean,
-      default: true
-    }
+    select: Boolean,
+    trStyle: Object,
+    tdStyle: Object
   },
   components: {
     CheckBox
@@ -79,9 +78,14 @@ export default {
       } else {
         node = e.target.closest('tr')
       }
-      const rowIndex = node.getAttribute('key')
-      const prev = this.selectedRow[rowIndex]
-      this.selectedRow.$set(rowIndex, !prev)
+      if (this.select) {
+        const rowIndex = node.getAttribute('key')
+        const prev = this.selectedRow[rowIndex]
+        this.selectedRow.$set(rowIndex, !prev)
+      }
+    },
+    firstLetter: function(a, b) {
+      return a[0] > b[0] ? 1 : -1
     }
   }
 }

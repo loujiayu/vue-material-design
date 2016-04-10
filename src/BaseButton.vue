@@ -31,7 +31,7 @@ export default {
         padding: '0',
         margin: '0',
         position: 'relative',
-        direction: this.iconFront ? 'rtl' : 'ltr',
+        direction: this.isIconFront ? 'rtl' : 'ltr',
         backgroundColor: this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)',
         boxSizing: "border-box",
         display: "inline-block",
@@ -54,8 +54,8 @@ export default {
       },
       icon: {
         verticalAlign: 'middle',
-        marginLeft: this.iconFront ? '10px' : '0',
-        marginRight: this.iconFront ? '0' : '10px'
+        marginLeft: this.isIconFront ? '10px' : '0',
+        marginRight: this.isIconFront ? '0' : '10px'
       }
     }
     return {
@@ -67,13 +67,10 @@ export default {
   props: {
     shadowDepth: Number,
     disabled: Boolean,
-    onClick: Function,
-    onMouseEnter: Function,
-    onMouseLeave: Function,
     label: String,
     iconClass: String,
     backgroundColor: String,
-    iconFront: Boolean,
+    isIconFront: Boolean,
     hover: {
       type: Boolean,
       default: true

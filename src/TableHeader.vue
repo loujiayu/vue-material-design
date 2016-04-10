@@ -5,7 +5,7 @@
         <tr>
           <td v-if="select" :style="mSelectStyle"><check-box :disabled=true></check-box></td>
           <th v-for="col in headers" :style="mThStyle">
-            {{col.val}}
+            {{col | capitalize}}
           </th>
         </tr>
       </thead>
@@ -34,7 +34,7 @@ export default {
       },
       th: {
         fontWeight: 'normal',
-        fontSize: '12px',
+        fontSize: '16px',
         paddingLeft: '24px',
         paddingRight: '24px',
         height: '56px',
@@ -57,10 +57,7 @@ export default {
   props: {
     styleObj: Object,
     headers: Array,
-    select: {
-      type: Boolean,
-      default: true
-    }
+    select: Boolean
   },
   components: {
     CheckBox

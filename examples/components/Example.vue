@@ -34,6 +34,7 @@ export default {
   border-radius: 4px;
   // padding: 20px;
   &::before {
+    font-family: Roboto, sans-serif;
     content: 'example';
     text-transform: uppercase;
     color: #959595;
@@ -49,7 +50,7 @@ export default {
 }
 .snippet-code {
   line-height: 18px;
-  // margin: 20px 20px;
+  overflow: auto;
   white-space: pre;
   word-wrap: normal;
   word-break: break-all;
@@ -58,7 +59,6 @@ export default {
   code {
     // padding: 16px;
     width: 100%;
-    font-family: Consolas, Monaco, 'Andale Mono', monospace;
     font-weight: bolder;
     color: #aed581;
     font-size: 13px;
