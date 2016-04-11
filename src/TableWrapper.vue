@@ -10,10 +10,11 @@ import getStyles from 'utils/getStyles'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 export default {
-  data: function(){
+  data: function() {
     const styles = {
       root: {
-        height: 'auto'
+        height: 'auto',
+        overflow: 'auto'
       }
     }
     return {

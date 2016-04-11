@@ -65,7 +65,6 @@ export default {
   },
   methods: {
     handleClick: function(event) {
-      console.log('fasiufiusacm@!#~');
       if(event.stopPropagation) {
         event.stopPropagation();
       } else if(event.cancelBubble) {

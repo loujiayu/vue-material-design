@@ -44,6 +44,10 @@ export default {
       window.addEventListener('click',this.clickAway )
     }
   },
+  ready: function() {
+    console.log('uuuuuuuuufuck    you  ');
+    console.log(this.open);
+  },
   destroyed: function() {
     if (this.docked) {
       window.removeEventListener('click', clickAway)

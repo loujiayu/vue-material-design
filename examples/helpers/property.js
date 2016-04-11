@@ -18,6 +18,7 @@ const link = ['link', 'String', '', 'a URL to link.']
 const labelStyle = ['labelStyle', 'Object', '', 'override the inline style of label.']
 const iconStyle = ['iconStyle', 'Object', '', 'override the inline style of icon.']
 const ripple = ['ripple', 'Boolean', 'true', 'ripple enable.']
+const onClick = ['onClick', 'Function', '', 'Callback function for click event.']
 
 export default {
   button: [
@@ -31,6 +32,18 @@ export default {
     link,
     labelStyle,
     iconStyle,
-    ripple
+    iconClass,
+    ripple,
+    onClick
+  ],
+  icon: [
+    disabled('icon button'),
+    backgroundColor('icon button'),
+    styleObj('icon button'),
+    shadowDepth,
+    iconClass,
+    link,
+    ripple,
+    onClick
   ]
 }

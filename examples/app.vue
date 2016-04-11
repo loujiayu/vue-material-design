@@ -1,11 +1,5 @@
 <template>
   <div class="test">
-    <!-- <div class="table">
-      <table-wrapper>
-        <table-header :headers="headers" slot="header"></table-header>
-        <table-body :body-content="bodyContent" slot="body"></table-body>
-      </table-wrapper>
-    </div> -->
     <nav-bar>
       <icon-button icon-class="fa fa-bars fa-2x fa-hover anti-color" slot="leftNav" @click="handleClick"></icon-button>
       <span slot="title" class="">title</span>
@@ -15,7 +9,8 @@
       <menu-item class="header item"
                  slot="list"
                  label="HOME"
-                 :on-click="hideMenu"
+                 :icon-on-click="hideMenu"
+                 :label-on-click="linkTo"
                  icon-class="fa fa-caret-left fa-2x"
                  :ripple=false>
       </menu-item>
@@ -30,7 +25,6 @@
 
 <script type="text/javascript">
 import { TableWrapper, TableBody,TableHeader,Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from 'mtv.js'
-// import { Toggle, Radio} from '../lib/mtv.js'
 
 export default {
   components: {
@@ -52,9 +46,7 @@ export default {
   },
   data: function() {
     return {
-      open: false,
-      bodyContent: [[{val:1},{val:1},{val:1}],[{val:'fa'},{val:1},{val:1}]],
-      headers: [{val:1},{val:1},{val:1}],
+      open: true,
     }
   },
   methods: {
@@ -62,10 +54,16 @@ export default {
       this.open = true
     },
     hideMenu: function() {
+      console.log('hideMenu');
+      console.log(this.open);
       this.open = false
     },
     linkTo: function(path) {
-      this.$route.router.go(path)
+      if (!path) {
+        this.$route.router.go('/')
+      } else {
+        this.$route.router.go(path)
+      }
     }
   }
 }

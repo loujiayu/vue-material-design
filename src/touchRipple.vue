@@ -50,7 +50,6 @@ export default {
   methods: {
     handleClick: function(event) {
       event.preventDefault()
-      console.log('asifninfasna')
       this.addRipple(event)
     },
     handleMouseUp: function() {

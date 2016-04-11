@@ -8,6 +8,7 @@
       :link="link"
       :label-style="labelStyle"
       :ripple="ripple"
+      :on-click="labelOnClick"
     >
     </base-button>
     <icon-button
@@ -15,7 +16,7 @@
       :style-obj="mIconStyle"
       :icon-style="iconStyle"
       :icon-class="iconClass"
-      :on-click="onClick"
+      :on-click="iconOnClick"
     >
     </icon-button>
   </div>
@@ -65,7 +66,8 @@ export default {
 
     iconClass: String,
     iconStyle: Object,
-    onClick: Function
+    iconOnClick: Function,
+    labelOnClick: Function
   },
   components: {
     BaseButton,

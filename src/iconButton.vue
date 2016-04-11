@@ -29,7 +29,6 @@ export default {
         position: 'relative',
         outline: 'none',
         textDecoration: 'none',
-        // overflow: 'hidden',
         backgroundColor: 'rgba(0,0,0,0)',
         cursor: 'pointer'
       },
@@ -46,7 +45,6 @@ export default {
     onMouseEnter: Function,
     onMouseLeave: Function,
     iconClass: String,
-    backgroundColor: String,
     link: String,
     styleObj: Object
   },
@@ -76,7 +74,6 @@ export default {
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }
-      console.log('icon button click');
       if (this.onClick) { this.onClick() }
 
     }

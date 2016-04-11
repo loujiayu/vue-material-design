@@ -68,6 +68,7 @@ export default {
     shadowDepth: Number,
     disabled: Boolean,
     label: String,
+    onClick: Function,
     iconClass: String,
     backgroundColor: String,
     isIconFront: Boolean,
@@ -88,7 +89,6 @@ export default {
     touchRipple
   },
   ready: function() {
-    console.log('obj');
   },
   methods: {
     handleMouseEnter: function() {
@@ -106,12 +106,12 @@ export default {
       }
     },
     handleClick: function() {
-      console.log('inside button');
       if (this.link && this.link.startsWith('http')) {
         window.open(this.link)
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }
+      if (this.onClick) {this.onClick()}
     }
   }
 }
