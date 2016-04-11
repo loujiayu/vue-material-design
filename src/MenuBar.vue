@@ -18,9 +18,8 @@ export default {
         height:'100%',
         width: '256px',
         position: 'fixed',
-        left: '0',
         top: '0',
-        transition: Transitions.easeOut(null, 'transform', null),
+        transition: Transitions.easeOut('200ms', 'left', ''),
         fontFamily: 'Roboto, sans-serif',
         boxShadow: zDepthShadows[this.shadowDepth - 1],
         overflow: 'scroll'
@@ -44,10 +43,6 @@ export default {
       window.addEventListener('click',this.clickAway )
     }
   },
-  ready: function() {
-    console.log('uuuuuuuuufuck    you  ');
-    console.log(this.open);
-  },
   destroyed: function() {
     if (this.docked) {
       window.removeEventListener('click', clickAway)
@@ -65,10 +60,10 @@ export default {
 
 <style media="screen">
 .slide-transition {
-  transform: translate(0);
+  left: 0;
 }
 .slide-enter,
 .slide-leave {
-  transform: translateX(-100%);
+  left: -256px;
 }
 </style>

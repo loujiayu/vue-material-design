@@ -5,7 +5,7 @@
       <span slot="title" class="">title</span>
       <icon-button icon-class="fa fa-github fa-2x anti-color" slot="rightNav"></icon-button>
     </nav-bar>
-    <menu-bar :open="open">
+    <menu-bar :open="open" v-ref:sidebar>
       <menu-item class="header item"
                  slot="list"
                  label="HOME"
@@ -19,7 +19,7 @@
       <menu-item class="item" slot="list" label="function"></menu-item>
       <menu-item class="item" slot="list" label="function"></menu-item>
     </menu-bar>
-    <router-view class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
+    <router-view v-ref:mainview class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
   </div>
 </template>
 
@@ -46,6 +46,7 @@ export default {
   },
   data: function() {
     return {
+      // inline style overwrite in firfox when open set to false
       open: true,
     }
   },
@@ -54,8 +55,6 @@ export default {
       this.open = true
     },
     hideMenu: function() {
-      console.log('hideMenu');
-      console.log(this.open);
       this.open = false
     },
     linkTo: function(path) {
@@ -86,7 +85,7 @@ export default {
 }
 .router {
   padding: 36px 48px;
-  transition: all .5s ease;
+  transition: all .2s ease;
 }
 .switch-enter, .switch-leave {
   opacity: 0;
@@ -94,9 +93,6 @@ export default {
 }
 .view {
   margin-left: 256px;
-}
-.resView {
-  padding: 36px 48px;
 }
 .item {
   line-height: 48px;
