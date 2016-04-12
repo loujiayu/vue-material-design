@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "css-loader": "^0.23.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "font-awesome": "^4.5.0",
     "font-awesome-webpack": "0.0.4",
     "less": "^2.6.1",

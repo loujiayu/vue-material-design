@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var cssLoaders = require('./css-loaders')
 var TransferWebpackPlugin = require('transfer-webpack-plugin');
 
 module.exports = {
@@ -35,14 +36,19 @@ module.exports = {
       { test: /\.vue$/, loader: 'vue' },
       { test: /\.js$/, exclude: /node_modules/, loader: 'babel', query: {compact: false} },
       { test: /\.css$/, loader: 'style!css' },
-      { test: /\.less$/, loader: 'style!css!autoprefixer!less' },
-      { test: /\.scss$/, loader: 'style!css!autoprefixer!sass' },
+      { test: /\.scss$/, loader: 'style!css?modules&importLoaders=2&sourceMap&localIdentName=[local]___[hash:base64:5]!autoprefixer?browsers=last 2 version!sass?outputStyle=expanded&sourceMap' },
       { test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
       { test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/font-woff" },
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
       { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
     ]
+  },
+  vue: {
+    loaders: cssLoaders({
+      sourceMap: false,
+      extract: false
+    })
   },
   devtool: '#source-map',
   plugins: [

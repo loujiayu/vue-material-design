@@ -14,7 +14,7 @@ export default {
 }
 </script>
 
-<style media="screen">
+<style media="screen" lang="scss">
 .title {
   border-bottom: 1px solid #eee;
   padding-bottom: .3em;

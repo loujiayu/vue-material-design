@@ -24,6 +24,8 @@ import Property from 'Property'
 import desc from '../helpers/property'
 import {BaseButton, TableWrapper,TableBody, TableHeader} from 'mtv'
 
+// require('../styles/common.scss')
+
 export default {
   data: function() {
     return {
@@ -52,21 +54,8 @@ export default {
   }
 }
 </script>
-<style media="screen" lang="less">
-.desc {
-  td:nth-child(1) {
-    color: #3498db;
-  }
-  td:nth-child(2) {
-    color: rgb(77, 159, 137);
-  }
-  td:nth-child(3) {
-    color: rgb(133, 130, 129);
-  }
-  td:nth-child(4):first-letter {
-    text-transform: uppercase;
-  }
-}
+<style media="screen" lang="scss">
+@import "../styles/common.scss";
 .button-examples {
   button {
     margin: 10px !important;

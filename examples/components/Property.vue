@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style media="screen" lang="less">
+<style media="screen" lang="scss">
 .property {
   h4 {
   }

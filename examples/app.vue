@@ -14,8 +14,8 @@
                  icon-class="fa fa-caret-left fa-2x"
                  :ripple=false>
       </menu-item>
-      <menu-item class="item" slot="list" label="button" @click="linkTo('/components/button')"></menu-item>
-      <menu-item class="item" slot="list" label="function"></menu-item>
+      <menu-item class="item" slot="list" label="Button" @click="linkTo('/components/button')"></menu-item>
+      <menu-item class="item" slot="list" label="IconButton" @click="linkTo('/components/iconbutton')"></menu-item>
       <menu-item class="item" slot="list" label="function"></menu-item>
       <menu-item class="item" slot="list" label="function"></menu-item>
     </menu-bar>

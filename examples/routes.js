@@ -1,20 +1,14 @@
 import ButtonView from './components/ButtonView.vue'
+import IconButtonView from './components/IconButtonView.vue'
 
 export default function configRouter (router) {
-
   // normal routes
   router.map({
-    // basic example
-    '/components': {
-      component: ButtonView,
-      subRoutes: {
-        '/button': {
-          component: ButtonView
-        }
-      }
+    '/components/button': {
+      component: ButtonView
+    },
+    '/components/iconbutton': {
+      component: IconButtonView
     }
-  })
-  router.redirect({
-    '/components': '/components/button'
   })
 }

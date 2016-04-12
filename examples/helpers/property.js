@@ -45,5 +45,8 @@ export default {
     link,
     ripple,
     onClick
+  ],
+  checkbox: [
+    
   ]
 }
