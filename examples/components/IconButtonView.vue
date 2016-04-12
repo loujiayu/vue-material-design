@@ -2,6 +2,64 @@
   <div class="">
     <page-header :title="title" :description="description"></page-header>
     <example :code-html="html" class="icon-examples">
+      <div slot="ex">
+        <icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button>
+        <icon-button icon-class="fa fa-github fa-2x" link="http://github.com"></icon-button>
+      </div>
+      <div slot="ex">
+        <icon-button icon-class="fa fa-bell-o fa-2x" slot="ex"></icon-button>
+        <icon-button icon-class="fa fa-bell-o fa-2x" slot="ex" :disabled=true></icon-button>
+      </div>
+      <div slot="ex">
+        <icon-button
+          icon-class="fa fa-cog fa-2x"
+          tooltip="message position"
+          slot="ex"
+          vertical-position="top"
+          horizontal-position="left"
+        >
+        </icon-button>
+        <icon-button
+          icon-class="fa fa-cog fa-2x"
+          tooltip="message position"
+          slot="ex"
+          vertical-position="top"
+          horizontal-position="right"
+        >
+        </icon-button>
+        <icon-button
+          icon-class="fa fa-cog fa-2x"
+          tooltip="message position"
+          slot="ex"
+          vertical-position="top"
+          horizontal-position="center"
+        >
+        </icon-button>
+        <icon-button
+          icon-class="fa fa-cog fa-2x"
+          tooltip="message position"
+          slot="ex"
+          vertical-position="bottom"
+          horizontal-position="left"
+        >
+        </icon-button>
+        <icon-button
+          icon-class="fa fa-cog fa-2x"
+          tooltip="message position"
+          slot="ex"
+          vertical-position="bottom"
+          horizontal-position="right"
+        >
+        </icon-button>
+        <icon-button
+          icon-class="fa fa-cog fa-2x"
+          tooltip="message position"
+          slot="ex"
+          vertical-position="bottom"
+          horizontal-position="center"
+        >
+        </icon-button>
+      </div>
     </example>
     <property>
       <table-wrapper slot="pro">
@@ -13,19 +71,29 @@
 </template>
 
 <script type="text/javascript">
-import PageHeader from 'PageHeader'
-import Example from 'Example'
-import Property from 'Property'
-import desc from '../helpers/property'
-import {IconButton, TableWrapper,TableBody, TableHeader} from 'mtv'
+import PageHeader from "PageHeader"
+import Example from "Example"
+import Property from "Property"
+import desc from "../helpers/property"
+import {IconButton, TableWrapper,TableBody, TableHeader} from "mtv"
 
 export default {
   data: function() {
     return {
-      title: 'IconButton',
-      description: 'button element with an icon.',
-      tableHeader: ['property','type','default','description'],
-      bodyContent: desc.icon
+      title: "IconButton",
+      description: "button element with an icon.",
+      tableHeader: ["property","type","default","description"],
+      bodyContent: desc.icon,
+      html: '\t<icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button>\n \
+            \n\t<icon-button icon-class="fa fa-bell-o fa-2x" slot="ex"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-bell-o fa-2x" slot="ex" :disabled=true></icon-button>\n \
+            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position" slot="ex" vertical-position="top" horizontal-position="left"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position" slot="ex" vertical-position="top" horizontal-position="right"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position" slot="ex" vertical-position="top" horizontal-position="center"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position" slot="ex" vertical-position="bottom" horizontal-position="left"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position" slot="ex" vertical-position="bottom" horizontal-position="right"></icon-button> \
+            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position" slot="ex" vertical-position="bottom" horizontal-position="center"></icon-button>'
     }
   },
   components: {
@@ -33,6 +101,7 @@ export default {
     Example,
     Property,
     TableBody,
+    IconButton,
     TableHeader,
     TableWrapper
   }

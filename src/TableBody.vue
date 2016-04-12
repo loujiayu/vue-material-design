@@ -35,16 +35,16 @@ export default {
       td: {
         fontWeight: 'normal',
         fontSize: '14px',
-        paddingLeft: '24px',
-        paddingRight: '24px',
+        padding: '6px 13px',
         height: '56px',
         textAlign: 'left',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
         position: 'relative',
+        wordWrap: 'break-word',
+        whiteSpace: 'normal',
+        textAlign: 'justify',
       },
       tr: {
-        borderBottom: '1px solid #e0e0e0'
+        borderBottom: '1px solid #e0e0e0',
       },
       select: {
         width: '24px'
@@ -55,7 +55,7 @@ export default {
       mRootStyle: getStyles(styles.root, this.styleObj),
       mTdStyle: getStyles(styles.td, this.tdStyle),
       mSelectStyle: getStyles(Object.assign({}, styles.td, styles.select), this.tdStyle),
-      selectedRow: Array(this.bodyContent.length).fill(false)
+      selectedRow: []
     }
   },
   props: {
@@ -79,6 +79,7 @@ export default {
         node = e.target.closest('tr')
       }
       if (this.select) {
+        this.selectedRow = Array(this.bodyContent.length).fill(false)
         const rowIndex = node.getAttribute('key')
         const prev = this.selectedRow[rowIndex]
         this.selectedRow.$set(rowIndex, !prev)

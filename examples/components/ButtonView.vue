@@ -24,15 +24,13 @@ import Property from 'Property'
 import desc from '../helpers/property'
 import {BaseButton, TableWrapper,TableBody, TableHeader} from 'mtv'
 
-// require('../styles/common.scss')
-
 export default {
   data: function() {
     return {
       title: 'Buttons',
       description: 'A button clearly communicates what action will occur when the user touches it.',
       tableHeader: ['property','type','default','description'],
-      bodyContent: desc.button,
+      bodyContent: desc.Button,
       labelStyle: {
         color: '#eff2f4'
       },

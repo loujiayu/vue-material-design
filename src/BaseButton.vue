@@ -24,7 +24,6 @@ export default {
     const styles = {
       root: {
         minWidth: '58px',
-        // width: '100%',
         minHeight: button.height,
         height: '100%',
         border: '11px',
@@ -106,6 +105,9 @@ export default {
       }
     },
     handleClick: function() {
+      if (this.disabled) {
+        return
+      }
       if (this.link && this.link.startsWith('http')) {
         window.open(this.link)
       } else if (this.link) {

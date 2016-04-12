@@ -16,32 +16,19 @@
       </menu-item>
       <menu-item class="item" slot="list" label="Button" @click="linkTo('/components/button')"></menu-item>
       <menu-item class="item" slot="list" label="IconButton" @click="linkTo('/components/iconbutton')"></menu-item>
-      <menu-item class="item" slot="list" label="function"></menu-item>
-      <menu-item class="item" slot="list" label="function"></menu-item>
     </menu-bar>
     <router-view v-ref:mainview class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
   </div>
 </template>
 
 <script type="text/javascript">
-import { TableWrapper, TableBody,TableHeader,Toggle, Radio,CheckBox, BaseButton, NavBar, IconButton, MenuItem, IconMenu,MenuBar, TextField,DownMenu, SnackBar} from 'mtv.js'
+import { NavBar, IconButton, MenuItem, MenuBar } from 'mtv.js'
 
 export default {
   components: {
-    TableWrapper,
-    TableBody,
-    TableHeader,
     MenuItem,
-    DownMenu,
-    SnackBar,
-    TextField,
-    BaseButton,
     NavBar,
-    CheckBox,
     IconButton,
-    IconMenu,
-    Radio,
-    Toggle,
     MenuBar
   },
   data: function() {

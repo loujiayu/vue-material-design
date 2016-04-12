@@ -13,8 +13,8 @@ export default {
   data: function() {
     const styles = {
       root: {
-        height: 'auto',
-        overflow: 'auto'
+        height: 'auto'
+        // overflow: 'auto'
       }
     }
     return {

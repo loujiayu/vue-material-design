@@ -10,6 +10,16 @@ const label = function(component) {
 const styleObj = function(component) {
   return ['styleObj', 'Object', '', `override the inline style of ${component}.`]
 }
+const trigger = function(component) {
+  return ['trigger', 'Boolean', 'false', `${component} triggered if true.`]
+}
+const verticalPosition = function(component) {
+  return ['verticalPosition', 'String', 'bottom', `tooltip vertical position when hover on ${component}.`]
+}
+const horizontalPosition = function(component) {
+  return ['horizontalPosition', 'String', 'center', `tooltip horizontal position when hover on ${component}.`]
+}
+const tooltip = ['tooltip', 'String', '', 'information on hover.']
 const shadowDepth = ['shadowDepth', 'Number', '', 'depth of box shadow.']
 const iconClass = ['iconClass', 'String', '', 'class name of icon if any.']
 const isIconFront = ['iconFront', 'Boolean', 'false', 'is icon front of label or not.']
@@ -21,11 +31,11 @@ const ripple = ['ripple', 'Boolean', 'true', 'ripple enable.']
 const onClick = ['onClick', 'Function', '', 'Callback function for click event.']
 
 export default {
-  button: [
-    disabled('button'),
-    label('button'),
-    backgroundColor('button'),
-    styleObj('button'),
+  Button: [
+    disabled('Button'),
+    label('Button'),
+    backgroundColor('Button'),
+    styleObj('Button'),
     shadowDepth,
     isIconFront,
     hover,
@@ -37,16 +47,22 @@ export default {
     onClick
   ],
   icon: [
-    disabled('icon button'),
-    backgroundColor('icon button'),
-    styleObj('icon button'),
+    disabled('IconButton'),
+    backgroundColor('IconButton'),
+    styleObj('IconButton'),
+    verticalPosition('IconButton'),
+    horizontalPosition('IconButton'),
     shadowDepth,
     iconClass,
+    tooltip,
     link,
     ripple,
     onClick
   ],
   checkbox: [
-    
-  ]
+    styleObj('CheckBox'),
+    disabled('CheckBox'),
+    trigger('CheckBox')
+  ],
+
 }

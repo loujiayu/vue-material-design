@@ -4,7 +4,14 @@
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
       @click="handleClick" >
-    <tooltip v-if="tooltip" :note="msg" :message="tooltip"></tooltip>
+    <tooltip
+      v-if="tooltip"
+      :note="msg"
+      :message="tooltip"
+      :vertical-position="verticalPosition"
+      :horizontal-position="horizontalPosition"
+    >
+    </tooltip>
     <span :class="iconClass"></span>
     <touch-ripple v-if="!disabled" :center=true v-ref:touch></touch-ripple>
   </button>
@@ -25,22 +32,32 @@ export default {
         height: button.iconHeight,
         width: '48px',
         border: '10px',
+        padding: '0',
+        margin: '0',
         display: 'inline-block',
         position: 'relative',
         outline: 'none',
         textDecoration: 'none',
         backgroundColor: 'rgba(0,0,0,0)',
-        cursor: 'pointer'
+        cursor: this.disabled ? 'default' : 'pointer'
       },
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
-      msg: true
+      msg: false
     }
   },
   props: {
     disabled: Boolean,
     tooltip: String,
+    verticalPosition: {
+      type: String,
+      default: "bottom"
+    },
+    horizontalPosition: {
+      type: String,
+      default: "left"
+    },
     onClick: Function,
     onMouseEnter: Function,
     onMouseLeave: Function,
@@ -68,9 +85,11 @@ export default {
       // } else if(event.cancelBubble) {
       //   event.cancelBubble = true
       // }
-
+      if (this.disabled) {
+        return
+      }
       if (this.link && this.link.startsWith('http')) {
-        window.open(link)
+        window.open(this.link)
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }

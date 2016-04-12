@@ -35,8 +35,7 @@ export default {
       th: {
         fontWeight: 'normal',
         fontSize: '16px',
-        paddingLeft: '24px',
-        paddingRight: '24px',
+        padding: '6px 13px',
         height: '56px',
         textAlign: 'left',
         whiteSpace: 'nowrap',
