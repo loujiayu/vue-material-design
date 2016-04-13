@@ -30,7 +30,7 @@ export default {
       title: 'Buttons',
       description: 'A button clearly communicates what action will occur when the user touches it.',
       tableHeader: ['property','type','default','description'],
-      bodyContent: desc.Button,
+      bodyContent: desc.button,
       labelStyle: {
         color: '#eff2f4'
       },

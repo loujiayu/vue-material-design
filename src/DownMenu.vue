@@ -4,8 +4,7 @@
       v-ref:downb
       :disabled="disabled"
       :label="label"
-      :label-color="labelColor"
-      :style="style"
+      :style-obj="mButtonstyle"
       >
     </base-button>
     <div :style="mMenuStyles" v-show="open" transition="downSlide">
@@ -42,13 +41,14 @@ export default {
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
       mMenuStyles: getStyles(styles.menu, this.menuStyle),
+      mButtonstyle: this.buttonStyle
       open: false
     }
   },
   props: {
     disabled: Boolean,
     label: String,
-    labelColor: String,
+    buttonStyle: Object,
     styleObj: Object,
     menuStyle: Object
   },
@@ -82,7 +82,6 @@ export default {
 </script>
 
 <style media="screen">
-/*.downSlide-enter*/
 .downSlide-transition {
   max-height: 200px;
   opacity: 1;

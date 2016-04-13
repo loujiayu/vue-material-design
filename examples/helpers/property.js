@@ -19,6 +19,12 @@ const verticalPosition = function(component) {
 const horizontalPosition = function(component) {
   return ['horizontalPosition', 'String', 'center', `tooltip horizontal position when hover on ${component}.`]
 }
+const menuStyle = function(component) {
+  return ['menuStyle', 'Object', '', `override the menu style of ${component}`]
+}
+const buttonStyle = function(component) {
+  return ['buttonStyle', 'Object', '', `override the button style of ${component}`]
+}
 const tooltip = ['tooltip', 'String', '', 'information on hover.']
 const shadowDepth = ['shadowDepth', 'Number', '', 'depth of box shadow.']
 const iconClass = ['iconClass', 'String', '', 'class name of icon if any.']
@@ -31,7 +37,7 @@ const ripple = ['ripple', 'Boolean', 'true', 'ripple enable.']
 const onClick = ['onClick', 'Function', '', 'Callback function for click event.']
 
 export default {
-  Button: [
+  button: [
     disabled('Button'),
     label('Button'),
     backgroundColor('Button'),
@@ -64,5 +70,11 @@ export default {
     disabled('CheckBox'),
     trigger('CheckBox')
   ],
-
+  downmenu: [
+    styleObj('DownMenu'),
+    disabled('DownMenu'),
+    label('DownMunu'),
+    menuStyle('DownMunu'),
+    buttonStyle('DownMunu')
+  ]
 }

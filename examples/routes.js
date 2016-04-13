@@ -1,5 +1,4 @@
-import ButtonView from './components/ButtonView.vue'
-import IconButtonView from './components/IconButtonView.vue'
+import {ButtonView, IconButtonView, CheckBoxView} from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -9,6 +8,9 @@ export default function configRouter (router) {
     },
     '/components/iconbutton': {
       component: IconButtonView
+    },
+    'components/checkbox': {
+      component: CheckBoxView
     }
   })
 }
