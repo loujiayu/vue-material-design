@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <page-header :title="title" :description="description"></page-header>
-    <example :code-html="html" class="icon-examples">
+    <example :code-html="html">
       <div slot="ex">
         <icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button>
         <icon-button icon-class="fa fa-github fa-2x" link="http://github.com"></icon-button>

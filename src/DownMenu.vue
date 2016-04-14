@@ -7,7 +7,7 @@
       :style-obj="mButtonstyle"
       >
     </base-button>
-    <div :style="mMenuStyles" v-show="open" transition="downSlide">
+    <div :style="mMenuStyles" v-show="open" transition="downSlide" v-if="!disabled">
       <slot name="list"></slot>
     </div>
   </div>
@@ -27,10 +27,16 @@ export default {
         position: 'relative',
         fontFamily: 'Roboto, sans-serif'
       },
+      button: {
+        display: 'block',
+        width: '100%'
+      },
       menu: {
         position:'absolute',
         display: 'inline-block',
         left: '0',
+        top: '0',
+        backgroundColor: 'white',
         willChange: 'transform',
         overflow: 'scroll',
         transition: Transitions.easeOut('550ms', ['max-height', 'opacity']),
@@ -40,8 +46,8 @@ export default {
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
-      mMenuStyles: getStyles(styles.menu, this.menuStyle),
-      mButtonstyle: this.buttonStyle
+      mMenuStyles: Object.assign(styles.menu, this.menuStyle),
+      mButtonstyle: this.buttonStyle,
       open: false
     }
   },
@@ -57,8 +63,10 @@ export default {
   },
   ready: function() {
     window.addEventListener('click',this.clickAway)
-    const {height, width} = this.$refs.downb.$el.getBoundingClientRect()
-    this.menuStyles.top = `${height}px`
+    // locate menu position
+    var height = this.$refs.downb.$el.offsetHeight
+    // var {height, width} = this.$refs.downb.$el.getBoundingClientRect()
+    this.mMenuStyles.top = `${height}px`
   },
   destroyed: function() {
     window.removeEventListener('click', clickAway)
@@ -70,7 +78,9 @@ export default {
       } else if(event.cancelBubble) {
         event.cancelBubble = true
       }
-      this.open = true
+      if (!this.disabled) {
+        this.open = true
+      }
     },
     clickAway: function() {
       if (!(this.$el && this.$el.contains(event.target) ) && this.open) {

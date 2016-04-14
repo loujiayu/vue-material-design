@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-header :title="title" :description="description"></page-header>
-    <example :code-html="html" class="button-examples">
+    <example :code-html="html">
     </example>
     <property>
       <table-wrapper slot="pro">

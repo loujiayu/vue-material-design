@@ -1,7 +1,7 @@
 <template>
   <div>
     <page-header :title="title" :description="description"></page-header>
-    <example :code-html="html" class="button-examples">
+    <example :code-html="html">
       <check-box :trigger=true slot="ex" :style-obj="style"></check-box>
       <check-box :trigger=false slot="ex" :style-obj="style"></check-box>
       <check-box :disabled=true slot="ex" :style-obj="style"></check-box>
@@ -20,7 +20,7 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import {BaseButton, TableWrapper,TableBody, TableHeader, CheckBox} from 'mtv'
+import { TableWrapper,TableBody, TableHeader, CheckBox} from 'mtv'
 
 export default {
   data: function() {

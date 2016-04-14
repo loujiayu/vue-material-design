@@ -1,4 +1,4 @@
-import {ButtonView, IconButtonView, CheckBoxView} from './components'
+import {ButtonView, IconButtonView, CheckBoxView, DownMenuView} from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -11,6 +11,9 @@ export default function configRouter (router) {
     },
     'components/checkbox': {
       component: CheckBoxView
+    },
+    'components/downmenu': {
+      component: DownMenuView
     }
   })
 }

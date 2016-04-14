@@ -41,7 +41,6 @@ export default {
         position: 'relative',
         wordWrap: 'break-word',
         whiteSpace: 'normal',
-        textAlign: 'justify',
       },
       tr: {
         borderBottom: '1px solid #e0e0e0',

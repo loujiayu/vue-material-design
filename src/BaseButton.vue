@@ -34,6 +34,7 @@ export default {
         backgroundColor: this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)',
         boxSizing: "border-box",
         display: "inline-block",
+        whiteSpace: 'nowrap',
         fontFamily: "Roboto, sans-serif",
         outline: 'none',
         textDecoration: 'none',
