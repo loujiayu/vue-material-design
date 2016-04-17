@@ -17,7 +17,7 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import {BaseButton, TableWrapper,TableBody, TableHeader} from 'mtv'
+import {TableWrapper,TableBody, TableHeader} from 'mtv'
 
 export default {
   data: function() {

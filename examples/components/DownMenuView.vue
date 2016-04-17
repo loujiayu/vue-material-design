@@ -3,12 +3,12 @@
     <page-header :title="title" :description="description"></page-header>
     <example :code-html="html">
       <down-menu label="Default" slot="ex">
-        <base-button label="Action" slot="list" :style-obj="buttonStyle"></base-button>
-        <base-button label="Another action" slot="list" :style-obj="buttonStyle"></base-button>
+        <base-button label="Action" slot="downList" ></base-button>
+        <base-button label="Another action" slot="downList"></base-button>
       </down-menu>
       <down-menu label="Default" :disabled=true slot="ex">
-        <base-button label="Action" slot="list"></base-button>
-        <base-button label="Another action" slot="list"></base-button>
+        <base-button label="Action" slot="downList"></base-button>
+        <base-button label="Another action" slot="downList"></base-button>
       </down-menu>
     </example>
     <property>
@@ -31,21 +31,16 @@ export default {
   data: function() {
     return {
       title: 'DownMenu',
-      buttonStyle: {
-        display: 'block',
-        width: '100%',
-        textAlign: 'left'
-      },
       description: 'Lists of clickable actions.',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.downmenu,
       html: '\t<down-menu label="Default" > \
-            \n\t  <base-button label="Action" slot="list"></base-button> \
-            \n\t  <base-button label="Another action" slot="list"></base-button> \
+            \n\t  <base-button label="Action" slot="downList"></base-button> \
+            \n\t  <base-button label="Another action" slot="downList"></base-button> \
             \n\t</down-menu> \
             \n\t<down-menu label="Default" :disabled=true> \
-            \n\t  <base-button label="Action" slot="list"></base-button> \
-            \n\t  <base-button label="Another action" slot="list"></base-button> \
+            \n\t  <base-button label="Action" slot="downList"></base-button> \
+            \n\t  <base-button label="Another action" slot="downList"></base-button> \
             \n\t</down-menu> '
     }
   },

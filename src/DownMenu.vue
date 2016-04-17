@@ -8,7 +8,7 @@
       >
     </base-button>
     <div :style="mMenuStyles" v-show="open" transition="downSlide" v-if="!disabled">
-      <slot name="list"></slot>
+      <slot name="downList"></slot>
     </div>
   </div>
 </template>
@@ -96,6 +96,11 @@ export default {
   max-height: 200px;
   opacity: 1;
   visibility: visible;
+}
+[slot="downList"] {
+  width: 100%;
+  display: block;
+  text-align: left;
 }
 .downSlide-enter,
 .downSlide-leave {

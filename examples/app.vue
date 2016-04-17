@@ -17,6 +17,7 @@
       <menu-item class="item" slot="list" label="Button" @click="linkTo('/components/button')"></menu-item>
       <menu-item class="item" slot="list" label="CheckBox" @click="linkTo('/components/checkbox')"></menu-item>
       <menu-item class="item" slot="list" label="IconButton" @click="linkTo('/components/iconbutton')"></menu-item>
+      <menu-item class="item" slot="list" label="IconMenu" @click="linkTo('/components/iconmenu')"></menu-item>
       <menu-item class="item" slot="list" label="DownMenu" @click="linkTo('/components/downmenu')"></menu-item>
     </menu-bar>
     <router-view v-ref:mainview class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>

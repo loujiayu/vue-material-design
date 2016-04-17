@@ -6,11 +6,10 @@
       :on-click="onClick"
       :on-mouseEnter="onMouseEnter"
       :icon-class="iconClass"
-      :link="link"
       >
     </icon-button>
     <div :style="mMenuStyles" v-show="open" transition="iconSlide">
-      <slot name="list"></slot>
+      <slot class="ffafiu" name="iconList"></slot>
     </div>
   </div>
 </template>
@@ -36,6 +35,7 @@ export default {
         maxHeight: '150px',
         display: 'inline-block',
         willChange: 'transform',
+        backgroundColor: 'white',
         transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
       },
     }
@@ -51,11 +51,16 @@ export default {
     onMouseEnter: Function,
     onMouseLeave: Function,
     iconClass: String,
-    link: String,
     styleObj: Object,
     menuStyle: Object,
-    vertical: String,
-    horizontal: String
+    verticalPosition: {
+      type: String,
+      default: 'bottom'
+    },
+    horizontalPosition: {
+      type: String,
+      default: 'left'
+    },
   },
   components: {
     IconButton
@@ -64,10 +69,11 @@ export default {
     window.addEventListener('click',this.clickAway )
     const node = this.$el.children[1]
     const {height, width} = this.$refs.iconb.$el.getBoundingClientRect()
-    const vOrient = this.vertical=='top' ? `top:${height}px` :`bottom:${height}px`
-    const hOrient = this.horizontal=='left' ? 'left:0' :'right:0'
-    var transformOrigin = this.horizontal=='left' ? '0 ' : `100% `
-    transformOrigin += this.vertical=='top' ? '0' : '100%'
+    const vOrient = this.verticalPosition=='top' ? `bottom:${height}px` : `top:${height}px`
+    const hOrient = this.horizontalPosition=='left' ? 'left:0' :'right:0'
+    var transformOrigin = this.horizontalPosition=='left' ? '0 ' : `100% `
+    transformOrigin += this.verticalPosition=='top' ? '100%' : '0%'
+    // transformOrigin += '0'
     node.style.cssText += `${vOrient};${hOrient};transform-origin:${transformOrigin};`
   },
   destroyed: function() {
@@ -97,6 +103,11 @@ export default {
   transform: scale(1);
   opacity: 1;
   visibility: visible;
+}
+[slot="iconList"] {
+  width: 100%;
+  display: block;
+  text-align: left;
 }
 .iconSlide-leave,
 .iconSlide-enter {

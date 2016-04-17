@@ -35,6 +35,8 @@ const labelStyle = ['labelStyle', 'Object', '', 'override the inline style of la
 const iconStyle = ['iconStyle', 'Object', '', 'override the inline style of icon.']
 const ripple = ['ripple', 'Boolean', 'true', 'ripple enable.']
 const onClick = ['onClick', 'Function', '', 'Callback function for click event.']
+const vertical = ['verticalPosition', 'String', 'bottom', 'menu vertical position when click on element']
+const horizontal = ['horizontalPosition', 'String', 'left', 'menu horizontal position when click on element']
 
 export default {
   button: [
@@ -76,5 +78,13 @@ export default {
     label('DownMunu'),
     menuStyle('DownMunu'),
     buttonStyle('DownMunu')
+  ],
+  iconmenu: [
+    styleObj('IconMenu'),
+    disabled('IconMenu'),
+    menuStyle('IconMenu'),
+    vertical,
+    horizontal,
+    iconClass,
   ]
 }
