@@ -37,6 +37,8 @@ const ripple = ['ripple', 'Boolean', 'true', 'ripple enable.']
 const onClick = ['onClick', 'Function', '', 'Callback function for click event.']
 const vertical = ['verticalPosition', 'String', 'bottom', 'menu vertical position when click on element']
 const horizontal = ['horizontalPosition', 'String', 'left', 'menu horizontal position when click on element']
+const docked = ['docked', 'Boolean', 'true', 'component should be docked if true.']
+const open = ['open', 'Boolean', 'false', 'menu should display if true.']
 
 export default {
   button: [
@@ -86,5 +88,11 @@ export default {
     vertical,
     horizontal,
     iconClass,
+  ],
+  'menubar': [
+    styleObj('MenuBar'),
+    docked,
+    shadowDepth,
+    open
   ]
 }

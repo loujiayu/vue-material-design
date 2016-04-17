@@ -7,18 +7,19 @@
     </nav-bar>
     <menu-bar :open="open" v-ref:sidebar>
       <menu-item class="header item"
-                 slot="list"
+                 slot="menuList"
                  label="HOME"
                  :icon-on-click="hideMenu"
                  :label-on-click="linkTo"
                  icon-class="fa fa-caret-left fa-2x"
                  :ripple=false>
       </menu-item>
-      <menu-item class="item" slot="list" label="Button" @click="linkTo('/components/button')"></menu-item>
-      <menu-item class="item" slot="list" label="CheckBox" @click="linkTo('/components/checkbox')"></menu-item>
-      <menu-item class="item" slot="list" label="IconButton" @click="linkTo('/components/iconbutton')"></menu-item>
-      <menu-item class="item" slot="list" label="IconMenu" @click="linkTo('/components/iconmenu')"></menu-item>
-      <menu-item class="item" slot="list" label="DownMenu" @click="linkTo('/components/downmenu')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Button" @click="linkTo('/components/button')"></menu-item>
+      <menu-item class="item" slot="menuList" label="CheckBox" @click="linkTo('/components/checkbox')"></menu-item>
+      <menu-item class="item" slot="menuList" label="IconButton" @click="linkTo('/components/iconbutton')"></menu-item>
+      <menu-item class="item" slot="menuList" label="IconMenu" @click="linkTo('/components/iconmenu')"></menu-item>
+      <menu-item class="item" slot="menuList" label="DownMenu" @click="linkTo('/components/downmenu')"></menu-item>
+      <menu-item class="item" slot="menuList" label="MenuBar" @click="linkTo('/components/menubar')"></menu-item>
     </menu-bar>
     <router-view v-ref:mainview class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
   </div>

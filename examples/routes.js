@@ -3,7 +3,8 @@ import {
   IconButtonView,
   CheckBoxView,
   DownMenuView,
-  IconMenuView } from './components'
+  IconMenuView,
+  MenuBarView } from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -22,6 +23,9 @@ export default function configRouter (router) {
     },
     'components/iconmenu': {
       component: IconMenuView
+    },
+    'components/menubar': {
+      component: MenuBarView
     }
   })
 }

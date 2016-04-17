@@ -1,6 +1,10 @@
 <template >
   <div :style="mRootStyle" v-show="open" transition="slide">
-    <slot name="list"></slot>
+    <div :style="mMuneStyle">
+      <slot name="menuList"></slot>
+    </div>
+    <div class="mask" v-if="!docked">
+    </div>
   </div>
 </template>
 
@@ -19,14 +23,21 @@ export default {
         width: '256px',
         position: 'fixed',
         top: '0',
+        backgroundColor: 'white',
         transition: Transitions.easeOut('200ms', 'left', ''),
         fontFamily: 'Roboto, sans-serif',
         boxShadow: zDepthShadows[this.shadowDepth - 1],
-        overflow: 'scroll'
+      },
+      munu: {
+        width: '100%',
+        height: '100%',
+        overflowY: 'scroll',
+        zIndex: '10'
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj)
+      mRootStyle: getStyles(styles.root, this.styleObj),
+      mMuneStyle: styles.menu
     }
   },
   props: {
@@ -36,21 +47,35 @@ export default {
     },
     open: Boolean,
     styleObj: Object,
-    docked: Boolean
+    docked: {
+      type: Boolean,
+      default: true
+    }
   },
   created: function() {
-    if (this.docked) {
-      window.addEventListener('click',this.clickAway )
+    if (!this.docked) {
+      window.addEventListener('click',this.clickAway, true)
     }
   },
   destroyed: function() {
-    if (this.docked) {
-      window.removeEventListener('click', clickAway)
+    if (!this.docked) {
+      window.removeEventListener('click', this.clickAway)
     }
   },
+  // watch: {
+  //   open: function() {
+  //     if (!this.docked) {
+  //       if (this.open) {
+  //         document.body.style.backgroundColor = 'rgba(0,0,0,.3)'
+  //       } else {
+  //         document.body.style.backgroundColor = ''
+  //       }
+  //     }
+  //   }
+  // },
   methods: {
-    clickAway: function() {
-      if (!(this.$el && this.$el.contains(event.target) ) && this.open) {
+    clickAway: function(event) {
+      if (!(this.$el.children[0] && this.$el.children[0].contains(event.target) ) && this.open) {
         this.open = false
       }
     }
@@ -59,6 +84,15 @@ export default {
 </script>
 
 <style media="screen">
+.mask {
+  background-color: rgba(0, 0, 0, 0.541176);
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: calc(100% - 80px);
+  height: 100%;
+  z-index: 1;
+}
 .slide-transition {
   left: 0;
 }
