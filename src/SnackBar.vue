@@ -1,8 +1,8 @@
 <template>
-  <div :style="mRootStyle" v-show="open" :class="className" transition="snack">
+  <div :style="mRootStyle" v-show="open" transition="snack">
     <div :style="mSnackWrapper">
       <span :style="mMessageStyles">{{message}}</span>
-      <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
+        <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
     </div>
   </div>
 </template>
@@ -24,19 +24,21 @@ export default {
         willChange: 'transform',
         fontFamily: 'Roboto, sans-serif',
         left: '50%',
+        whiteSpace: 'nowrap',
         backgroundColor: 'rgb(7, 7, 8)',
         transition: `${Transitions.easeOut('400ms', 'transform')},
                      ${Transitions.easeOut('400ms', 'visibility')}`,
       },
       snack: {
         display: 'flex',
-        width: '100%'
+        width: '100%',
+        alignItems: 'center'
       },
       message: {
         textAlign: 'center',
         fontSize: '14px',
         color: 'white',
-        padding: '14px 12px 14px 24px',
+        padding: '14px 10px 14px 10px',
         verticalAlign: 'middle',
         letterSpacing: '0',
         textTransform: 'uppercase',
@@ -44,21 +46,18 @@ export default {
       },
       undo: {
         color: 'red',
-        width: '60px',
-        flex: '1'
       }
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
-      mSnackWrapper: getStyles(styles.snack, this.snackStyle),
+      mSnackWrapper: styles.snack,
       mMessageStyles: getStyles(styles.message, this.messageStyle),
-      mUndoStyles: getStyles(styles.undo, this.undoStyle)
+      mUndoStyles: Object.assign(styles.undo, this.undoStyle)
     }
   },
   props: {
     open: Boolean,
     message: String,
-    className: String,
     undo: Boolean,
     styleObj: Object,
     snackStyle: Object,
@@ -69,10 +68,17 @@ export default {
     BaseButton
   },
   ready: function() {
-    window.addEventListener('click',this.clickAway)
+    window.addEventListener('click',this.clickAway, true)
   },
   destroyed: function() {
     window.removeEventListener('click', clickAway)
+  },
+  watch: {
+    open: function() {
+      if (this.open) {
+        setTimeout(() => { this.open = false }, 5000)
+      }
+    }
   },
   methods: {
     clickAway: function() {

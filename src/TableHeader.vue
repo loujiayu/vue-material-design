@@ -3,7 +3,7 @@
     <table :style="mRootStyle">
       <thead>
         <tr>
-          <td v-if="select" :style="mSelectStyle"><check-box :disabled=true></check-box></td>
+          <td v-if="checkbox" :style="mSelectStyle"><check-box :disabled=true></check-box></td>
           <th v-for="col in headers" :style="mThStyle">
             {{col | capitalize}}
           </th>
@@ -43,20 +43,21 @@ export default {
         color: '#9e9e9e',
         position: 'relative',
       },
-      select: {
+      checkbox: {
         width: '24px'
       }
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
       mThStyle: getStyles(styles.th, this.thStyle),
-      mSelectStyle: getStyles(Object.assign({}, styles.th, styles.select), this.thStyle)
+      mSelectStyle: getStyles(Object.assign({}, styles.th, styles.checkbox), this.thStyle)
     }
   },
   props: {
     styleObj: Object,
     headers: Array,
-    select: Boolean
+    checkbox: Boolean,
+    thStyle: Object
   },
   components: {
     CheckBox

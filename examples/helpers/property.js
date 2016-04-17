@@ -1,3 +1,6 @@
+const style = function(s) {
+  return `override the inline style of ${s}.`
+}
 const disabled = function(component) {
   return ['disabled', 'Boolean', 'false', `disable the ${component}.`]
 }
@@ -39,6 +42,27 @@ const vertical = ['verticalPosition', 'String', 'bottom', 'menu vertical positio
 const horizontal = ['horizontalPosition', 'String', 'left', 'menu horizontal position when click on element']
 const docked = ['docked', 'Boolean', 'true', 'component should be docked if true.']
 const open = ['open', 'Boolean', 'false', 'menu should display if true.']
+const message = ['message', 'String', '', 'message in snack bar.']
+const undo = ['undo', 'Boolean', 'false', 'undo an operation.']
+const messageStyle = ['messageStyle', 'Object', '', 'override the inline style of message.']
+const undoStyle = ['undoStyle', 'Object', '', 'override the inline style of undo button.']
+const floatStyle = ['floatStyle', 'Object', '', style('float content')]
+const hintStyle = ['hintStyle', 'Object', '', style('hint content')]
+const inputStyle = ['inputStyle', 'Object', '', style('input content')]
+const underlineStyle = ['underlineStyle', 'Object', '', style('underline')]
+const forcusUnderlineStyle = ['forcusUnderlineStyle', 'Object', '', style('forcus underline')]
+const floatContent = ['floatContent', 'Object', '', 'float content.']
+const hintContent = ['hintContent', 'String', '', 'hint content.']
+const defaultContent = ['defaultContent', 'String', '', 'default content.']
+const headers = ['headers', 'Array', '', 'header contents.']
+const select = ['select', 'Boolean', 'false', 'check box enable.']
+const selectable = ['selectable', 'Boolean', 'false', 'table content selectable if true.']
+const bodyContent = ['bodyContent', 'Array' ,'', 'body contents.']
+const trStyle = ['trStyle', 'Object', '', style('tr')]
+const tdStyle = ['tdStyle', 'Object', '', style('td')]
+const thStyle = ['thStyle', 'Object', '', style('th')]
+const thumbStyle = ['thumbStyle', 'Object', '', style('thumb')]
+const circleStyle = ['circleStyle', 'Object', '', style('circle')]
 
 export default {
   button: [
@@ -94,5 +118,54 @@ export default {
     docked,
     shadowDepth,
     open
+  ],
+  'radio': [
+    styleObj('Radio'),
+    trigger('Radio'),
+    disabled('Radio')
+  ],
+  'snackbar': [
+    styleObj('Radio'),
+    message,
+    undo,
+    messageStyle,
+    undoStyle,
+    open
+  ],
+  textfield: [
+    styleObj('Text Field'),
+    disabled('Text Field'),
+    floatStyle,
+    hintStyle,
+    inputStyle,
+    underlineStyle,
+    forcusUnderlineStyle,
+    floatContent,
+    hintContent,
+    defaultContent
+  ],
+  table: [
+    styleObj('table')
+  ],
+  'tableheader': [
+    styleObj('table header'),
+    headers,
+    select,
+    thStyle
+  ],
+  'tablebody': [
+    styleObj('table body'),
+    bodyContent,
+    selectable,
+    select,
+    trStyle,
+    tdStyle
+  ],
+  toggle: [
+    styleObj('toggle'),
+    trigger('toggle'),
+    disabled('toggle'),
+    circleStyle,
+    thumbStyle
   ]
 }

@@ -4,7 +4,12 @@ import {
   CheckBoxView,
   DownMenuView,
   IconMenuView,
-  MenuBarView } from './components'
+  MenuBarView,
+  RadioView,
+  SnackBarView,
+  TextFieldView,
+  TableView,
+  ToggleView} from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -26,6 +31,21 @@ export default function configRouter (router) {
     },
     'components/menubar': {
       component: MenuBarView
+    },
+    'components/radio': {
+      component: RadioView
+    },
+    'components/snackbar': {
+      component: SnackBarView
+    },
+    'components/textfield': {
+      component: TextFieldView
+    },
+    'components/table': {
+      component: TableView
+    },
+    'components/toggle': {
+      component: ToggleView
     }
   })
 }

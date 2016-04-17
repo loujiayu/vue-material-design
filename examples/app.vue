@@ -15,11 +15,16 @@
                  :ripple=false>
       </menu-item>
       <menu-item class="item" slot="menuList" label="Button" @click="linkTo('/components/button')"></menu-item>
-      <menu-item class="item" slot="menuList" label="CheckBox" @click="linkTo('/components/checkbox')"></menu-item>
-      <menu-item class="item" slot="menuList" label="IconButton" @click="linkTo('/components/iconbutton')"></menu-item>
-      <menu-item class="item" slot="menuList" label="IconMenu" @click="linkTo('/components/iconmenu')"></menu-item>
-      <menu-item class="item" slot="menuList" label="DownMenu" @click="linkTo('/components/downmenu')"></menu-item>
-      <menu-item class="item" slot="menuList" label="MenuBar" @click="linkTo('/components/menubar')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Check Box" @click="linkTo('/components/checkbox')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Icon Button" @click="linkTo('/components/iconbutton')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Icon Menu" @click="linkTo('/components/iconmenu')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Down Menu" @click="linkTo('/components/downmenu')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Menu Bar" @click="linkTo('/components/menubar')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Radio" @click="linkTo('/components/radio')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Snack Bar" @click="linkTo('/components/snackbar')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Table" @click="linkTo('/components/table')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Text Field" @click="linkTo('/components/textfield')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Toggle" @click="linkTo('/components/toggle')"></menu-item>
     </menu-bar>
     <router-view v-ref:mainview class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
   </div>

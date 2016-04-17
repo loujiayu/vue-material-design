@@ -19,6 +19,7 @@ export default {
   data: function() {
     const styles = {
       root: {
+        display: 'inline-block',
         position: 'relative',
         height: '24px',
         width: '24px',

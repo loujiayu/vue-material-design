@@ -14,7 +14,6 @@ export default {
     const styles = {
       root: {
         height: 'auto'
-        // overflow: 'auto'
       }
     }
     return {

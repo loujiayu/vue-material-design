@@ -36,6 +36,16 @@ export default {
       description: '',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.menubar,
+      html: '\t<base-button label="BUTTON" @click="dockToggle"></base-button> \
+            \n\t<menu-bar :open.sync="dockOpen" :docked=false> \
+            \n\t  <menu-item slot="menuList" label="menu item 1"></menu-item> \
+            \n\t  <menu-item slot="menuList" label="menu item 2"></menu-item> \
+            \n\t</menu-bar> \
+            \n\n\t<base-button label="BUTTON" @click="toggle"></base-button> \
+            \n\t<menu-bar :open="open" slot="ex"> \
+            \n\t  <menu-item slot="menuList" label="menu item 1"></menu-item> \
+            \n\t  <menu-item slot="menuList" label="menu item 2"></menu-item> \
+            \n\t</menu-bar>',
       open: false,
       dockOpen: false,
     }

@@ -5,7 +5,6 @@
     <span :style="mCircleStyle">
       <touch-ripple :center=true v-if="!disabled" :style-obj="zoom"></touch-ripple>
     </span>
-
   </div>
 </template>
 
@@ -19,6 +18,7 @@ export default {
   data: function(){
     const styles = {
       root: {
+        display: 'inline-block',
         height: '24px',
         width: '36px',
         position: 'relative',
@@ -74,7 +74,9 @@ export default {
       type: Boolean,
       default: false
     },
-    disabled: Boolean
+    disabled: Boolean,
+    circleStyle: Object,
+    thumbStyle: Object
   },
   components: {
     touchRipple

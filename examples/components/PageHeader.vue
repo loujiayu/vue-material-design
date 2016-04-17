@@ -1,7 +1,7 @@
 <template>
   <div class="top">
     <h3 class="title">{{title}}</h3>
-    <p> {{description}} </p>
+    <p> {{description | capitalize}} </p>
   </div>
 </template>
 

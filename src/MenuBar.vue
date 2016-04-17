@@ -3,7 +3,7 @@
     <div :style="mMuneStyle">
       <slot name="menuList"></slot>
     </div>
-    <div class="mask" v-if="!docked">
+    <div class="mask" v-if="!docked" v-show="open" transition="mask">
     </div>
   </div>
 </template>
@@ -32,7 +32,6 @@ export default {
         width: '100%',
         height: '100%',
         overflowY: 'scroll',
-        zIndex: '10'
       }
     }
     return {
@@ -85,13 +84,22 @@ export default {
 
 <style media="screen">
 .mask {
-  background-color: rgba(0, 0, 0, 0.541176);
   top: 0;
-  left: 0;
+  right: 0;
   position: fixed;
-  width: calc(100% - 80px);
+  width: calc(100% - 256px);
   height: 100%;
-  z-index: 1;
+  will-change: background-color;
+  transition-property: background-color;
+  transition-timing-function: ease-out;
+  transition-duration: .5s;
+}
+.mask-transition {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.mask-enter,
+.mask-leave {
+  background-color: rgba(0, 0, 0, 0);
 }
 .slide-transition {
   left: 0;

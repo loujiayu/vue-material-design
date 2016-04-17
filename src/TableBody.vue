@@ -4,7 +4,7 @@
       <tbody>
         <tr v-for="row in bodyContent | orderBy firstLetter" :style="mTrStyle" @click="handleClick"
             key="{{$index}}" :class="selectedRow[$index] ? 'selected':''">
-          <td v-if="select" :style="mSelectStyle"><check-box :trigger="selectedRow[$index]"></check-box></td>
+          <td v-if="checkbox" :style="mSelectStyle"><check-box :trigger="selectedRow[$index]"></check-box></td>
           <td v-for="col in row " :style="mTdStyle">
             {{col}}
           </td>
@@ -45,7 +45,7 @@ export default {
       tr: {
         borderBottom: '1px solid #e0e0e0',
       },
-      select: {
+      checkbox: {
         width: '24px'
       },
     }
@@ -53,7 +53,7 @@ export default {
       mTrStyle: Object.assign(styles.tr, this.trStyle),
       mRootStyle: getStyles(styles.root, this.styleObj),
       mTdStyle: getStyles(styles.td, this.tdStyle),
-      mSelectStyle: getStyles(Object.assign({}, styles.td, styles.select), this.tdStyle),
+      mSelectStyle: getStyles(Object.assign({}, styles.td, styles.checkbox), this.tdStyle),
       selectedRow: []
     }
   },
@@ -62,7 +62,7 @@ export default {
     bodyContent: Array,
     striped: Boolean,
     selectable: Boolean,
-    select: Boolean,
+    checkbox: Boolean,
     trStyle: Object,
     tdStyle: Object
   },
@@ -77,7 +77,7 @@ export default {
       } else {
         node = e.target.closest('tr')
       }
-      if (this.select) {
+      if (this.selectable) {
         this.selectedRow = Array(this.bodyContent.length).fill(false)
         const rowIndex = node.getAttribute('key')
         const prev = this.selectedRow[rowIndex]

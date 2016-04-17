@@ -2,9 +2,9 @@
   <div>
     <page-header :title="title" :description="description"></page-header>
     <example :code-html="html">
-      <check-box :trigger=true slot="ex" :style-obj="style"></check-box>
-      <check-box :trigger=false slot="ex" :style-obj="style"></check-box>
-      <check-box :disabled=true slot="ex" :style-obj="style"></check-box>
+      <toggle slot="ex" :style-obj="toggleStyle" :trigger=true></toggle>
+      <toggle slot="ex" :style-obj="toggleStyle"></toggle>
+      <toggle slot="ex" :disabled=true :style-obj="toggleStyle"></toggle>
     </example>
     <property>
       <table-wrapper slot="pro">
@@ -20,28 +20,28 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import { TableWrapper,TableBody, TableHeader, CheckBox} from 'mtv'
+import {TableWrapper,TableBody, TableHeader, Toggle} from 'mtv'
 
 export default {
   data: function() {
     return {
-      title: 'CheckBox',
-      description: 'checkbox is used to select option.',
+      title: 'Toggle',
+      description: 'Toggle is used to select option.',
       tableHeader: ['property','type','default','description'],
-      bodyContent: desc.checkbox,
-      style: {
+      bodyContent: desc.toggle,
+      html: '\t<toggle :trigger=true></toggle>\
+             \n\t<toggle></toggle> \
+             \n\t<toggle :disabled=true></toggle>',
+      toggleStyle: {
         marginRight: '10px'
-      },
-      html:'\t<check-box :trigger=true></check-box> \
-            \n\t<check-box :trigger=false></check-box> \
-            \n\t<check-box :disabled=true></check-box>'
+      }
     }
   },
   components: {
+    Toggle,
     PageHeader,
     Example,
     Property,
-    CheckBox,
     TableBody,
     TableHeader,
     TableWrapper
@@ -52,5 +52,4 @@ export default {
 
 <style media="screen" lang="scss">
 @import "../styles/common.scss";
-
 </style>

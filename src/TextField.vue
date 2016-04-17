@@ -1,7 +1,7 @@
 <template>
-  <div :style="mRootStyle" :class="className">
-    <label v-if="mFloatStyle" for="sp" :style="floatStyle">{{floatContent}}</label>
-    <div :style="mHintStyle" v-show="show">
+  <div :style="mRootStyle">
+    <label v-if="floatContent" for="sp" :style="mFloatStyle">{{floatContent}}</label>
+    <div :style="mHintStyle" v-show="show" v-if="hintContent">
       {{hintContent}}
     </div>
     <div>
@@ -10,7 +10,7 @@
     </div>
     <input :disabled="disabled" type="text" :style="mInputStyle" id="sp"
            @focus="handleForcus" @blur="handleBlur($event)"
-           @input="handleInput($event)" />
+           @input="handleInput($event)" :value="defaultContent"/>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
       borderBottom: this.disabled ? 'dotted 2px' : 'solid 1px',
       boxSizing: 'content-box',
       position: 'absolute',
-      bottom: this.floatContent ? '25px' : '15px',
+      bottom: this.floatContent ? '25px' : '10px',
       borderColor: '#e0e0e0',
       margin: '0'
     }
@@ -54,6 +54,9 @@ export default {
         lineHeight: '22px',
         top: '25px',
         willChange: 'transform',
+        transform: this.defaultContent ?
+              'perspective(1px) scale(0.75) translate3d(0, -28px, 0)' :
+              'scale(1) translate3d(0, 0, 0)',
         transition: Transitions.easeOut(),
         cursor: this.disabled ? 'default' : 'text',
         transformOrigin: 'left top',
@@ -81,7 +84,7 @@ export default {
         borderBottom: this.disabled ? 'dotted 2px' : 'solid 1px',
         boxSizing: 'content-box',
         position: 'absolute',
-        bottom: this.floatContent ? '25px' : '15px',
+        bottom: this.floatContent ? '25px' : '10px',
         borderColor: '#e0e0e0',
         margin: '0'
       },
@@ -106,10 +109,8 @@ export default {
     inputStyle: Object,
     underlineStyle: Object,
     forcusUnderlineStyle: Object,
-    className: String,
     backgroundColor: String,
     floatContent: String,
-    shrink: Boolean,
     disabled: {
       type: Boolean,
       default: false
@@ -121,19 +122,19 @@ export default {
     handleForcus: function() {
       this.isForcused = true
       this.show = event.target.value ? false : true
-      this.$set('forcusUnderlineStyle.transform', 'scaleX(1)')
-      this.$set('floatStyle.transform', 'perspective(1px) scale(0.75) translate3d(0, -28px, 0)')
-      this.$set('floatStyle.pointerEvents', 'none')
-      this.$set('floatStyle.color', 'rgb(105, 189, 242)')
+      this.$set('mForcusUnderlineStyle.transform', 'scaleX(1)')
+      this.$set('mFloatStyle.transform', 'perspective(1px) scale(0.75) translate3d(0, -28px, 0)')
+      this.$set('mFloatStyle.pointerEvents', 'none')
+      this.$set('mFloatStyle.color', 'rgb(105, 189, 242)')
     },
     handleBlur: function(event) {
       this.isForcused = false
       this.show = (this.floatContent || event.target.value) ? false : true
-      this.$set('forcusUnderlineStyle.transform', 'scaleX(0)')
+      this.$set('mForcusUnderlineStyle.transform', 'scaleX(0)')
       if (!event.target.value) {
-        this.$set('floatStyle.transform', 'scale(1) translate3d(0, 0, 0)')
-        this.$set('floatStyle.pointerEvents', 'auto')
-        this.$set('floatStyle.color', 'rgb(192, 198, 201)')
+        this.$set('mFloatStyle.transform', 'scale(1) translate3d(0, 0, 0)')
+        this.$set('mFloatStyle.pointerEvents', 'auto')
+        this.$set('mFloatStyle.color', 'rgb(192, 198, 201)')
       }
     },
     handleInput: function(event) {
