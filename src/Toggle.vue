@@ -1,7 +1,7 @@
 <template>
   <div :style="mRootStyle" @click="handleClick">
-    <span :style="mThumbStyle">
-    </span>
+    <input :style="mInputStyle" type="checkbox" :id="labelId">
+    <span :style="mThumbStyle"></span>
     <span :style="mCircleStyle">
       <touch-ripple :center=true v-if="!disabled" :style-obj="zoom"></touch-ripple>
     </span>
@@ -45,12 +45,21 @@ export default {
         width: '20px',
         position: 'absolute',
         boxShadow: zDepthShadows[0],
+      },
+      input: {
+        position: 'absolute',
+        opacity: '0',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%'
       }
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
       mThumbStyle: Object.assign(styles.thumb, this.thumbStyle),
       mCircleStyle: Object.assign(styles.circle, this.circleStyle),
+      mInputStyle: styles.input,
       zoom: {
         height: '200%',
         width: '200%',
@@ -76,7 +85,8 @@ export default {
     },
     disabled: Boolean,
     circleStyle: Object,
-    thumbStyle: Object
+    thumbStyle: Object,
+    labelId: String
   },
   components: {
     touchRipple

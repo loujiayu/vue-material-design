@@ -1,5 +1,6 @@
 <template>
   <div :style="mRootStyle" @click="handleClick">
+    <input :style="mInputStyle" type="checkbox" :id="labelId">
     <radio-checked :trigger="trigger" v-if="!disabled"></radio-checked>
     <radio-unchecked :trigger="trigger" :disabled="disabled"></radio-unchecked>
     <touch-ripple :style-obj="zoom" v-if="!disabled" :center=true></touch-ripple>
@@ -25,9 +26,18 @@ export default {
         width: '24px',
         cursor: this.disabled ? 'default' : 'pointer'
       },
+      input: {
+        position: 'absolute',
+        opacity: '0',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%'
+      }
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
+      mInputStyle: styles.input,
       zoom: {
         height: '200%',
         width: '200%',
@@ -42,6 +52,7 @@ export default {
       type: Boolean,
       default: false
     },
+    labelId: String,
     disabled: Boolean
   },
   components: {

@@ -4,10 +4,3 @@
     <slot name="pro"></slot>
   </div>
 </template>
-
-<style media="screen" lang="scss">
-.property {
-  h4 {
-  }
-}
-</style>

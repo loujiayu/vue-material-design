@@ -63,6 +63,7 @@ const tdStyle = ['tdStyle', 'Object', '', style('td')]
 const thStyle = ['thStyle', 'Object', '', style('th')]
 const thumbStyle = ['thumbStyle', 'Object', '', style('thumb')]
 const circleStyle = ['circleStyle', 'Object', '', style('circle')]
+const labelId = ['labelId', 'String', '', 'id can be associated with labels']
 
 export default {
   button: [
@@ -96,7 +97,8 @@ export default {
   checkbox: [
     styleObj('CheckBox'),
     disabled('CheckBox'),
-    trigger('CheckBox')
+    trigger('CheckBox'),
+    labelId
   ],
   downmenu: [
     styleObj('DownMenu'),
@@ -122,7 +124,8 @@ export default {
   'radio': [
     styleObj('Radio'),
     trigger('Radio'),
-    disabled('Radio')
+    disabled('Radio'),
+    labelId
   ],
   'snackbar': [
     styleObj('Radio'),
@@ -166,6 +169,7 @@ export default {
     trigger('toggle'),
     disabled('toggle'),
     circleStyle,
-    thumbStyle
+    thumbStyle,
+    labelId
   ]
 }
