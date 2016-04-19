@@ -4,3 +4,10 @@
     <slot name="pro"></slot>
   </div>
 </template>
+
+<style media="screen">
+.property {
+  /*min-width: 500px;
+  overflow: auto;*/
+}
+</style>

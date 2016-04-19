@@ -13,7 +13,10 @@ export default {
   data: function() {
     const styles = {
       root: {
-        height: 'auto'
+        height: 'auto',
+        // minWidth: '600px',
+        overflow: 'auto',
+        // maxHeight: '100px'
       }
     }
     return {

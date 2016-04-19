@@ -1,4 +1,7 @@
 .desc {
+  td {
+    min-width: 100px;
+  }
   td:nth-child(1) {
     color: #3498db;
   }
@@ -8,7 +11,10 @@
   td:nth-child(3) {
     color: rgb(133, 130, 129);
   }
-  td:nth-child(4):first-letter {
-    text-transform: uppercase;
+  td:nth-child(4) {
+    // width: 400px;
+    &:first-letter {
+      text-transform: uppercase;
+    }
   }
 }

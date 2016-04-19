@@ -3,7 +3,7 @@
     <div :style="mMuneStyle">
       <slot name="menuList"></slot>
     </div>
-    <div class="mask" v-if="!docked" v-show="open" transition="mask">
+    <div class="mask" v-show="!docked && open" transition="mask">
     </div>
   </div>
 </template>
@@ -27,16 +27,18 @@ export default {
         transition: Transitions.easeOut('200ms', 'left', ''),
         fontFamily: 'Roboto, sans-serif',
         boxShadow: zDepthShadows[this.shadowDepth - 1],
+        zIndex: '1'
       },
-      munu: {
+      menu: {
         width: '100%',
         height: '100%',
-        overflowY: 'scroll',
+        overflowY: 'auto',
       }
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
-      mMuneStyle: styles.menu
+      mMuneStyle: styles.menu,
+      added: false
     }
   },
   props: {
@@ -54,6 +56,7 @@ export default {
   created: function() {
     if (!this.docked) {
       window.addEventListener('click',this.clickAway, true)
+      this.added = true
     }
   },
   destroyed: function() {
@@ -61,20 +64,26 @@ export default {
       window.removeEventListener('click', this.clickAway)
     }
   },
-  // watch: {
-  //   open: function() {
-  //     if (!this.docked) {
-  //       if (this.open) {
-  //         document.body.style.backgroundColor = 'rgba(0,0,0,.3)'
-  //       } else {
-  //         document.body.style.backgroundColor = ''
-  //       }
-  //     }
-  //   }
-  // },
+  watch: {
+    open: function() {
+      // console.log(this.open);
+    },
+    docked: function() {
+      if (!this.added && !this.docked) {
+        window.addEventListener('click',this.clickAway, true)
+      }
+      console.log(this.open)
+      console.log(this.docked)
+    }
+  },
+  computed: {
+    test: function() {
+      return !this.open
+    }
+  },
   methods: {
     clickAway: function(event) {
-      if (!(this.$el.children[0] && this.$el.children[0].contains(event.target) ) && this.open) {
+      if (!(this.$el.children[0] && this.$el.children[0].contains(event.target) ) && this.open && !this.docked) {
         this.open = false
       }
     }

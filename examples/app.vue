@@ -5,7 +5,7 @@
       <span slot="title" class="">title</span>
       <icon-button icon-class="fa fa-github fa-2x anti-color" slot="rightNav"></icon-button>
     </nav-bar>
-    <menu-bar :open="open" v-ref:sidebar>
+    <menu-bar :open.sync="open" v-ref:sidebar :docked="!small">
       <menu-item class="header item"
                  slot="menuList"
                  label="HOME"
@@ -26,7 +26,7 @@
       <menu-item class="item" slot="menuList" label="Text Field" @click="linkTo('/components/textfield')"></menu-item>
       <menu-item class="item" slot="menuList" label="Toggle" @click="linkTo('/components/toggle')"></menu-item>
     </menu-bar>
-    <router-view v-ref:mainview class="router" transition="switch" :class="open ? 'view' : 'resView'" keep-alive></router-view>
+    <router-view v-ref:mainview class="router" transition="switch" :class="open&&!small ? 'view' : 'resView'" keep-alive></router-view>
   </div>
 </template>
 
@@ -44,7 +44,35 @@ export default {
     return {
       // inline style overwrite in firfox when open set to false
       open: true,
+      small: window.innerWidth < 750 ? true : false
     }
+  },
+  ready: function() {
+    var throttle = function (type, name, obj) {
+      obj = obj || window
+      var running = false
+      var func = function() {
+        if (running) { return }
+        running = true
+        requestAnimationFrame(function() {
+          obj.dispatchEvent(new CustomEvent(name))
+          running = false
+        })
+      }
+      obj.addEventListener(type, func)
+    }
+    throttle("resize", "optimizedResize")
+    window.addEventListener("optimizedResize", () => {
+      const width = window.innerWidth
+      const size = 750
+      if(width < size) {
+        this.open = false
+        this.small = true
+      } else {
+        this.open = true
+        this.small = false
+      }
+    })
   },
   methods: {
     handleClick: function() {
@@ -97,5 +125,4 @@ export default {
 .anti-color {
   color: white;
 }
-
 </style>
