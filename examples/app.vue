@@ -43,7 +43,7 @@ export default {
   data: function() {
     return {
       // inline style overwrite in firfox when open set to false
-      open: true,
+      open: window.innerWidth < 750  ? false : true,
       small: window.innerWidth < 750 ? true : false
     }
   },

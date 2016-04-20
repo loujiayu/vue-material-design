@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --verbose --colors --display-error-details --watch --config build/webpack.dev.config.js",
-    "build-examples": "webpack-dev-server --verbose --watch --context examples/  --config  examples/webpack.config.js"
+    "build-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
+    "start-prod": "webpack --verbose --colors --watch --context examples/ --config examples/webpack-production.config.js"
   },
   "author": "",
   "license": "ISC",
