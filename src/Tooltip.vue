@@ -84,7 +84,7 @@ export default {
   methods: {
     handleClick: function() {
       this.$parent.$refs.touch.$el.click()
-    }
+    },
   }
 }
 </script>

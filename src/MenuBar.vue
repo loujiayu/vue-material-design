@@ -1,6 +1,6 @@
 <template >
   <div :style="mRootStyle" v-show="open" transition="slide">
-    <div :style="mMuneStyle">
+    <div :style="mMuneStyle" @click="handleClick">
       <slot name="menuList"></slot>
     </div>
     <div class="mask" v-show="!docked && open" transition="mask">
@@ -85,6 +85,11 @@ export default {
     clickAway: function(event) {
       if (!(this.$el.children[0] && this.$el.children[0].contains(event.target) ) && this.open && !this.docked) {
         this.open = false
+      }
+    },
+    handleClick: function() {
+      if (!this.docked) {
+        this.open=false
       }
     }
   }

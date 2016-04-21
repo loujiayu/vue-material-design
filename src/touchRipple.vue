@@ -1,7 +1,8 @@
 <template>
   <div :style="mRootStyle"
     @click="handleClick"
-    @mouseup="handleMouseUp"
+    @touchstart="handleTouchStart($event)"
+    @touchend="handleTouchEnd($event)"
   >
     <div v-for="ripple in ripples" :style="ripple.style" transition="touch"></div>
   </div>
@@ -40,7 +41,7 @@ export default {
         transition: `${Transitions.easeOut('2s', 'opacity')}, ${
         Transitions.easeOut('1s', 'transform')}`,
         backgroundColor: 'rgba(148, 154, 144, 0.5)'
-      }
+      },
     }
   },
   props: {
@@ -52,17 +53,26 @@ export default {
       event.preventDefault()
       this.addRipple(event)
     },
-    handleMouseUp: function() {
-      // this.removeRipple(event)
+    handleTouchStart: function(event) {
+      event.stopPropagation()
+      if (event.touches) {
+        this.firstTouchY = event.touches[0].clientY;
+        this.firstTouchX = event.touches[0].clientX;
+        this.startTime = Date.now()
+      }
+    },
+    handleTouchEnd: function(event) {
+      const deltaY = Math.abs(event.changedTouches[0].clientY - this.firstTouchY)
+      const deltaX = Math.abs(event.changedTouches[0].clientX - this.firstTouchX)
+      if (deltaY < 6 && deltaX < 6) {
+        this.addRipple(event)
+      }
     },
     addRipple: function(event) {
       const ripple = Object.create(null)
       ripple.style = this.center ? getStyles(this.centerStyle, null) : this.getRippleStyle(event)
       this.ripples.push(ripple)
       setTimeout(() => this.ripples.shift(), 2000)
-    },
-    removeRipple: function(event) {
-
     },
     getRippleStyle(event) {
       const style = Object.create(null)

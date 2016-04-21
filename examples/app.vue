@@ -26,7 +26,7 @@
       <menu-item class="item" slot="menuList" label="Text Field" @click="linkTo('/components/textfield')"></menu-item>
       <menu-item class="item" slot="menuList" label="Toggle" @click="linkTo('/components/toggle')"></menu-item>
     </menu-bar>
-    <router-view v-ref:mainview class="router" transition="switch" :class="open&&!small ? 'view' : 'resView'" keep-alive></router-view>
+    <router-view v-ref:mainview class="router" :class="open&&!small ? 'view' : 'resView'" keep-alive></router-view>
   </div>
 </template>
 
@@ -109,11 +109,6 @@ export default {
 }
 .router {
   padding: 36px 48px;
-  transition: all .2s ease;
-}
-.switch-enter, .switch-leave {
-  opacity: 0;
-  transform: translate3d(10px, 0, 0);
 }
 .view {
   margin-left: 256px;
