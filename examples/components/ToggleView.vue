@@ -29,9 +29,9 @@ export default {
       description: 'Toggle is used to select option.',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.toggle,
-      html: '\t<toggle :trigger=true></toggle>\
-             \n\t<toggle></toggle> \
-             \n\t<toggle :disabled=true></toggle>',
+      html: '<toggle :trigger=true></toggle>\
+             \n<toggle></toggle> \
+             \n<toggle :disabled=true></toggle>',
       toggleStyle: {
         marginRight: '10px'
       }

@@ -34,11 +34,11 @@ export default {
       exStyle: {
         display: 'block',
       },
-      html: '\t<text-field default-content="haha" ></text-field> \
-             \n\t<text-field float-content="float content" ></text-field> \
-             \n\t<text-field hint-content="hint content" ></text-field> \
-             \n\t<text-field float-content="float content" hint-content="hint content" ></text-field> \
-             \n\t<text-field default-content="haha" float-content="float content" hint-content="hint content" ></text-field>'
+      html: '<text-field default-content="haha" ></text-field> \
+             \n<text-field float-content="float content" ></text-field> \
+             \n<text-field hint-content="hint content" ></text-field> \
+             \n<text-field float-content="float content" hint-content="hint content" ></text-field> \
+             \n<text-field default-content="haha" float-content="float content" hint-content="hint content" ></text-field>'
     }
   },
   components: {

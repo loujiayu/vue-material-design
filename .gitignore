@@ -2,4 +2,3 @@ node_modules/
 examples/build/
 lib/
 npm-debug.log
-./index.html

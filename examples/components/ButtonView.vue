@@ -34,11 +34,11 @@ export default {
       labelStyle: {
         color: '#eff2f4'
       },
-      html: '\t<base-button label="BUTTON"></base-button> \
-              \n\t<base-button label="FACEBOOK" background-color="rgb(58, 87, 149)" :shadow-depth="1" icon-class="fa fa-facebook-official fa-2x"></base-button> \
-              \n\t<base-button label="LINUX" background-color="rgb(73, 219, 114)" :shadow-depth="1" :is-icon-front=true icon-class="fa fa-linux fa-2x"></base-button> \
-              \n\t<base-button label="GITHUB LINK" :shadow-depth="1" link="https://github.com" icon-class="fa fa-github fa-2x"></base-button> \
-              \n\t<base-button label="DISABELED" :disabled=true></base-button>'
+      html: '<base-button label="BUTTON"></base-button> \
+              \n<base-button label="FACEBOOK" background-color="rgb(58, 87, 149)" :shadow-depth="1" icon-class="fa fa-facebook-official fa-2x"></base-button> \
+              \n<base-button label="LINUX" background-color="rgb(73, 219, 114)" :shadow-depth="1" :is-icon-front=true icon-class="fa fa-linux fa-2x"></base-button> \
+              \n<base-button label="GITHUB LINK" :shadow-depth="1" link="https://github.com" icon-class="fa fa-github fa-2x"></base-button> \
+              \n<base-button label="DISABELED" :disabled=true></base-button>'
     }
   },
   components: {

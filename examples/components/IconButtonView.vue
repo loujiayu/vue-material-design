@@ -84,16 +84,16 @@ export default {
       description: "button element with an icon.",
       tableHeader: ["property","type","default","description"],
       bodyContent: desc.icon,
-      html: '\t<icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button>\n \
-            \n\t<icon-button icon-class="fa fa-bell-o fa-2x"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-bell-o fa-2x" :disabled=true></icon-button>\n \
-            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="top" horizontal-position="left"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="top" horizontal-position="right"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="top" horizontal-position="center"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="bottom" horizontal-position="left"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="bottom" horizontal-position="right"></icon-button> \
-            \n\t<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="bottom" horizontal-position="center"></icon-button>'
+      html: '<icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button> \
+            \n<icon-button icon-class="fa fa-google fa-2x" link="http://google.com"></icon-button>\n \
+            \n<icon-button icon-class="fa fa-bell-o fa-2x"></icon-button> \
+            \n<icon-button icon-class="fa fa-bell-o fa-2x" :disabled=true></icon-button>\n \
+            \n<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="top" horizontal-position="left"></icon-button> \
+            \n<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="top" horizontal-position="right"></icon-button> \
+            \n<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="top" horizontal-position="center"></icon-button> \
+            \n<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="bottom" horizontal-position="left"></icon-button> \
+            \n<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="bottom" horizontal-position="right"></icon-button> \
+            \n<icon-button icon-class="fa fa-cog fa-2x" tooltip="message position"  vertical-position="bottom" horizontal-position="center"></icon-button>'
     }
   },
   components: {

@@ -24,11 +24,12 @@ export default {
     const styles = {
       root: {
         display: 'flex',
+        position: 'fixed',
         // backgroundColor: '#4fc08d',
+        width: '100%',
         backgroundColor: 'rgb(41, 43, 38)',
-        paddingLeft: navBar.padding,
-        paddingRight: navBar.padding,
         lineHeight: navBar.lineHeight,
+        height: navBar.lineHeight
       },
       title: {
         flex: '1',

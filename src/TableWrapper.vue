@@ -16,6 +16,7 @@ export default {
         height: 'auto',
         // minWidth: '600px',
         overflow: 'auto',
+        WebkitOverflowScrolling: 'touch',
         // maxHeight: '100px'
       }
     }

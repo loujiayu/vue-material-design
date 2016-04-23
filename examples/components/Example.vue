@@ -3,10 +3,7 @@
     <div class="case">
       <slot name="ex"></slot>
     </div>
-    <pre class="snippet-code">
-      <!-- <label for="">HTML</label> -->
-      <code class="html">{{codeHtml}}</code>
-    </pre>
+    <pre class="snippet-code"><code class="html">{{codeHtml}}</code></pre>
   </div>
 </template>
 
@@ -51,11 +48,13 @@ export default {
 .snippet-code {
   line-height: 18px;
   overflow: auto;
+  -webkit-overflow-scrolling: touch;
   white-space: pre;
   word-wrap: normal;
   word-break: break-all;
   background-color: #333;
   margin: 0;
+  padding: 1.5rem;
   code {
     // padding: 16px;
     width: 100%;

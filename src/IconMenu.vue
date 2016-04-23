@@ -31,12 +31,13 @@ export default {
         boxShadow: zDepthShadows[0],
         position:'absolute',
         display: 'inline-block',
-        overflow: 'scroll',
+        overflow: 'auto',
         maxHeight: '150px',
         display: 'inline-block',
         willChange: 'transform',
         backgroundColor: 'white',
         transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
+        WebkitOverflowScrolling: 'touch',
       },
     }
     return {

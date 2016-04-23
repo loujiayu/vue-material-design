@@ -30,10 +30,10 @@ export default {
       description: 'popup notification about an operation.',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.snackbar,
-      html: '\t<base-button @click="handleClick" label="ACTION"></base-button> \
-             \n\t<snack-bar :open.sync="open" message="Some action finished."></snack-bar>\
-             \n\t<base-button @click="handleUndoClick" label="UNDO ACTION"></base-button> \
-             \n\t<snack-bar :open.sync="undoOpen" message="Some action finished." :undo=true></snack-bar>',
+      html: '<base-button @click="handleClick" label="ACTION"></base-button> \
+             \n<snack-bar :open.sync="open" message="Some action finished."></snack-bar>\
+             \n<base-button @click="handleUndoClick" label="UNDO ACTION"></base-button> \
+             \n<snack-bar :open.sync="undoOpen" message="Some action finished." :undo=true></snack-bar>',
       open: false,
       undoOpen: false
     }

@@ -32,9 +32,9 @@ export default {
       style: {
         marginRight: '10px'
       },
-      html:'\t<check-box :trigger=true></check-box> \
-            \n\t<check-box :trigger=false></check-box> \
-            \n\t<check-box :disabled=true></check-box>'
+      html:'<check-box :trigger=true></check-box> \
+            \n<check-box :trigger=false></check-box> \
+            \n<check-box :disabled=true></check-box>'
     }
   },
   components: {

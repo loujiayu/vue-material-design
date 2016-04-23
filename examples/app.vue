@@ -108,7 +108,7 @@ export default {
   }
 }
 .router {
-  padding: 36px 48px;
+  padding: 72px 36px 48px;
 }
 .view {
   margin-left: 256px;

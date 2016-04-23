@@ -29,9 +29,9 @@ export default {
       description: 'radio is used to select option.',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.radio,
-      html: '\t<radio :trigger=true></radio> \
-            \n\t<radio></radio>\
-            \n\t<radio :disabled=true></radio>',
+      html: '<radio :trigger=true></radio> \
+            \n<radio></radio>\
+            \n<radio :disabled=true></radio>',
       radioStyle: {
         marginRight: '10px'
       }

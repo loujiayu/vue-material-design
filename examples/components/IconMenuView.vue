@@ -42,22 +42,22 @@ export default {
       description: 'Lists of clickable actions.',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.iconmenu,
-      html: '\t<icon-menu icon-class="fa fa-list fa-2x"> \
-             \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-             \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-             \n\t</icon-menu> \
-             \n\n\t<icon-menu icon-class="fa fa-list fa-2x" vertical-position="bottom" horizontal-position="right"> \
-              \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-              \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-              \n\t</icon-menu> \
-             \n\n\t<icon-menu icon-class="fa fa-list fa-2x" vertical-position="top" horizontal-position="left"> \
-             \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-             \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-             \n\t</icon-menu> \
-             \n\n\t<icon-menu icon-class="fa fa-list fa-2x" vertical-position="top" horizontal-position="right"> \
-              \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-              \n\t  <base-button label="Some Action" slot="iconList"></base-button> \
-              \n\t</icon-menu> '
+      html: '<icon-menu icon-class="fa fa-list fa-2x"> \
+             \n  <base-button label="Some Action" slot="iconList"></base-button> \
+             \n  <base-button label="Some Action" slot="iconList"></base-button> \
+             \n</icon-menu> \
+             \n\n<icon-menu icon-class="fa fa-list fa-2x" vertical-position="bottom" horizontal-position="right"> \
+              \n  <base-button label="Some Action" slot="iconList"></base-button> \
+              \n  <base-button label="Some Action" slot="iconList"></base-button> \
+              \n</icon-menu> \
+             \n\n<icon-menu icon-class="fa fa-list fa-2x" vertical-position="top" horizontal-position="left"> \
+             \n  <base-button label="Some Action" slot="iconList"></base-button> \
+             \n  <base-button label="Some Action" slot="iconList"></base-button> \
+             \n</icon-menu> \
+             \n\n<icon-menu icon-class="fa fa-list fa-2x" vertical-position="top" horizontal-position="right"> \
+              \n  <base-button label="Some Action" slot="iconList"></base-button> \
+              \n  <base-button label="Some Action" slot="iconList"></base-button> \
+              \n</icon-menu> '
     }
   },
   components: {

@@ -33,6 +33,7 @@ export default {
         width: '100%',
         height: '100%',
         overflowY: 'auto',
+        WebkitOverflowScrolling: 'touch',
       }
     }
     return {
@@ -105,7 +106,7 @@ export default {
   height: 100%;
   will-change: background-color;
   transition-property: background-color;
-  transition-timing-function: ease-out;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   transition-duration: .5s;
 }
 .mask-transition {

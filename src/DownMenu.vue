@@ -38,10 +38,11 @@ export default {
         top: '0',
         backgroundColor: 'white',
         willChange: 'transform',
-        overflow: 'scroll',
+        overflow: 'auto',
         transition: Transitions.easeOut('550ms', ['max-height', 'opacity']),
         boxShadow: zDepthShadows[0],
-        padding: '8px 0'
+        padding: '8px 0',
+        WebkitOverflowScrolling: 'touch'
       }
     }
     return {

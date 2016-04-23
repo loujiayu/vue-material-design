@@ -34,14 +34,14 @@ export default {
       description: 'Lists of clickable actions.',
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.downmenu,
-      html: '\t<down-menu label="Default" > \
-            \n\t  <base-button label="Action" slot="downList"></base-button> \
-            \n\t  <base-button label="Another action" slot="downList"></base-button> \
-            \n\t</down-menu> \
-            \n\t<down-menu label="Default" :disabled=true> \
-            \n\t  <base-button label="Action" slot="downList"></base-button> \
-            \n\t  <base-button label="Another action" slot="downList"></base-button> \
-            \n\t</down-menu> '
+      html: '<down-menu label="Default" > \
+            \n  <base-button label="Action" slot="downList"></base-button> \
+            \n  <base-button label="Another action" slot="downList"></base-button> \
+            \n</down-menu> \
+            \n<down-menu label="Default" :disabled=true> \
+            \n  <base-button label="Action" slot="downList"></base-button> \
+            \n  <base-button label="Another action" slot="downList"></base-button> \
+            \n</down-menu> '
     }
   },
   components: {

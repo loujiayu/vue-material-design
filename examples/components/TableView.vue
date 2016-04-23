@@ -52,18 +52,18 @@ export default {
       bodyContent3: desc.tablebody,
       exampleHeader: ['ID', 'First Name', 'Last Name'],
       exampleContents: [['1','Mark','Otto'],['2','Jacob', 'Thornton'],['3','Larry','the Bird']],
-      html: '\t<div> \
-        \n\t  <label for="tg1">checkbox enable</label> \
-        \n\t  <toggle :trigger.sync="checkbox" label-id="tg1"></toggle>\
-      \n\t</div>\
-      \n\n\t<div>\
-        \n\t  <label for="tg2">table selectable</label>\
-        \n\t  <toggle :trigger.sync="selectable" label-id="tg2"></toggle>\
-      \n\t</div>\
-      \n\n\t<table-wrapper>\
-        \n\t  <table-header slot="header" :headers="exampleHeader" :checkbox="checkbox"></table-header>\
-        \n\t  <table-body slot="body" :body-content="exampleContents" :selectable="selectable" :checkbox="checkbox"></table-body>\
-      \n\t</table-wrapper>',
+      html: '<div> \
+        \n  <label for="tg1">checkbox enable</label> \
+        \n  <toggle :trigger.sync="checkbox" label-id="tg1"></toggle>\
+      \n</div>\
+      \n\n<div>\
+        \n  <label for="tg2">table selectable</label>\
+        \n  <toggle :trigger.sync="selectable" label-id="tg2"></toggle>\
+      \n</div>\
+      \n\n<table-wrapper>\
+        \n  <table-header slot="header" :headers="exampleHeader" :checkbox="checkbox"></table-header>\
+        \n  <table-body slot="body" :body-content="exampleContents" :selectable="selectable" :checkbox="checkbox"></table-body>\
+      \n</table-wrapper>',
 
       checkbox: false,
       selectable: false,
