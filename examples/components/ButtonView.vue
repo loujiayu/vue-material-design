@@ -2,7 +2,7 @@
   <div>
     <page-header :title="title" :description="description"></page-header>
     <example :code-html="html" class="button-examples">
-      <base-button label="BUTTON" slot="ex"></base-button>
+      <base-button label="BUTTON" slot="ex" ></base-button>
       <base-button label="FACEBOOK" slot="ex" :label-style="labelStyle" background-color="rgb(58, 87, 149)" :shadow-depth='1' icon-class="fa fa-facebook-official fa-2x"></base-button>
       <base-button label="LINUX" slot="ex" :label-style="labelStyle" background-color="rgb(73, 219, 114)" :shadow-depth='1' :is-icon-front=true icon-class="fa fa-linux fa-2x"></base-button>
       <base-button label="GITHUB LINK" slot="ex" :shadow-depth='1' link='https://github.com' icon-class="fa fa-github fa-2x"></base-button>
@@ -55,8 +55,9 @@ export default {
 <style media="screen" lang="scss">
 @import "../styles/common.scss";
 .button-examples {
-  button {
+  [slot="ex"] {
     margin: 10px !important;
   }
 }
+
 </style>

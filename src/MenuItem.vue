@@ -40,7 +40,9 @@ export default {
       button: {
         flex: '5',
         width: '100%',
-        display: 'block'
+        display: 'block',
+        lineHeight: '48px',
+        paddingLeft:'20%'
       }
     }
     return {

@@ -1,6 +1,6 @@
 <template>
   <div :style="mRootStyle" @click="handleClick">
-    <input :style="mInputStyle" type="checkbox" :id="labelId">
+    <input :style="mInputStyle" type="checkbox" :id="labelId" ></input>
     <check-box-inline :trigger="trigger" v-if="!disabled"></check-box-inline>
     <check-box-outline :trigger="trigger" :disabled="disabled"></check-box-outline>
     <touch-ripple :style-obj="zoom" v-if="!disabled" :center=true></touch-ripple>

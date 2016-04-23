@@ -8,8 +8,8 @@
       :icon-class="iconClass"
       >
     </icon-button>
-    <div :style="mMenuStyles" v-show="open" transition="iconSlide">
-      <slot class="ffafiu" name="iconList"></slot>
+    <div  v-show="open" :style="mMenuStyles" transition="iconSlide">
+      <slot name="iconList"></slot>
     </div>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
         willChange: 'transform',
         backgroundColor: 'white',
         transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
-        WebkitOverflowScrolling: 'touch',
+        // WebkitOverflowScrolling: 'touch',
       },
     }
     return {
@@ -76,21 +76,18 @@ export default {
     transformOrigin += this.verticalPosition=='top' ? '100%' : '0%'
     // transformOrigin += '0'
     node.style.cssText += `${vOrient};${hOrient};transform-origin:${transformOrigin};`
+    // console.log(this.open);
+    // console.log('iconmune');
   },
   destroyed: function() {
     window.removeEventListener('click', clickAway)
   },
   methods: {
     handleClick: function(event) {
-      // if(event.stopPropagation) {
-      //   event.stopPropagation();
-      // }
-      // else if(event.cancelBubble) {
-      //   event.cancelBubble = true
-      // }
       this.open = true
+      // console.log(this.open);
     },
-    clickAway: function() {
+    clickAway: function(event) {
       if (!(this.$el && this.$el.contains(event.target) ) && this.open) {
         this.open = false
       }

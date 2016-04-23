@@ -1,6 +1,6 @@
 <template >
-  <div :style="mRootStyle" v-show="open" transition="slide">
-    <div :style="mMuneStyle" @click="handleClick">
+  <div v-show="open" :style="mRootStyle" transition="slide">
+    <div :style="mMuneStyle" @click="handleClick($event)">
       <slot name="menuList"></slot>
     </div>
     <div class="mask" v-show="!docked && open" transition="mask">
@@ -23,6 +23,7 @@ export default {
         width: '256px',
         position: 'fixed',
         top: '0',
+        // lineHeight: '1.5',
         backgroundColor: 'white',
         transition: Transitions.easeOut('200ms', 'left', ''),
         fontFamily: 'Roboto, sans-serif',
@@ -33,7 +34,7 @@ export default {
         width: '100%',
         height: '100%',
         overflowY: 'auto',
-        WebkitOverflowScrolling: 'touch',
+        // WebkitOverflowScrolling: 'touch',
       }
     }
     return {
@@ -57,6 +58,7 @@ export default {
   created: function() {
     if (!this.docked) {
       window.addEventListener('click',this.clickAway, true)
+
       this.added = true
     }
   },
@@ -88,11 +90,12 @@ export default {
         this.open = false
       }
     },
-    handleClick: function() {
-      if (!this.docked) {
+    handleClick: function(event) {
+      var itemNode = event.target.closest('[slot="menuList"]')
+      if (!this.docked && itemNode.contains(event.target)) {
         this.open=false
       }
-    }
+    },
   }
 }
 </script>

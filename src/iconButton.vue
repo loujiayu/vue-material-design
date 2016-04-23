@@ -1,5 +1,5 @@
 <template>
-  <button :style="mRootStyle"
+  <div :style="mRootStyle"
       v-bind="{disabled: disabled}"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
@@ -12,9 +12,9 @@
       :horizontal-position="horizontalPosition"
     >
     </tooltip>
-    <span :class="iconClass"></span>
+    <span :class="iconClass" :style="centerStyle"></span>
     <touch-ripple v-if="!disabled" :center=true v-ref:touch></touch-ripple>
-  </button>
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -34,6 +34,7 @@ export default {
         border: '10px',
         padding: '0',
         margin: '0',
+        lineHeight: '48px',
         display: 'inline-block',
         position: 'relative',
         outline: 'none',
@@ -44,6 +45,11 @@ export default {
     }
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
+      centerStyle: {
+        marginLeft: '50%',
+        transform: 'translateX(-50%)',
+        lineHeight: '48px'
+      },
       msg: false
     }
   },

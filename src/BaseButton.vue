@@ -1,13 +1,13 @@
 <template>
-  <button :style="mRootStyle"
+  <div :style="mRootStyle"
       v-bind="{disabled: disabled}"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
       @click="handleClick" >
-    <span v-if="label" :style="mLabelStyle">{{label}}</span>
+    <span v-if="label" :style="mLabelStyle" @click="testclick($event)">{{label}}</span>
     <span v-if="iconClass" :class="iconClass" :style="mIconStyle"></span>
     <touch-ripple v-if="!disabled && ripple"></touch-ripple>
-  </button>
+  </div>
 </template>
 
 <script type="text/javascript">
@@ -37,12 +37,12 @@ export default {
         whiteSpace: 'nowrap',
         fontFamily: "Roboto, sans-serif",
         outline: 'none',
+        lineHeight: '36px',
         textDecoration: 'none',
         transition: Transitions.easeOut(),
         overflow: 'hidden',
         cursor: this.disabled ? 'default' : 'pointer',
         borderRadius: '2px',
-        lineHeight: 'inherit',
         boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
       },
       label: {
@@ -91,6 +91,9 @@ export default {
   ready: function() {
   },
   methods: {
+    testclick: function() {
+      console.log('test click');
+    },
     handleMouseEnter: function() {
       if (this.hover) {
         if (this.backgroundColor) {
@@ -106,6 +109,7 @@ export default {
       }
     },
     handleClick: function() {
+      console.log('my button ');
       if (this.disabled) {
         return
       }

@@ -16,16 +16,7 @@ export default {
 }
 </script>
 
-<style media="screen" lang="less">
-.case {
-  button {
-    // display: inline-block !important;
-    // width: 100px !important;
-  }
-}
-</style>
-
-<style media="screen" lang="less">
+<style media="screen" lang="scss">
 .examples {
   border: 1px solid rgba(141, 143, 141, .3);
   border-radius: 4px;
@@ -48,7 +39,6 @@ export default {
 .snippet-code {
   line-height: 18px;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
   white-space: pre;
   word-wrap: normal;
   word-break: break-all;

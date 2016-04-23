@@ -43,6 +43,7 @@ export default {
   data: function() {
     return {
       // inline style overwrite in firfox when open set to false
+      // open: false,
       open: window.innerWidth < 750  ? false : true,
       small: window.innerWidth < 750 ? true : false
     }
@@ -95,6 +96,9 @@ export default {
 <style lang="less">
 .table {
   width: 800px;
+}
+.fa-2x {
+  font-size: 1.5em;
 }
 .test {
   // top: 100px;

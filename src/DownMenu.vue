@@ -42,7 +42,7 @@ export default {
         transition: Transitions.easeOut('550ms', ['max-height', 'opacity']),
         boxShadow: zDepthShadows[0],
         padding: '8px 0',
-        WebkitOverflowScrolling: 'touch'
+        // WebkitOverflowScrolling: 'touch'
       }
     }
     return {
