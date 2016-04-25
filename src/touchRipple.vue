@@ -54,7 +54,7 @@ export default {
       this.addRipple(event)
     },
     handleTouchStart: function(event) {
-      event.stopPropagation()
+      // event.stopPropagation()
       if (event.touches) {
         this.firstTouchY = event.touches[0].clientY;
         this.firstTouchX = event.touches[0].clientX;

@@ -1,10 +1,13 @@
 <template>
   <div :style="mRootStyle"
       v-bind="{disabled: disabled}"
+      @touchstart="handleTouchStart($event)"
+      @touchend="handleTouchEnd($event)"
+      @click="testclick($event)"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
       @click="handleClick" >
-    <span v-if="label" :style="mLabelStyle" @click="testclick($event)">{{label}}</span>
+    <span v-if="label" :style="mLabelStyle" >{{label}}</span>
     <span v-if="iconClass" :class="iconClass" :style="mIconStyle"></span>
     <touch-ripple v-if="!disabled && ripple"></touch-ripple>
   </div>
@@ -61,7 +64,8 @@ export default {
     return {
       mRootStyle: getStyles(styles.root, this.styleObj),
       mLabelStyle: getStyles(styles.label, this.labelStyle),
-      mIconStyle: getStyles(styles.icon, this.iconStyle)
+      mIconStyle: getStyles(styles.icon, this.iconStyle),
+      touch: false
     }
   },
   props: {
@@ -88,13 +92,16 @@ export default {
   components: {
     touchRipple
   },
-  ready: function() {
-  },
   methods: {
     testclick: function() {
       console.log('test click');
+      console.log(new Date().getTime());
     },
     handleMouseEnter: function() {
+      // disable hover for mobile device
+      if (this.touch) {
+        this.hover = false
+      }
       if (this.hover) {
         if (this.backgroundColor) {
           this.$el.style.backgroundColor = ColorManipulator.fade(this.backgroundColor, 0.8)
@@ -107,6 +114,15 @@ export default {
       if (this.hover) {
         this.$el.style.backgroundColor = this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)'
       }
+    },
+    handleTouchStart: function(event) {
+      // event.stopPropagation()
+      console.log('touchstart');
+      console.log(new Date().getTime());
+      this.touch = true
+    },
+    handleTouchEnd: function(event) {
+
     },
     handleClick: function() {
       console.log('my button ');

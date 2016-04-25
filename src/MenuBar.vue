@@ -79,11 +79,6 @@ export default {
       console.log(this.docked)
     }
   },
-  computed: {
-    test: function() {
-      return !this.open
-    }
-  },
   methods: {
     clickAway: function(event) {
       if (!(this.$el.children[0] && this.$el.children[0].contains(event.target) ) && this.open && !this.docked) {
