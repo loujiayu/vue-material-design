@@ -79,9 +79,9 @@ export default {
       default: 'left'
     }
   },
-  created: function() {
-    this.mergedStyles = Object.assign(this.originStyles, this.styleObj)
-  },
+  // created: function() {
+  //   this.mergedStyles = Object.assign(this.originStyles, this.styleObj)
+  // },
   methods: {
     handleClick: function() {
       this.$parent.$refs.touch.$el.click()

@@ -1,20 +1,22 @@
 <template>
   <div :style="mRootStyle"
       v-bind="{disabled: disabled}"
+      @focus="handleForcus($event)"
+      @blur="handleBlur($event)"
       @touchstart="handleTouchStart($event)"
       @touchend="handleTouchEnd($event)"
-      @click="testclick($event)"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
-      @click="handleClick" >
+      @click="handleClick"
+      :tabIndex="keyboardFocus ? 0 : -1">
     <span v-if="label" :style="mLabelStyle" >{{label}}</span>
     <span v-if="iconClass" :class="iconClass" :style="mIconStyle"></span>
-    <touch-ripple v-if="!disabled && ripple"></touch-ripple>
+    <touch-ripple v-if="!disabled && ripple" :tab-pressed="focused"></touch-ripple>
   </div>
 </template>
 
 <script type="text/javascript">
-
+import Event from 'utils/events'
 import touchRipple from 'touchRipple'
 import Transitions from 'styles/transitions'
 import ColorManipulator from 'styles/colorManipulator';
@@ -65,7 +67,11 @@ export default {
       mRootStyle: Object.assign(styles.root, this.styleObj),
       mLabelStyle: Object.assign(styles.label, this.labelStyle),
       mIconStyle: Object.assign(styles.icon, this.iconStyle),
-      touch: false
+      touch: false,
+      tabPressed: false,
+      tabListening: false,
+      focused: false,
+      forcusTimeout: null
     }
   },
   props: {
@@ -76,6 +82,10 @@ export default {
     iconClass: String,
     backgroundColor: String,
     isIconFront: Boolean,
+    keyboardFocus: {
+      type: Boolean,
+      default: true
+    },
     hover: {
       type: Boolean,
       default: true
@@ -92,7 +102,37 @@ export default {
   components: {
     touchRipple
   },
+  ready: function() {
+    if (!this.tabListening) {
+      Event.on(window, 'keydown', (event) => {
+        this.tabPressed = Event.keyCodes.tab === event.keyCode
+      })
+      this.tabListening = true
+    }
+  },
   methods: {
+    // TODO: safari forcus issue..
+    handleForcus: function() {
+      this.forcusTimeout = setTimeout(() => {
+        if (this.tabPressed) {
+          this.focused = true
+        }
+      }, 150)
+
+      console.log(`${this.label} forcus`);
+    },
+    cancelFocusTimeout: function() {
+      if (this.forcusTimeout) {
+        clearTimeout(this.forcusTimeout)
+        this.forcusTimeout = null
+      }
+    },
+    handleBlur: function() {
+      this.tabPressed = false
+      this.focused = false
+      if (cancelFocusTimeout)
+      console.log(`${this.label} blur haha`);
+    },
     handleMouseEnter: function() {
       // disable hover for mobile device
       if (this.touch) {
@@ -115,10 +155,11 @@ export default {
       this.touch = true
     },
     handleTouchEnd: function(event) {
-      
+
     },
     handleClick: function() {
-      console.log('my button ');
+      this.tabPressed = false
+      this.focused = false
       if (this.disabled) {
         return
       }

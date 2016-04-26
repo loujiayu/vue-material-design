@@ -1,4 +1,4 @@
-default export {
+export default {
   on(el, type, callback) {
     el.addEventListener(type, callback)
   },
@@ -13,5 +13,16 @@ default export {
       callback.call(el)
     }
     this.on(el, type, remove)
+  },
+  keyCodes: {
+    esc: 27,
+    tab: 9,
+    enter: 13,
+    space: 32,
+    'delete': [8, 46],
+    up: 38,
+    left: 37,
+    right: 39,
+    down: 40
   }
 }

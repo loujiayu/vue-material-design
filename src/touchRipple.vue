@@ -3,7 +3,9 @@
     @click="handleClick"
     @touchstart="handleTouchStart($event)"
     @touchend="handleTouchEnd($event)"
+    @focus="handleForcus($event)"
   >
+    <div v-show="tabPressed" :style="tabRippleStyle" transition="tab"></div>
     <div v-for="ripple in ripples" :style="ripple.style" transition="touch"></div>
   </div>
 </template>
@@ -26,11 +28,7 @@ export default {
         left: '0',
         overflow: 'hidden'
       },
-    }
-    return {
-      mRootStyle: Object.assign(styles.root, this.styleObj),
-      ripples: [],
-      centerStyle: {
+      center: {
         position: 'absolute',
         top: '0',
         left: '0',
@@ -38,14 +36,24 @@ export default {
         width: '100%',
         borderRadius: '50%',
         transition: `${Transitions.easeOut('2s', 'opacity')}, ${
-        Transitions.easeOut('1s', 'transform')}`,
+          Transitions.easeOut('1s', 'transform')}`,
         backgroundColor: 'rgba(148, 154, 144, 0.5)'
-      },
+      }
+    }
+    return {
+      mRootStyle: Object.assign(styles.root, this.styleObj),
+      ripples: [],
+      centerStyle: styles.center,
+      tabRippleStyle: {},
     }
   },
   props: {
     styleObj: Object,
-    center: Boolean
+    center: Boolean,
+    tabPressed: Boolean
+  },
+  ready: function() {
+    this.tabRippleStyle = this.getRippleStyle(null, true)
   },
   methods: {
     handleClick: function(event) {
@@ -53,7 +61,6 @@ export default {
       this.addRipple(event)
     },
     handleTouchStart: function(event) {
-      // event.stopPropagation()
       if (event.touches) {
         this.firstTouchY = event.touches[0].clientY;
         this.firstTouchX = event.touches[0].clientX;
@@ -73,7 +80,7 @@ export default {
       this.ripples.push(ripple)
       setTimeout(() => this.ripples.shift(), 2000)
     },
-    getRippleStyle(event) {
+    getRippleStyle(event, focus) {
       const style = Object.create(null)
       const el = this.$el
       const elHeight = el.offsetHeight
@@ -81,9 +88,9 @@ export default {
       const rect = el.getBoundingClientRect()
       const offsetTop = rect.top + document.body.scrollTop
       const offsetLeft = rect.left + document.body.scrollLeft
-      const isTouchEvent = event.touches && event.touches.length
-      const pageX = isTouchEvent ? event.touches[0].pageX : event.pageX
-      const pageY = isTouchEvent ? event.touches[0].pageY : event.pageY
+      const isTouchEvent = event && event.touches && event.touches.length
+      const pageX = isTouchEvent ? event.touches[0].pageX : focus ? elWidth/2 + offsetLeft : event.pageX
+      const pageY = isTouchEvent ? event.touches[0].pageY : focus ? elHeight/2 + offsetTop : event.pageY
       const pointerX = pageX - offsetLeft
       const pointerY = pageY - offsetTop
       const topLeftDiag = calcDiag(pointerX, pointerY)
@@ -101,6 +108,8 @@ export default {
       style.width = `${rippleSize}px`
       style.top = `${top}px`
       style.left = `${left}px`
+      console.log(this.$parent.label);
+      console.log(style);
 
       return Object.assign(this.centerStyle, style)
     }
@@ -109,6 +118,18 @@ export default {
 </script>
 
 <style media="screen">
+.tab-transition {
+  animation-name: forcus;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(.42, 0, .58, 1);
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+}
+.tab-enter,
+.tab-leave {
+  transform: scale(0);
+  opacity: 0;
+}
 .touch-transition {
   transform: scale(1);
   opacity: 0;
@@ -116,5 +137,17 @@ export default {
 .touch-enter {
   transform: scale(0);
   opacity:1;
+}
+
+@keyframes forcus{
+  0% {
+    transform: scale(0.5);
+  }
+  50% {
+    transform: scale(.65);
+  }
+  100% {
+    transform: scale(0.5);
+  }
 }
 </style>

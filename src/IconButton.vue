@@ -71,9 +71,6 @@ export default {
     link: String,
     styleObj: Object
   },
-  created: function() {
-    this.mergedStyles = Object.assign(this.originStyles, this.styleObj)
-  },
   components: {
     touchRipple,
     Tooltip
