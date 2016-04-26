@@ -1,5 +1,5 @@
 <template >
-  <div v-show="open" :style="mRootStyle" transition="slide">
+  <div :style="mRootStyle" v-show="open" transition="slide">
     <div :style="mMuneStyle" @click="handleClick($event)">
       <slot name="menuList"></slot>
     </div>
@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import touchRipple from 'touchRipple'
 import Transitions from 'styles/transitions'
 import {baseTheme} from 'styles/muiTheme'
@@ -38,7 +38,7 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mMuneStyle: styles.menu,
       added: false
     }

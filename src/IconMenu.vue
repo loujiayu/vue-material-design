@@ -8,7 +8,7 @@
       :icon-class="iconClass"
       >
     </icon-button>
-    <div  v-show="open" :style="mMenuStyles" transition="iconSlide">
+    <div v-show="open" :style="mMenuStyle" transition="iconSlide">
       <slot name="iconList"></slot>
     </div>
   </div>
@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
 import IconButton from 'IconButton'
-import getStyles from 'utils/getStyles'
+
 import Transitions from 'styles/transitions'
 import {zDepthShadows} from 'styles/common'
 
@@ -30,19 +30,16 @@ export default {
       menu: {
         boxShadow: zDepthShadows[0],
         position:'absolute',
-        display: 'inline-block',
         overflow: 'auto',
         maxHeight: '150px',
-        display: 'inline-block',
         willChange: 'transform',
         backgroundColor: 'white',
         transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
-        // WebkitOverflowScrolling: 'touch',
       },
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
-      mMenuStyles: getStyles(styles.menu, this.menuStyle),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
+      mMenuStyle: Object.assign(styles.menu, this.menuStyle),
       open: false
     }
   },
@@ -76,7 +73,7 @@ export default {
     transformOrigin += this.verticalPosition=='top' ? '100%' : '0%'
     // transformOrigin += '0'
     node.style.cssText += `${vOrient};${hOrient};transform-origin:${transformOrigin};`
-    // console.log(this.open);
+    console.log(this.open);
     // console.log('iconmune');
   },
   destroyed: function() {
@@ -98,6 +95,7 @@ export default {
 
 <style media="screen">
 .icon-transition {
+  display: inline-block;
   transform: scale(1);
   opacity: 1;
   visibility: visible;

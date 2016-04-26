@@ -14,7 +14,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import touchRipple from 'touchRipple'
 import Transitions from 'styles/transitions'
 import ColorManipulator from 'styles/colorManipulator';
@@ -62,9 +62,9 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
-      mLabelStyle: getStyles(styles.label, this.labelStyle),
-      mIconStyle: getStyles(styles.icon, this.iconStyle),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
+      mLabelStyle: Object.assign(styles.label, this.labelStyle),
+      mIconStyle: Object.assign(styles.icon, this.iconStyle),
       touch: false
     }
   },
@@ -93,10 +93,6 @@ export default {
     touchRipple
   },
   methods: {
-    testclick: function() {
-      console.log('test click');
-      console.log(new Date().getTime());
-    },
     handleMouseEnter: function() {
       // disable hover for mobile device
       if (this.touch) {
@@ -116,13 +112,10 @@ export default {
       }
     },
     handleTouchStart: function(event) {
-      // event.stopPropagation()
-      console.log('touchstart');
-      console.log(new Date().getTime());
       this.touch = true
     },
     handleTouchEnd: function(event) {
-
+      
     },
     handleClick: function() {
       console.log('my button ');

@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import touchRipple from 'touchRipple'
@@ -56,7 +56,7 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mThumbStyle: Object.assign(styles.thumb, this.thumbStyle),
       mCircleStyle: Object.assign(styles.circle, this.circleStyle),
       mInputStyle: styles.input,

@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import BaseButton from 'BaseButton'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
@@ -49,9 +49,9 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mSnackWrapper: styles.snack,
-      mMessageStyles: getStyles(styles.message, this.messageStyle),
+      mMessageStyles: Object.assign(styles.message, this.messageStyle),
       mUndoStyles: Object.assign(styles.undo, this.undoStyle)
     }
   },

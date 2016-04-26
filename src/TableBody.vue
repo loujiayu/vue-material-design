@@ -15,7 +15,6 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import CheckBox from 'CheckBox'
@@ -51,9 +50,9 @@ export default {
     }
     return {
       mTrStyle: Object.assign(styles.tr, this.trStyle),
-      mRootStyle: getStyles(styles.root, this.styleObj),
-      mTdStyle: getStyles(styles.td, this.tdStyle),
-      mSelectStyle: getStyles(Object.assign({}, styles.td, styles.checkbox), this.tdStyle),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
+      mTdStyle: Object.assign(styles.td, this.tdStyle),
+      mSelectStyle: Object.assign(Object.assign({}, styles.td, styles.checkbox), this.tdStyle),
       selectedRow: []
     }
   },

@@ -40,7 +40,7 @@ function toCssText(styleObj) {
   return cssList.join(';')
 }
 
-export default function getStyles(s1, s2) {
+export default function Object.assign(s1, s2) {
   var target = {}
   Object.assign(target, s1, s2)
   return toCssText(target)

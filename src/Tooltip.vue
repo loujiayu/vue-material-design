@@ -5,7 +5,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 
@@ -39,7 +39,7 @@ export default {
     }
     var vo = this.verticalPosition === 'top' ? '-30px' : '30px'
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       verticalOffset: vo
     }
   },
@@ -80,7 +80,7 @@ export default {
     }
   },
   created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
+    this.mergedStyles = Object.assign(this.originStyles, this.styleObj)
   },
   methods: {
     handleClick: function() {

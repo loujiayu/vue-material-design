@@ -25,7 +25,7 @@
 <script type="text/javascript">
 import BaseButton from 'BaseButton'
 import IconButton from 'IconButton'
-import getStyles from 'utils/getStyles'
+
 
 export default {
   data: function() {
@@ -46,7 +46,7 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mButtonStyle: Object.assign(styles.button, this.buttonStyle),
       mIconStyle: Object.assign(styles.icon, this.iconStyle)
     }

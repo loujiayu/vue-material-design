@@ -19,7 +19,7 @@
 
 <script type="text/javascript">
 import touchRipple from 'touchRipple'
-import getStyles from './utils/getStyles'
+
 import Tooltip from 'Tooltip'
 import {baseTheme} from 'styles/muiTheme'
 
@@ -44,7 +44,7 @@ export default {
       },
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       centerStyle: {
         marginLeft: '50%',
         transform: 'translateX(-50%)',
@@ -72,7 +72,7 @@ export default {
     styleObj: Object
   },
   created: function() {
-    this.mergedStyles = getStyles(this.originStyles, this.styleObj)
+    this.mergedStyles = Object.assign(this.originStyles, this.styleObj)
   },
   components: {
     touchRipple,

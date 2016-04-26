@@ -13,7 +13,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import BaseButton from 'BaseButton'
 import IconButton from 'IconButton'
 import {baseTheme} from 'styles/muiTheme'
@@ -40,8 +40,8 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
-      mTitleStyle: getStyles(styles.title, this.titleStyle)
+      mRootStyle: Object.assign(styles.root, this.styleObj),
+      mTitleStyle: Object.assign(styles.title, this.titleStyle)
     }
   },
   props: {

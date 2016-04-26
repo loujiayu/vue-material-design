@@ -15,7 +15,7 @@
 
 <script type="text/javascript">
 import BaseButton from 'BaseButton'
-import getStyles from 'utils/getStyles'
+
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 
@@ -46,7 +46,7 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mMenuStyles: Object.assign(styles.menu, this.menuStyle),
       mButtonstyle: this.buttonStyle,
       open: false

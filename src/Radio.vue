@@ -8,7 +8,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 
@@ -36,7 +36,7 @@ export default {
       }
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mInputStyle: styles.input,
       zoom: {
         height: '200%',

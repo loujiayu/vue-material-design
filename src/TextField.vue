@@ -15,7 +15,7 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from 'utils/getStyles'
+
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 
@@ -91,11 +91,11 @@ export default {
       forcusUnderline: Object.assign({}, lineStyle, forcusStyle),
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       mFloatStyle: styles.float,
-      mHintStyle: getStyles(styles.hint, this.hintStyle),
-      mInputStyle: getStyles(styles.input, this.inputStyle),
-      mUnderlineStyle: getStyles(styles.underline, this.underlineStyle),
+      mHintStyle: Object.assign(styles.hint, this.hintStyle),
+      mInputStyle: Object.assign(styles.input, this.inputStyle),
+      mUnderlineStyle: Object.assign(styles.underline, this.underlineStyle),
       mForcusUnderlineStyle: styles.forcusUnderline,
       isForcused: false,
       show: (this.isForcused && this.floatContent && this.hintContent) ||

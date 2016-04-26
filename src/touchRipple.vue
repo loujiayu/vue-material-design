@@ -9,7 +9,6 @@
 </template>
 
 <script type="text/javascript">
-import getStyles from './utils/getStyles'
 import Transitions from './styles/transitions'
 
 function calcDiag(a, b) {
@@ -29,7 +28,7 @@ export default {
       },
     }
     return {
-      mRootStyle: getStyles(styles.root, this.styleObj),
+      mRootStyle: Object.assign(styles.root, this.styleObj),
       ripples: [],
       centerStyle: {
         position: 'absolute',
@@ -70,7 +69,7 @@ export default {
     },
     addRipple: function(event) {
       const ripple = Object.create(null)
-      ripple.style = this.center ? getStyles(this.centerStyle, null) : this.getRippleStyle(event)
+      ripple.style = this.center ? Object.assign(this.centerStyle, null) : this.getRippleStyle(event)
       this.ripples.push(ripple)
       setTimeout(() => this.ripples.shift(), 2000)
     },
@@ -103,7 +102,7 @@ export default {
       style.top = `${top}px`
       style.left = `${left}px`
 
-      return getStyles(this.centerStyle, style)
+      return Object.assign(this.centerStyle, style)
     }
   }
 }
