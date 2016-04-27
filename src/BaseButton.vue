@@ -1,6 +1,5 @@
 <template>
   <div :style="mRootStyle"
-      v-bind="{disabled: disabled}"
       @focus="handleForcus($event)"
       @blur="handleBlur($event)"
       @touchstart="handleTouchStart($event)"
@@ -25,7 +24,7 @@ import {zDepthShadows} from 'styles/common'
 
 export default {
   data: function() {
-    const {button} = baseTheme
+    const { button, disabledColor } = baseTheme
     const styles = {
       root: {
         minWidth: '58px',
@@ -35,6 +34,7 @@ export default {
         padding: '0',
         margin: '0',
         position: 'relative',
+        color: this.disabled ? disabledColor : 'none',
         direction: this.isIconFront ? 'rtl' : 'ltr',
         backgroundColor: this.backgroundColor ? this.backgroundColor : 'rgba(0, 0, 0, 0)',
         boxSizing: "border-box",
@@ -48,7 +48,7 @@ export default {
         overflow: 'hidden',
         cursor: this.disabled ? 'default' : 'pointer',
         borderRadius: '2px',
-        boxShadow: this.shadowDepth && !this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
+        boxShadow: this.shadowDepth && !this.disabled ? zDepthShadows[this.shadowDepth] : 'none'
       },
       label: {
         fontSize: '14px',
@@ -75,7 +75,10 @@ export default {
     }
   },
   props: {
-    shadowDepth: Number,
+    shadowDepth: {
+      type: Number,
+      default: -1
+    },
     disabled: Boolean,
     label: String,
     onClick: Function,
@@ -137,7 +140,7 @@ export default {
     },
     handleMouseEnter: function() {
       // disable hover for mobile device
-      if (this.touch) {
+      if (this.touch || this.disabled) {
         this.hover = false
       }
       if (this.hover) {
@@ -156,12 +159,12 @@ export default {
     handleTouchStart: function(event) {
       this.touch = true
       if (this.isFloat) {
-        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth]
+        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth + 1]
       }
     },
     handleTouchEnd: function(event) {
       if (this.isFloat) {
-        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth - 1]
+        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth]
       }
     },
     handleClick: function() {

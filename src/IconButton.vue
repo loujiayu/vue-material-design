@@ -1,31 +1,35 @@
 <template>
   <div :style="mRootStyle"
-      v-bind="{disabled: disabled}"
+      @focus="handleForcus($event)"
+      @blur="handleBlur($event)"
+      @touchstart="handleTouchStart($event)"
+      @touchend="handleTouchEnd($event)"
       @mouseenter="handleMouseEnter"
       @mouseleave="handleMouseLeave"
-      @click="handleClick" >
+      @click="handleClick"
+      :tabIndex="keyboardFocus ? 0 : -1">
     <tooltip
       v-if="tooltip"
       :note="msg"
       :message="tooltip"
       :vertical-position="verticalPosition"
-      :horizontal-position="horizontalPosition"
-    >
+      :horizontal-position="horizontalPosition">
     </tooltip>
     <span :class="iconClass" :style="centerStyle"></span>
-    <touch-ripple v-if="!disabled" :center=true v-ref:touch></touch-ripple>
+    <touch-ripple v-ref:touch :tab-pressed="focused" v-if="!disabled" :center="true" ></touch-ripple>
   </div>
 </template>
 
 <script type="text/javascript">
+import Event from 'utils/events'
 import touchRipple from 'touchRipple'
-
+import {zDepthShadows} from 'styles/common'
 import Tooltip from 'Tooltip'
 import {baseTheme} from 'styles/muiTheme'
 
 export default {
   data: function() {
-    const { button } = baseTheme
+    const { button, disabledColor } = baseTheme
     const styles = {
       root: {
         borderRadius: '50%',
@@ -38,9 +42,11 @@ export default {
         display: 'inline-block',
         position: 'relative',
         outline: 'none',
+        color: this.disabled ? disabledColor : 'none',
         textDecoration: 'none',
         backgroundColor: 'rgba(0,0,0,0)',
-        cursor: this.disabled ? 'default' : 'pointer'
+        cursor: this.disabled ? 'default' : 'pointer',
+        boxShadow: this.shadowDepth && !this.disabled ? zDepthShadows[this.shadowDepth] : 'none'
       },
     }
     return {
@@ -50,10 +56,18 @@ export default {
         transform: 'translateX(-50%)',
         lineHeight: '48px'
       },
-      msg: false
+      msg: false,
+      tabPressed: false,
+      tabListening: false,
+      focused: false,
+      forcusTimeout: null
     }
   },
   props: {
+    shadowDepth: {
+      type: Number,
+      default: -1
+    },
     disabled: Boolean,
     tooltip: String,
     verticalPosition: {
@@ -69,18 +83,68 @@ export default {
     onMouseLeave: Function,
     iconClass: String,
     link: String,
-    styleObj: Object
+    styleObj: Object,
+    keyboardFocus: {
+      type: Boolean,
+      default: true
+    },
+    isFloat: {
+      type: Boolean,
+      default: true
+    },
   },
   components: {
     touchRipple,
     Tooltip
   },
+  ready: function() {
+    if (!this.tabListening) {
+      Event.on(window, 'keydown', (event) => {
+        this.tabPressed = Event.keyCodes.tab === event.keyCode
+      })
+      this.tabListening = true
+    }
+  },
   methods: {
+    handleForcus: function() {
+      // wait for keydown fire
+      console.log('icon button forcus');
+      this.forcusTimeout = setTimeout(() => {
+        if (this.tabPressed) {
+          this.focused = true
+        }
+      }, 150)
+    },
+    cancelFocusTimeout: function() {
+      if (this.forcusTimeout) {
+        clearTimeout(this.forcusTimeout)
+        this.forcusTimeout = null
+      }
+    },
+    handleBlur: function() {
+      this.tabPressed = false
+      this.focused = false
+      this.cancelFocusTimeout()
+    },
+    handleTouchStart: function(event) {
+      if (this.isFloat) {
+        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth + 1]
+      }
+    },
+    handleTouchEnd: function(event) {
+      if (this.isFloat) {
+        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth]
+      }
+    },
     handleMouseEnter: function() {
-      this.msg = true
+      if (!this.disabled) {
+        this.msg = true
+      }
     },
     handleMouseLeave: function() {
-      this.msg = false
+      if (!this.disabled) {
+        this.msg = false
+      }
     },
     handleClick: function() {
       // if(event.stopPropagation) {

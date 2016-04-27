@@ -77,7 +77,7 @@ export default {
     },
     addRipple: function(event) {
       const ripple = Object.create(null)
-      ripple.style = this.center ? Object.assign(this.centerStyle, null) : this.getRippleStyle(event)
+      ripple.style = this.center ? this.centerStyle : this.getRippleStyle(event)
       this.ripples.push(ripple)
       setTimeout(() => {
         this.ripples.shift()
@@ -112,7 +112,7 @@ export default {
       style.top = `${top}px`
       style.left = `${left}px`
 
-      return Object.assign(this.centerStyle, style)
+      return Object.assign({},this.centerStyle, style)
     }
   }
 }
