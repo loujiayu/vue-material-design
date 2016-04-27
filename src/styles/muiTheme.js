@@ -10,7 +10,8 @@ export const baseTheme = {
     height:'36px',
     iconHeight: '48px'
   },
-  disabledColor: 'rgba(0, 0, 0, 0.3)'
+  disabledColor: 'rgba(0, 0, 0, 0.3)',
+  defaultActiveColor: 'rgba(163, 163, 163, 0.71)'
 }
 
 // export default baseTheme

@@ -12,6 +12,7 @@
 
 <script type="text/javascript">
 import Transitions from './styles/transitions'
+import {baseTheme} from 'styles/muiTheme'
 
 function calcDiag(a, b) {
   return Math.sqrt((a * a) + (b * b))
@@ -37,7 +38,7 @@ export default {
         borderRadius: '50%',
         transition: `${Transitions.easeOut('2s', 'opacity')}, ${
           Transitions.easeOut('1s', 'transform')}`,
-        backgroundColor: 'rgba(148, 154, 144, 0.5)'
+        backgroundColor: baseTheme.defaultActiveColor
       }
     }
     return {
@@ -78,7 +79,9 @@ export default {
       const ripple = Object.create(null)
       ripple.style = this.center ? Object.assign(this.centerStyle, null) : this.getRippleStyle(event)
       this.ripples.push(ripple)
-      setTimeout(() => this.ripples.shift(), 2000)
+      setTimeout(() => {
+        this.ripples.shift()
+      }, 2000)
     },
     getRippleStyle(event, focus) {
       const style = Object.create(null)
@@ -108,8 +111,6 @@ export default {
       style.width = `${rippleSize}px`
       style.top = `${top}px`
       style.left = `${left}px`
-      console.log(this.$parent.label);
-      console.log(style);
 
       return Object.assign(this.centerStyle, style)
     }

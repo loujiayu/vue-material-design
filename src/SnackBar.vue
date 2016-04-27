@@ -2,7 +2,7 @@
   <div :style="mRootStyle" v-show="open" transition="snack">
     <div :style="mSnackWrapper">
       <span :style="mMessageStyles">{{message}}</span>
-        <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
+      <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
     </div>
   </div>
 </template>

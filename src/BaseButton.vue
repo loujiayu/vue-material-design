@@ -48,7 +48,7 @@ export default {
         overflow: 'hidden',
         cursor: this.disabled ? 'default' : 'pointer',
         borderRadius: '2px',
-        boxShadow: this.shadowDepth&&!this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
+        boxShadow: this.shadowDepth && !this.disabled ? zDepthShadows[this.shadowDepth-1] : 'none'
       },
       label: {
         fontSize: '14px',
@@ -86,6 +86,10 @@ export default {
       type: Boolean,
       default: true
     },
+    isFloat: {
+      type: Boolean,
+      default: true
+    },
     hover: {
       type: Boolean,
       default: true
@@ -113,13 +117,12 @@ export default {
   methods: {
     // TODO: safari forcus issue..
     handleForcus: function() {
+      // wait for keydown fire
       this.forcusTimeout = setTimeout(() => {
         if (this.tabPressed) {
           this.focused = true
         }
       }, 150)
-
-      console.log(`${this.label} forcus`);
     },
     cancelFocusTimeout: function() {
       if (this.forcusTimeout) {
@@ -130,8 +133,7 @@ export default {
     handleBlur: function() {
       this.tabPressed = false
       this.focused = false
-      if (cancelFocusTimeout)
-      console.log(`${this.label} blur haha`);
+      this.cancelFocusTimeout()
     },
     handleMouseEnter: function() {
       // disable hover for mobile device
@@ -142,7 +144,7 @@ export default {
         if (this.backgroundColor) {
           this.$el.style.backgroundColor = ColorManipulator.fade(this.backgroundColor, 0.8)
         } else {
-          this.$el.style.backgroundColor = 'rgba(163, 163, 163, 0.71)';
+          this.$el.style.backgroundColor = baseTheme.defaultActiveColor
         }
       }
     },
@@ -153,9 +155,14 @@ export default {
     },
     handleTouchStart: function(event) {
       this.touch = true
+      if (this.isFloat) {
+        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth]
+      }
     },
     handleTouchEnd: function(event) {
-
+      if (this.isFloat) {
+        this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth - 1]
+      }
     },
     handleClick: function() {
       this.tabPressed = false

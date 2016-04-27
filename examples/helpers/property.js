@@ -63,8 +63,9 @@ const tdStyle = ['tdStyle', 'Object', '', style('td')]
 const thStyle = ['thStyle', 'Object', '', style('th')]
 const thumbStyle = ['thumbStyle', 'Object', '', style('thumb')]
 const circleStyle = ['circleStyle', 'Object', '', style('circle')]
-const labelId = ['labelId', 'String', '', 'id can be associated with labels']
-
+const labelId = ['labelId', 'String', '', 'id can be associated with labels.']
+const keyboardFocus = ['keyboardFocus', 'Boolean', 'true','key event listening.']
+const isFloat = ['isFloat', 'Boolean', 'true','float when touch event fires.']
 export default {
   button: [
     disabled('Button'),
@@ -77,6 +78,8 @@ export default {
     link,
     labelStyle,
     iconStyle,
+    keyboardFocus,
+    isFloat,
     iconClass,
     ripple,
     onClick
