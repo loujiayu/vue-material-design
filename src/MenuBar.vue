@@ -57,14 +57,14 @@ export default {
   },
   created: function() {
     if (!this.docked) {
-      window.addEventListener('click',this.clickAway, true)
+      Event.on(window, 'click', this.clickAway,true)
 
       this.added = true
     }
   },
   destroyed: function() {
     if (!this.docked) {
-      window.removeEventListener('click', this.clickAway)
+      Event.off(window, 'click', this.clickAway,true)
     }
   },
   watch: {
@@ -73,7 +73,7 @@ export default {
     },
     docked: function() {
       if (!this.added && !this.docked) {
-        window.addEventListener('click',this.clickAway, true)
+        Event.on(window, 'click', this.clickAway,true)
       }
       console.log(this.open)
       console.log(this.docked)

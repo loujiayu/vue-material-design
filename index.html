@@ -1,29 +1,29 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <div id="demo">
-      <div v-show="open" :style="style"></div>
-    </div>
-  </body>
-  <script src="https://cdn.jsdelivr.net/vue/latest/vue.js"></script>
-  <script type="text/javascript">
-    new Vue({
-      el: '#demo',
-      data: function() {
-        return {
-          style: "width: 100px;height:100px;background-color:red",
-          open: false
-        }
-      }
-    })
-  </script>
-</html>
+<p><strong>默认流-垂直margin重叠</strong></p>
+<div class="box">
+    <div class="list">margin:20px;</div>
+    <div class="list">margin:20px;</div>
+</div>
+
+<p><strong>垂直流-水平margin重叠</strong></p>
+<div class="box verticle-mode">
+    <div class="list">margin:20px;</div>
+    <div class="list">margin:20px;</div>
+</div>
+
 <style media="screen">
-  div {
-    color: none;
-  }
+.box {
+  width: 400px;
+  background-color: #f0f3f9;
+  overflow: hidden;
+}
+.list {
+  margin: 20px;
+  background-color: #cd0000;
+  color: #fff;
+}
+.verticle-mode {
+  writing-mode: tb-lr;
+  -webkit-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+}
 </style>

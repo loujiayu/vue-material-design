@@ -8,39 +8,36 @@
       :icon-class="iconClass"
       >
     </icon-button>
-    <div v-show="open" :style="mMenuStyle" transition="iconSlide">
-      <slot name="iconList"></slot>
-    </div>
+    <popover :open="open" :style-obj="mMenuStyle">
+      <slot name="iconList" slot="popover"></slot>
+    </popover>
   </div>
 </template>
 
 <script type="text/javascript">
+import Event from 'utils/events'
 import IconButton from 'IconButton'
-
+import Popover from 'Popover'
 import Transitions from 'styles/transitions'
 import {zDepthShadows} from 'styles/common'
 
 export default {
   data: function () {
+    var transformOrigin = this.horizontalPosition == 'left' ? '0 ' : `100% `
+    transformOrigin += this.verticalPosition=='top' ? '100%' : '0%'
     const styles = {
       root: {
         display: 'inline-block',
         position: 'relative'
       },
       menu: {
-        boxShadow: zDepthShadows[0],
-        position:'absolute',
-        overflow: 'auto',
-        maxHeight: '150px',
-        willChange: 'transform',
-        backgroundColor: 'white',
-        transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
+        transformOrigin: transformOrigin
       },
     }
     return {
       mRootStyle: Object.assign(styles.root, this.styleObj),
       mMenuStyle: Object.assign(styles.menu, this.menuStyle),
-      open: false
+      open: false,
     }
   },
   props: {
@@ -61,28 +58,22 @@ export default {
     },
   },
   components: {
-    IconButton
+    IconButton,
+    Popover
   },
   ready: function() {
-    window.addEventListener('click',this.clickAway )
-    const node = this.$el.children[1]
-    const {height, width} = this.$refs.iconb.$el.getBoundingClientRect()
-    const vOrient = this.verticalPosition=='top' ? `bottom:${height}px` : `top:${height}px`
-    const hOrient = this.horizontalPosition=='left' ? 'left:0' :'right:0'
-    var transformOrigin = this.horizontalPosition=='left' ? '0 ' : `100% `
-    transformOrigin += this.verticalPosition=='top' ? '100%' : '0%'
-    // transformOrigin += '0'
-    node.style.cssText += `${vOrient};${hOrient};transform-origin:${transformOrigin};`
-    console.log(this.open);
-    // console.log('iconmune');
+    Event.on(window, 'click', this.clickAway)
+    const height = this.$refs.iconb.$el.offsetHeight
+    const vOrient = this.verticalPosition=='top' ? { bottom:`${height}px` } : {top:`${height}px`}
+    const hOrient = this.horizontalPosition=='left' ? {left:0} :{right:0}
+    this.mMenuStyle = Object.assign({}, this.mMenuStyle, vOrient, hOrient)
   },
   destroyed: function() {
-    window.removeEventListener('click', clickAway)
+    Event.off(window, 'click', this.clickAway)
   },
   methods: {
     handleClick: function(event) {
       this.open = true
-      // console.log(this.open);
     },
     clickAway: function(event) {
       if (!(this.$el && this.$el.contains(event.target) ) && this.open) {
@@ -92,23 +83,3 @@ export default {
   }
 }
 </script>
-
-<style media="screen">
-.icon-transition {
-  display: inline-block;
-  transform: scale(1);
-  opacity: 1;
-  visibility: visible;
-}
-[slot="iconList"] {
-  width: 100%;
-  display: block;
-  text-align: left;
-}
-.iconSlide-leave,
-.iconSlide-enter {
-  transform: scale(0);
-  opacity: 0;
-  visibility: hidden;
-}
-</style>

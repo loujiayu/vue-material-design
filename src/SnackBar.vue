@@ -2,7 +2,7 @@
   <div :style="mRootStyle" v-show="open" transition="snack">
     <div :style="mSnackWrapper">
       <span :style="mMessageStyles">{{message}}</span>
-      <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover=false></base-button>
+      <base-button :style-obj="mUndoStyles" v-if="undo" label="UNDO" :hover="false"></base-button>
     </div>
   </div>
 </template>
@@ -12,6 +12,7 @@
 import BaseButton from 'BaseButton'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
+import Event from 'utils/events'
 
 export default {
   data: function(){
@@ -46,13 +47,15 @@ export default {
       },
       undo: {
         color: 'red',
+        cursor: 'pointer'
       }
     }
     return {
       mRootStyle: Object.assign(styles.root, this.styleObj),
       mSnackWrapper: styles.snack,
       mMessageStyles: Object.assign(styles.message, this.messageStyle),
-      mUndoStyles: Object.assign(styles.undo, this.undoStyle)
+      mUndoStyles: Object.assign(styles.undo, this.undoStyle),
+      autoHideTimer: null
     }
   },
   props: {
@@ -62,21 +65,31 @@ export default {
     styleObj: Object,
     snackStyle: Object,
     messageStyle: Object,
-    undoStyle: Object
+    undoStyle: Object,
+    showDuration: {
+      type: Number,
+      default: 5000
+    }
   },
   components: {
     BaseButton
   },
   ready: function() {
-    window.addEventListener('click',this.clickAway, true)
+    Event.on(window, 'click', this.clickAway, true)
   },
   destroyed: function() {
-    window.removeEventListener('click', clickAway)
+    Event.off(window, 'click', this.clickAway, true)
+    if (this.autoHideTimer) {
+      clearTimeout(this.autoHideTimer)
+    }
   },
   watch: {
     open: function() {
       if (this.open) {
-        setTimeout(() => { this.open = false }, 5000)
+        if (this.autoHideTimer) {
+          clearTimeout(this.autoHideTimer)
+        }
+        this.autoHideTimer = setTimeout(() => { this.open = false }, this.showDuration)
       }
     }
   },

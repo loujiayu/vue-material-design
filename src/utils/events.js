@@ -1,15 +1,15 @@
 export default {
-  on(el, type, callback) {
-    el.addEventListener(type, callback)
+  on(el, type, callback, useCapture) {
+    el.addEventListener(type, callback, useCapture)
   },
-  off(el, type, callback) {
+  off(el, type, callback, useCapture) {
     if (el.removeEventListener) {
-      el.removeEventListener(type, callback)
+      el.removeEventListener(type, callback, useCapture)
     }
   },
-  once(el, type, callback) {
+  once(el, type, callback, useCapture) {
     const remove = (event) => {
-      this.off(el, type, callback)
+      this.off(el, type, callback, useCapture)
       callback.call(el)
     }
     this.on(el, type, remove)

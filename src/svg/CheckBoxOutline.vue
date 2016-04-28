@@ -18,7 +18,6 @@ export default {
         height: 'inherit',
         width: 'inherit',
         fill: this.disabled ? baseTheme.disabledColor : this.trigger ? "rgb(44, 107, 201)" : "rgb(0,0,0)",
-        // fill: this.disabled ? "rgb(16, 186, 78)" :  "rgb(0,0,0)"
       }
     }
     return {

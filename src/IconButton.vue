@@ -108,7 +108,6 @@ export default {
   methods: {
     handleForcus: function() {
       // wait for keydown fire
-      console.log('icon button forcus');
       this.forcusTimeout = setTimeout(() => {
         if (this.tabPressed) {
           this.focused = true
@@ -147,11 +146,6 @@ export default {
       }
     },
     handleClick: function() {
-      // if(event.stopPropagation) {
-      //   event.stopPropagation();
-      // } else if(event.cancelBubble) {
-      //   event.cancelBubble = true
-      // }
       if (this.disabled) {
         return
       }

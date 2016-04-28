@@ -29,7 +29,7 @@ const buttonStyle = function(component) {
   return ['buttonStyle', 'Object', '', `override the button style of ${component}`]
 }
 const tooltip = ['tooltip', 'String', '', 'information on hover.']
-const shadowDepth = ['shadowDepth', 'Number', '', 'depth of box shadow.']
+const shadowDepth = ['shadowDepth', 'Number', '-1', 'depth of box shadow.']
 const iconClass = ['iconClass', 'String', '', 'class name of icon if any.']
 const isIconFront = ['iconFront', 'Boolean', 'false', 'is icon front of label or not.']
 const hover = ['hover', 'Boolean', 'true', 'hover animate enable.']
@@ -66,6 +66,7 @@ const circleStyle = ['circleStyle', 'Object', '', style('circle')]
 const labelId = ['labelId', 'String', '', 'id can be associated with labels.']
 const keyboardFocus = ['keyboardFocus', 'Boolean', 'true','key event listening.']
 const isFloat = ['isFloat', 'Boolean', 'true','float when touch event fires.']
+const showDuration = ['showDuration', 'Number', '5000', 'duration the snack bar shows.']
 export default {
   button: [
     disabled('Button'),
@@ -95,7 +96,9 @@ export default {
     tooltip,
     link,
     ripple,
-    onClick
+    onClick,
+    keyboardFocus,
+    isFloat,
   ],
   checkbox: [
     styleObj('CheckBox'),
@@ -132,6 +135,7 @@ export default {
   ],
   'snackbar': [
     styleObj('Radio'),
+    showDuration,
     message,
     undo,
     messageStyle,

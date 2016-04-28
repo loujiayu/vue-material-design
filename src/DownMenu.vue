@@ -7,15 +7,16 @@
       :style-obj="mButtonstyle"
       >
     </base-button>
-    <div :style="mMenuStyles" v-show="open" transition="downSlide" v-if="!disabled">
-      <slot name="downList"></slot>
-    </div>
+    <popover :open="open" :style-obj="mMenuStyle" v-if="!disabled" :vertical-animation="true">
+      <slot name="downList" slot="popover"></slot>
+    </popover>
   </div>
 </template>
 
 <script type="text/javascript">
+import Event from 'utils/events'
 import BaseButton from 'BaseButton'
-
+import Popover from 'Popover'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 
@@ -32,22 +33,12 @@ export default {
         width: '100%'
       },
       menu: {
-        position:'absolute',
-        display: 'inline-block',
-        left: '0',
-        top: '0',
-        backgroundColor: 'white',
-        willChange: 'transform',
-        overflow: 'auto',
-        transition: Transitions.easeOut('550ms', ['max-height', 'opacity']),
-        boxShadow: zDepthShadows[0],
-        padding: '8px 0',
-        // WebkitOverflowScrolling: 'touch'
+        transformOrigin: '50% 0%'
       }
     }
     return {
       mRootStyle: Object.assign(styles.root, this.styleObj),
-      mMenuStyles: Object.assign(styles.menu, this.menuStyle),
+      mMenuStyle: Object.assign(styles.menu, this.menuStyle),
       mButtonstyle: this.buttonStyle,
       open: false
     }
@@ -60,17 +51,17 @@ export default {
     menuStyle: Object
   },
   components: {
+    Popover,
     BaseButton
   },
   ready: function() {
-    window.addEventListener('click',this.clickAway)
+    Event.on(window, 'click', this.clickAway)
     // locate menu position
     var height = this.$refs.downb.$el.offsetHeight
-    // var {height, width} = this.$refs.downb.$el.getBoundingClientRect()
-    this.mMenuStyles.top = `${height}px`
+    this.mMenuStyle.top = `${height}px`
   },
   destroyed: function() {
-    window.removeEventListener('click', clickAway)
+    Event.off(window, 'click', this.clickAway)
   },
   methods: {
     handleClick: function(event) {
@@ -91,22 +82,3 @@ export default {
   }
 }
 </script>
-
-<style media="screen">
-.downSlide-transition {
-  max-height: 200px;
-  opacity: 1;
-  visibility: visible;
-}
-[slot="downList"] {
-  width: 100%;
-  display: block;
-  text-align: left;
-}
-.downSlide-enter,
-.downSlide-leave {
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-}
-</style>

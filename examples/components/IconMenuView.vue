@@ -6,17 +6,17 @@
         <base-button label="Some Action" slot="iconList"></base-button>
         <base-button label="Another Action" slot="iconList"></base-button>
       </icon-menu>
-      <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="bottom" horizontal-position="right"> \
-        <base-button label="Some Action" slot="iconList"></base-button> \
-        <base-button label="Some Action" slot="iconList"></base-button> \
+      <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="bottom" horizontal-position="right">
+        <base-button label="Some Action" slot="iconList"></base-button>
+        <base-button label="Some Action" slot="iconList"></base-button>
       </icon-menu>
-      <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="top" horizontal-position="left"> \
-        <base-button label="Some Action" slot="iconList"></base-button> \
-        <base-button label="Some Action" slot="iconList"></base-button> \
+      <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="top" horizontal-position="left">
+        <base-button label="Some Action" slot="iconList"></base-button>
+        <base-button label="Some Action" slot="iconList"></base-button>
       </icon-menu>
-      <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="top" horizontal-position="right"> \
-        <base-button label="Some Action" slot="iconList"></base-button> \
-        <base-button label="Some Action" slot="iconList"></base-button> \
+      <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="top" horizontal-position="right">
+        <base-button label="Some Action" slot="iconList"></base-button>
+        <base-button label="Some Action" slot="iconList"></base-button>
       </icon-menu>
     </example>
     <property>
