@@ -18,6 +18,7 @@ export default {
         maxHeight: '150px',
         willChange: 'transform',
         backgroundColor: 'white',
+        zIndex: '1',
         transition: Transitions.easeOut('250ms', ['transform', 'opacity']),
       }
     }
@@ -34,8 +35,6 @@ export default {
     styleObj: Object,
     open: Boolean,
     verticalAnimation: Boolean
-    // top: String,
-    // left: String
   }
 }
 </script>

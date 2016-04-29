@@ -9,7 +9,7 @@
       <hr :style="mForcusUnderlineStyle" />
     </div>
     <input :disabled="disabled" type="text" :style="mInputStyle" id="sp"
-           @focus="handleForcus" @blur="handleBlur($event)"
+           @focus="handleForcus($event)" @blur="handleBlur($event)"
            @input="handleInput($event)" :value="defaultContent"/>
   </div>
 </template>
@@ -116,16 +116,20 @@ export default {
       default: false
     },
     hintContent: String,
-    defaultContent: String
+    defaultContent: String,
+    onBlur: Function,
+    onFocus: Function
   },
   methods: {
-    handleForcus: function() {
+    handleForcus: function(event) {
       this.isForcused = true
       this.show = event.target.value ? false : true
       this.$set('mForcusUnderlineStyle.transform', 'scaleX(1)')
       this.$set('mFloatStyle.transform', 'perspective(1px) scale(0.75) translate3d(0, -28px, 0)')
       this.$set('mFloatStyle.pointerEvents', 'none')
       this.$set('mFloatStyle.color', 'rgb(105, 189, 242)')
+
+      if (this.onFocus) { this.onFocus(event) }
     },
     handleBlur: function(event) {
       this.isForcused = false
@@ -136,6 +140,7 @@ export default {
         this.$set('mFloatStyle.pointerEvents', 'auto')
         this.$set('mFloatStyle.color', 'rgb(192, 198, 201)')
       }
+      if (this.onBlur) { this.onBlur(event) }
     },
     handleInput: function(event) {
       this.show = event.target.value ? false :

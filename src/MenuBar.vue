@@ -9,7 +9,7 @@
 </template>
 
 <script type="text/javascript">
-
+import Event from 'utils/events'
 import touchRipple from 'touchRipple'
 import Transitions from 'styles/transitions'
 import {baseTheme} from 'styles/muiTheme'
@@ -20,7 +20,7 @@ export default {
     const styles = {
       root: {
         height:'100%',
-        width: '256px',
+        width: '150px',
         position: 'fixed',
         top: '0',
         // lineHeight: '1.5',
@@ -68,9 +68,6 @@ export default {
     }
   },
   watch: {
-    open: function() {
-      // console.log(this.open);
-    },
     docked: function() {
       if (!this.added && !this.docked) {
         Event.on(window, 'click', this.clickAway,true)

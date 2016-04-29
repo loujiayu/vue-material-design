@@ -3,20 +3,20 @@
     <page-header :title="title" :description="description"></page-header>
     <example :code-html="html">
       <icon-menu icon-class="fa fa-list fa-2x" slot="ex">
-        <base-button label="Some Action" slot="iconList"></base-button>
-        <base-button label="Another Action" slot="iconList"></base-button>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
+        <menu-item label="Another Action" slot="iconList"></menu-item>
       </icon-menu>
       <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="bottom" horizontal-position="right">
-        <base-button label="Some Action" slot="iconList"></base-button>
-        <base-button label="Some Action" slot="iconList"></base-button>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
       </icon-menu>
       <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="top" horizontal-position="left">
-        <base-button label="Some Action" slot="iconList"></base-button>
-        <base-button label="Some Action" slot="iconList"></base-button>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
       </icon-menu>
       <icon-menu icon-class="fa fa-list fa-2x" slot="ex" vertical-position="top" horizontal-position="right">
-        <base-button label="Some Action" slot="iconList"></base-button>
-        <base-button label="Some Action" slot="iconList"></base-button>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
+        <menu-item label="Some Action" slot="iconList"></menu-item>
       </icon-menu>
     </example>
     <property>
@@ -33,7 +33,7 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import {BaseButton, IconMenu, TableWrapper,TableBody, TableHeader} from 'mtv'
+import {MenuItem, IconMenu, TableWrapper,TableBody, TableHeader} from 'mtv'
 
 export default {
   data: function() {
@@ -43,25 +43,25 @@ export default {
       tableHeader: ['property','type','default','description'],
       bodyContent: desc.iconmenu,
       html: '<icon-menu icon-class="fa fa-list fa-2x"> \
-             \n  <base-button label="Some Action" slot="iconList"></base-button> \
-             \n  <base-button label="Some Action" slot="iconList"></base-button> \
+             \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
+             \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
              \n</icon-menu> \
              \n\n<icon-menu icon-class="fa fa-list fa-2x" vertical-position="bottom" horizontal-position="right"> \
-              \n  <base-button label="Some Action" slot="iconList"></base-button> \
-              \n  <base-button label="Some Action" slot="iconList"></base-button> \
+              \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
+              \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
               \n</icon-menu> \
              \n\n<icon-menu icon-class="fa fa-list fa-2x" vertical-position="top" horizontal-position="left"> \
-             \n  <base-button label="Some Action" slot="iconList"></base-button> \
-             \n  <base-button label="Some Action" slot="iconList"></base-button> \
+             \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
+             \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
              \n</icon-menu> \
              \n\n<icon-menu icon-class="fa fa-list fa-2x" vertical-position="top" horizontal-position="right"> \
-              \n  <base-button label="Some Action" slot="iconList"></base-button> \
-              \n  <base-button label="Some Action" slot="iconList"></base-button> \
+              \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
+              \n  <menu-item label="Some Action" slot="iconList"></menu-item> \
               \n</icon-menu> '
     }
   },
   components: {
-    BaseButton,
+    MenuItem,
     IconMenu,
     PageHeader,
     Example,

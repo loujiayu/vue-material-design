@@ -14,6 +14,7 @@
                  icon-class="fa fa-caret-left fa-2x"
                  :ripple=false>
       </menu-item>
+      <menu-item class="item" slot="menuList" label="Auto Complete" @click="linkTo('/components/autocomplete')"></menu-item>
       <menu-item class="item" slot="menuList" label="Button" @click="linkTo('/components/button')"></menu-item>
       <menu-item class="item" slot="menuList" label="Check Box" @click="linkTo('/components/checkbox')"></menu-item>
       <menu-item class="item" slot="menuList" label="Icon Button" @click="linkTo('/components/iconbutton')"></menu-item>
@@ -115,7 +116,7 @@ export default {
   padding: 72px 36px 48px;
 }
 .view {
-  margin-left: 256px;
+  margin-left: 150px;
 }
 .item {
   line-height: 48px;

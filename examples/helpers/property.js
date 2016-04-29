@@ -67,6 +67,11 @@ const labelId = ['labelId', 'String', '', 'id can be associated with labels.']
 const keyboardFocus = ['keyboardFocus', 'Boolean', 'true','key event listening.']
 const isFloat = ['isFloat', 'Boolean', 'true','float when touch event fires.']
 const showDuration = ['showDuration', 'Number', '5000', 'duration the snack bar shows.']
+const onBlur = ['onBlur', 'Function', '', 'callback function that is fired when element has lost focus.']
+const onFocus = ['onForcus', 'Function', '', 'callback function that is fired when element has received focus.']
+const completion = ['completion', 'Array', '', 'array of completion.']
+const matchCase = ['matchCase', 'Boolean', 'true','case sensitive if true.']
+
 export default {
   button: [
     disabled('Button'),
@@ -152,6 +157,8 @@ export default {
     forcusUnderlineStyle,
     floatContent,
     hintContent,
+    onBlur,
+    onFocus,
     defaultContent
   ],
   table: [
@@ -178,5 +185,21 @@ export default {
     circleStyle,
     thumbStyle,
     labelId
+  ],
+  autocomplete: [
+    styleObj('Auto Complete'),
+    disabled('Auto Complete'),
+    floatStyle,
+    hintStyle,
+    inputStyle,
+    underlineStyle,
+    forcusUnderlineStyle,
+    floatContent,
+    hintContent,
+    onBlur,
+    onFocus,
+    defaultContent,
+    completion,
+    matchCase
   ]
 }

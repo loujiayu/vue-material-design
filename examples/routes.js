@@ -9,7 +9,8 @@ import {
   SnackBarView,
   TextFieldView,
   TableView,
-  ToggleView} from './components'
+  ToggleView,
+  AutoCompleteView } from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -46,6 +47,9 @@ export default function configRouter (router) {
     },
     'components/toggle': {
       component: ToggleView
+    },
+    'components/autocomplete': {
+      component: AutoCompleteView
     }
   })
 }

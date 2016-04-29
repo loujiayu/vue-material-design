@@ -26,7 +26,6 @@
 import BaseButton from 'BaseButton'
 import IconButton from 'IconButton'
 
-
 export default {
   data: function() {
     const styles = {
@@ -39,10 +38,8 @@ export default {
       },
       button: {
         flex: '5',
-        width: '100%',
-        display: 'block',
         lineHeight: '48px',
-        paddingLeft:'20%'
+        // paddingLeft:'20%'
       }
     }
     return {
