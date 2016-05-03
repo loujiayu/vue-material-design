@@ -10,7 +10,8 @@ import {
   TextFieldView,
   TableView,
   ToggleView,
-  AutoCompleteView } from './components'
+  AutoCompleteView,
+  DialogView } from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -50,6 +51,9 @@ export default function configRouter (router) {
     },
     'components/autocomplete': {
       component: AutoCompleteView
+    },
+    'components/dialog': {
+      component: DialogView
     }
   })
 }

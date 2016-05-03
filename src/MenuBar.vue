@@ -23,7 +23,6 @@ export default {
         width: '150px',
         position: 'fixed',
         top: '0',
-        // lineHeight: '1.5',
         backgroundColor: 'white',
         transition: Transitions.easeOut('200ms', 'left', ''),
         fontFamily: 'Roboto, sans-serif',
@@ -72,8 +71,6 @@ export default {
       if (!this.added && !this.docked) {
         Event.on(window, 'click', this.clickAway,true)
       }
-      console.log(this.open)
-      console.log(this.docked)
     }
   },
   methods: {

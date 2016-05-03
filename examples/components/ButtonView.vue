@@ -6,8 +6,8 @@
       <base-button label="FACEBOOK" slot="ex" :label-style="labelStyle" background-color="rgb(58, 87, 149)" :shadow-depth='1' icon-class="fa fa-facebook-official fa-2x"></base-button>
       <base-button label="LINUX" slot="ex" :label-style="labelStyle" background-color="rgb(73, 219, 114)" :shadow-depth='1' :is-icon-front=true icon-class="fa fa-linux fa-2x"></base-button>
       <base-button label="GITHUB LINK" slot="ex" :shadow-depth=1 link='https://github.com' icon-class="fa fa-github fa-2x"></base-button>
-      <base-button label="FLOAT BUTTON" slot="ex" :shadow-depth=1 :is-float=true></base-button>
-      <base-button label="DISABELED" slot="ex" :disabled=true></base-button>
+      <base-button label="FLOAT BUTTON" slot="ex" :shadow-depth=1 :is-float="true"></base-button>
+      <base-button label="DISABELED" slot="ex" :disabled="true"></base-button>
     </example>
     <property>
       <table-wrapper slot="pro">

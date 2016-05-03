@@ -17,6 +17,7 @@
       <menu-item class="item" slot="menuList" label="Auto Complete" @click="linkTo('/components/autocomplete')"></menu-item>
       <menu-item class="item" slot="menuList" label="Button" @click="linkTo('/components/button')"></menu-item>
       <menu-item class="item" slot="menuList" label="Check Box" @click="linkTo('/components/checkbox')"></menu-item>
+      <menu-item class="item" slot="menuList" label="Dialog" @click="linkTo('/components/dialog')"></menu-item>
       <menu-item class="item" slot="menuList" label="Icon Button" @click="linkTo('/components/iconbutton')"></menu-item>
       <menu-item class="item" slot="menuList" label="Icon Menu" @click="linkTo('/components/iconmenu')"></menu-item>
       <menu-item class="item" slot="menuList" label="Down Menu" @click="linkTo('/components/downmenu')"></menu-item>

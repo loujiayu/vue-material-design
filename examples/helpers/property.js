@@ -51,6 +51,7 @@ const hintStyle = ['hintStyle', 'Object', '', style('hint content')]
 const inputStyle = ['inputStyle', 'Object', '', style('input content')]
 const underlineStyle = ['underlineStyle', 'Object', '', style('underline')]
 const forcusUnderlineStyle = ['forcusUnderlineStyle', 'Object', '', style('forcus underline')]
+const wrapperStyle = ['wrapperStyle', 'Object', '', style('dialog wrapper')]
 const floatContent = ['floatContent', 'Object', '', 'float content.']
 const hintContent = ['hintContent', 'String', '', 'hint content.']
 const defaultContent = ['defaultContent', 'String', '', 'default content.']
@@ -71,7 +72,7 @@ const onBlur = ['onBlur', 'Function', '', 'callback function that is fired when 
 const onFocus = ['onForcus', 'Function', '', 'callback function that is fired when element has received focus.']
 const completion = ['completion', 'Array', '', 'array of completion.']
 const matchCase = ['matchCase', 'Boolean', 'true','case sensitive if true.']
-
+const title = ['title', 'String', '','title of Dialog']
 export default {
   button: [
     disabled('Button'),
@@ -201,5 +202,11 @@ export default {
     defaultContent,
     completion,
     matchCase
+  ],
+  dialog: [
+    styleObj('Dialog'),
+    title,
+    open,
+    wrapperStyle
   ]
 }
