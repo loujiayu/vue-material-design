@@ -1,9 +1,8 @@
 <template >
-  <div :style="mRootStyle" v-show="open" transition="slide">
-    <div :style="mMuneStyle" @click="handleClick($event)">
+  <div >
+    <div class="mask" v-show="!docked && open" transition="mask"></div>
+    <div :style="mRootStyle" @click="handleClick($event)" v-show="open" transition="slide">
       <slot name="menuList"></slot>
-    </div>
-    <div class="mask" v-show="!docked && open" transition="mask">
     </div>
   </div>
 </template>
@@ -24,21 +23,17 @@ export default {
         position: 'fixed',
         top: '0',
         backgroundColor: 'white',
-        transition: Transitions.easeOut('200ms', 'left', ''),
         fontFamily: 'Roboto, sans-serif',
+        willChange: 'transform',
+        transition: Transitions.easeOut('200ms', 'transform', ''),
         boxShadow: zDepthShadows[this.shadowDepth - 1],
-        zIndex: '1'
-      },
-      menu: {
-        width: '100%',
         height: '100%',
         overflowY: 'auto',
-        // WebkitOverflowScrolling: 'touch',
+        zIndex: '1'
       }
     }
     return {
       mRootStyle: Object.assign(styles.root, this.styleObj),
-      mMuneStyle: styles.menu,
       added: false
     }
   },
@@ -67,15 +62,17 @@ export default {
     }
   },
   watch: {
-    docked: function() {
-      if (!this.added && !this.docked) {
+    open: function() {
+      if (this.open && !this.docked) {
         Event.on(window, 'click', this.clickAway,true)
+      } else {
+        Event.off(window, 'click', this.clickAway,true)
       }
     }
   },
   methods: {
     clickAway: function(event) {
-      if (!(this.$el.children[0] && this.$el.children[0].contains(event.target) ) && this.open && !this.docked) {
+      if (!(this.$el.children[1] && this.$el.children[1].contains(event.target) ) && this.open && !this.docked) {
         this.open = false
       }
     },
@@ -94,25 +91,25 @@ export default {
   top: 0;
   right: 0;
   position: fixed;
-  width: calc(100% - 256px);
+  width: 100%;
   height: 100%;
-  will-change: background-color;
-  transition-property: background-color;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition-property: opacity;
   transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   transition-duration: .5s;
 }
 .mask-transition {
-  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
 }
 .mask-enter,
 .mask-leave {
-  background-color: rgba(0, 0, 0, 0);
+  opacity: 0;
 }
 .slide-transition {
-  left: 0;
+  transform: translateX(0);
 }
 .slide-enter,
 .slide-leave {
-  left: -256px;
+  transform: translateX(-100%);
 }
 </style>

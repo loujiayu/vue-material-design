@@ -27,7 +27,8 @@ export default {
         width: '100vw',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         height: '100vh',
-        zIndex: '2'
+        zIndex: '2',
+
       },
       content: {
         display: 'flex',
@@ -44,8 +45,8 @@ export default {
       },
       action: {
         display: 'block',
-        marginTop: '20px',
-        float: 'right'
+        float: 'right',
+        padding: '10px'
       }
     }
     return {

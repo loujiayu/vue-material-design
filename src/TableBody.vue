@@ -3,9 +3,9 @@
     <table :style="mRootStyle">
       <tbody>
         <tr v-for="row in bodyContent | orderBy firstLetter" :style="mTrStyle" @click="handleClick"
-            key="{{$index}}" :class="selectedRow[$index] ? 'selected':''">
+            key="{{$index}}" :class="selectedRow[$index] ? 'selected':''" >
           <td v-if="checkbox" :style="mSelectStyle"><check-box :trigger="selectedRow[$index]"></check-box></td>
-          <td v-for="col in row " :style="mTdStyle">
+          <td v-for="col in row " :style="mTdStyle" track-by="$index">
             {{col}}
           </td>
         </tr>
@@ -36,7 +36,7 @@ export default {
         fontSize: '14px',
         padding: '6px 13px',
         height: '56px',
-        textAlign: 'left',
+        textAlign: 'center',
         position: 'relative',
         wordWrap: 'break-word',
         whiteSpace: 'normal',
@@ -63,7 +63,11 @@ export default {
     selectable: Boolean,
     checkbox: Boolean,
     trStyle: Object,
-    tdStyle: Object
+    tdStyle: Object,
+    isOrder: {
+      type: Boolean,
+      default: true
+    }
   },
   components: {
     CheckBox
@@ -84,7 +88,11 @@ export default {
       }
     },
     firstLetter: function(a, b) {
-      return a[0] > b[0] ? 1 : -1
+      if (this.isOrder) {
+        return a[0] > b[0] ? 1 : -1
+      } else {
+        return true
+      }
     }
   }
 }

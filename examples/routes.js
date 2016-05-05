@@ -11,7 +11,8 @@ import {
   TableView,
   ToggleView,
   AutoCompleteView,
-  DialogView } from './components'
+  DialogView,
+  DatePickerView } from './components'
 
 export default function configRouter (router) {
   // normal routes
@@ -54,6 +55,9 @@ export default function configRouter (router) {
     },
     'components/dialog': {
       component: DialogView
+    },
+    'components/datepicker': {
+      component: DatePickerView
     }
   })
 }

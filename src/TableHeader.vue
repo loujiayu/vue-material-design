@@ -3,8 +3,8 @@
     <table :style="mRootStyle">
       <thead>
         <tr>
-          <td v-if="checkbox" :style="mSelectStyle"><check-box :disabled=true></check-box></td>
-          <th v-for="col in headers" :style="mThStyle">
+          <td v-if="checkbox" :style="mSelectStyle"><check-box :disabled="true"></check-box></td>
+          <th v-for="col in headers" :style="mThStyle" track-by="$index">
             {{col | capitalize}}
           </th>
         </tr>
