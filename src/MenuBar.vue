@@ -22,6 +22,7 @@ export default {
         width: '150px',
         position: 'fixed',
         top: '0',
+        left: '0',
         backgroundColor: 'white',
         fontFamily: 'Roboto, sans-serif',
         willChange: 'transform',

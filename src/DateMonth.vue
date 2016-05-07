@@ -1,8 +1,14 @@
 <template>
   <div :style="mRootStyle">
-    <icon-button icon-class="leftArrow" @click="handleback"></icon-button>
+    <div :style="arrowStyle" @click="handleback">
+      <arrow-left></arrow-left>
+      <touch-ripple :style-obj="zoom" :center="true"></touch-ripple>
+    </div>
     <span v-for="d in dateSet" :transition="d.direction" :style="dateStyle">{{d.date}}</span>
-    <icon-button icon-class="rightArrow" @click="handleforward"></icon-button>
+    <div :style="arrowStyle" @click="handleforward">
+      <arrow-right></arrow-right>
+      <touch-ripple :style-obj="zoom" :center="true"></touch-ripple>
+    </div>
   </div>
 </template>
 
@@ -10,7 +16,9 @@
 
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
-import IconButton from 'IconButton'
+import ArrowLeft from 'svg/ArrowLeft'
+import ArrowRight from 'svg/ArrowRight'
+import touchRipple from 'touchRipple'
 
 const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
   'Oct', 'Nov', 'Dec'];
@@ -36,10 +44,17 @@ export default {
         textAlign: 'center',
         transition: Transitions.easeOut(),
       },
+      arrow: {
+        position: 'relative',
+        width: '48px',
+        height: '48px',
+        cursor: 'pointer'
+      }
     }
     return {
       mRootStyle: Object.assign(styles.root, this.styleObj),
       dateStyle: styles.date,
+      arrowStyle: styles.arrow,
       curYear: year,
       curMonth: today.getMonth(),
       curDate: `${month} ${year}`,
@@ -50,7 +65,9 @@ export default {
     styleObj: Object,
   },
   components: {
-    IconButton,
+    touchRipple,
+    ArrowLeft,
+    ArrowRight
   },
   methods: {
     handleback: function() {

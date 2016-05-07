@@ -15,6 +15,7 @@
       :vertical-position="verticalPosition"
       :horizontal-position="horizontalPosition">
     </tooltip>
+    
     <span :class="iconClass" :style="centerStyle"></span>
     <touch-ripple v-ref:touch :tab-pressed="focused" v-if="!disabled" :center="true" ></touch-ripple>
   </div>
