@@ -1,7 +1,7 @@
 <template>
   <div :style="mRootStyle">
-    <text-field :style-obj="mTextStyle"></text-field>
-    <dialog :open="true" :wrapper-style="mDialogStyle">
+    <text-field :style-obj="mTextStyle" :on-focus="handleForcus" :default-content="selectedString"></text-field>
+    <dialog :open.sync="open" :wrapper-style="mDialogStyle" v-ref:dialog>
       <div slot="dialogBody">
         <date-month></date-month>
         <div :style="weekRowStyle">
@@ -10,17 +10,19 @@
           </div>
         </div>
         <div :style="calendarStyle">
-          <div v-for="row in days" :style="rowStyle">
-            <div key v-for="col in row" track-by="$index" :style="colStyle" @click="handleClick($event)">
-              <div :style="dayStyle">
+          <div v-for="calender in calenders" :transition="calender.direction" :style="calInnerStyle">
+            <div v-for="row in calender.days" :style="rowStyle">
+              <div key v-for="col in row" track-by="$index" :style="colStyle" @click="handleClick($event)">
+                <div :style="dayStyle">
+                </div>
+                <span :style="numStyle">{{col}}</span>
               </div>
-              <span :style="numStyle">{{col}}</span>
             </div>
           </div>
         </div>
       </div>
-      <base-button label="CANCEL" slot="dialogAction" :on-click="onClick"></base-button>
-      <base-button label="OK" slot="dialogAction" :on-click="onClick"></base-button>
+      <base-button label="CANCEL" slot="dialogAction" :on-click="handleCancel"></base-button>
+      <base-button label="OK" slot="dialogAction" :on-click="handleOK"></base-button>
     </dialog>
   </div>
 </template>
@@ -50,8 +52,21 @@ export default {
         lineHeight: '36px'
       },
       calender: {
+        transition: Transitions.easeOut(),
+        height: '216px',
+        position: 'relative',
+        overflow: 'hidden'
+      },
+      calInner: {
+        willChange: 'transform, opacity',
+        boxSizing: 'border-box',
         padding: '16px 14px 0',
-
+        position: 'absolute',
+        transition: Transitions.easeOut(),
+        top:'0',
+        left:'0',
+        width: '100%',
+        height: '100%'
       },
       rowStyle: {
         height: '40px',
@@ -75,7 +90,6 @@ export default {
       },
       number: {
         position: 'relative',
-
       },
       weekRowStyle: {
         padding: '0 14px',
@@ -98,19 +112,22 @@ export default {
       colStyle: styles.colStyle,
       weekRowStyle: styles.weekRowStyle,
       weekColStyle: styles.weekColStyle,
+      calInnerStyle: styles.calInner,
       calendarStyle: styles.calender,
       dayStyle: styles.day,
       numStyle: styles.number,
       weekShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-      days: [],
-      prevSelect: null
+      calenders: [],
+      prevSelect: null,
+      open: false,
+      dateSelected: new Date(),
+      selectedString: ''
     }
   },
   props: {
     styleObj: Object,
     textFieldStyle: Object,
     dialogStyle: Object,
-    onClick: Function
   },
   components: {
     TextField,
@@ -119,46 +136,98 @@ export default {
     Dialog,
   },
   beforeCompile: function() {
-    this.$on('change', (date) => {
-      this.getMonthDays(date)
+    this.$on('back', (date) => {
+      this.handleSlide(date, 'leftSlide', true)
     })
-    this.getMonthDays()
+    this.$on('forward', (date) => {
+      this.handleSlide(date, 'rightSlide', true)
+    })
+    this.handleSlide(new Date(), 'leftSlide')
   },
   methods: {
-    getDaysInMonth: function() {
-      const today = new Date()
-      const resultDate = new Date(today.getFullYear(), today.getMonth(), 1)
+    handleSlide: function(date, direction, shift) {
+      this.calenders.push({days: this.getMonthDays(date), direction: direction})
+      if (shift) {
+        this.calenders.shift()
+      }
+    },
+    getDaysInMonth: function(date) {
+      const resultDate = new Date(date.getFullYear(), date.getMonth(), 1)
       resultDate.setMonth(resultDate.getMonth() + 1)
       resultDate.setDate(resultDate.getDate() - 1)
       return resultDate
     },
-    getMonthDays: function(d=new Date(2016, 4, 1)) {
-      this.days = []
-      var dayOfWeek = Array(d.getDay()).fill('')
-      var lastDate = this.getDaysInMonth()
-      var emptyDays = 7 - lastDate.getDay() - 1
+    getMonthDays: function(d) {
+
+      var days = []
+      var firstDay = new Date(d.getFullYear(), d.getMonth(), 1)
+      var dayOfWeek = Array(firstDay.getDay()).fill('')
+      var lastDate = this.getDaysInMonth(d)
+      var emptyDays = 6 - lastDate.getDay()
+
       var daysOfMonth = dayOfWeek.concat(Object.keys([...Array(lastDate.getDate() + 1)]).slice(1))
       daysOfMonth = daysOfMonth.concat(Array(emptyDays).fill(''))
       var index = 0
       while (index < daysOfMonth.length) {
         index += 7
-        this.days.push(daysOfMonth.slice(index-7, index))
+        days.push(daysOfMonth.slice(index-7, index))
       }
+      this.dateSelected = d
+      this.calendarStyle.height = days.length === 5 ? '216px' : '256px'
+      return days
     },
     handleClick: function(event) {
       var node
+      var parent = event.target.closest('[key]')
       if (this.prevSelect) {
         this.prevSelect.style.backgroundColor = ''
         this.prevSelect.opacity = '0'
         this.prevSelect.style.transform = 'scale(0)'
       }
-      if (node = event.target.closest('[key]').children[0]) {
+
+      if (node = parent.children[0]) {
         node.style.backgroundColor = 'rgb(126, 116, 230)'
         node.style.transform = 'scale(1)'
         node.style.opacity = '1'
         this.prevSelect = node
+        this.dateSelected.setDate(parent.textContent.trim())
+        console.log(this.dateSelected);
       }
+    },
+    handleForcus: function() {
+      this.open = true
+    },
+    handleCancel: function() {
+      this.open = false
+    },
+    handleOK: function() {
+      this.open = false
+      this.selectedString = this.dateSelected.toLocaleDateString()
     }
   }
 }
 </script>
+
+<style media="screen">
+.leftSlide-transition,
+.rightSlide-transition {
+  opacity: 1;
+  transform: translateX(0);
+}
+.leftSlide-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.leftSlide-leave {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.rightSlide-enter {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.rightSlide-leave {
+  transform: translateX(100%);
+  opacity: 0;
+}
+</style>

@@ -7,7 +7,7 @@
     <property>
       <table-wrapper slot="pro">
         <table-header slot="header" :headers="tableHeader"></table-header>
-        <table-body slot="body" :body-content="bodyContent"></table-body>
+        <table-body slot="body" :body-content="bodyContent" class="desc"></table-body>
       </table-wrapper>
     </property>
   </div>
@@ -23,12 +23,11 @@ import {TableWrapper,TableBody, TableHeader, DatePicker} from 'mtv'
 export default {
   data: function() {
     return {
-      title: '',
-      description: '',
+      title: 'Date Picker',
+      description: 'Date Pickers are used to select a single date for an input.',
       tableHeader: ['property','type','default','description'],
-      weekShort: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
-      days: []
-      // bodyContent: desc.
+      bodyContent: desc.dialog,
+      html:'<date-picker></date-picker>'
     }
   },
   components: {

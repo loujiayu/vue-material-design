@@ -62,6 +62,8 @@ const bodyContent = ['bodyContent', 'Array' ,'', 'body contents.']
 const trStyle = ['trStyle', 'Object', '', style('tr')]
 const tdStyle = ['tdStyle', 'Object', '', style('td')]
 const thStyle = ['thStyle', 'Object', '', style('th')]
+const textFieldStyle = ['textFieldStyle', 'Object', '', style('Text Field')]
+const dialogStyle = ['dialogStyle', 'Object', '', style('Dialog')]
 const thumbStyle = ['thumbStyle', 'Object', '', style('thumb')]
 const circleStyle = ['circleStyle', 'Object', '', style('circle')]
 const labelId = ['labelId', 'String', '', 'id can be associated with labels.']
@@ -208,5 +210,10 @@ export default {
     title,
     open,
     wrapperStyle
+  ],
+  datepicker: [
+    styleObj('Date Picker'),
+    textFieldStyle,
+    dialogStyle,
   ]
 }

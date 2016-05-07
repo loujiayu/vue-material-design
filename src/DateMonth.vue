@@ -29,9 +29,10 @@ export default {
         position: 'relative'
       },
       date: {
+        willChange: 'transform, opacity',
         position: 'absolute',
         top: '6px',
-        left: '100px',
+        left: '135px',
         textAlign: 'center',
         transition: Transitions.easeOut(),
       },
@@ -62,7 +63,7 @@ export default {
       }
       this.curDate = `${monthList[this.curMonth]} ${this.curYear}`
       this.dateSet.push({date:this.curDate, direction: 'upSlide'})
-      this.$dispatch('change', new Date(this.curYear, this.curMonth))
+      this.$dispatch('back', new Date(this.curYear, this.curMonth))
       this.dateSet.shift()
     },
     handleforward: function() {
@@ -75,7 +76,7 @@ export default {
       }
       this.curDate = `${monthList[this.curMonth]} ${this.curYear}`
       this.dateSet.push({date:this.curDate, direction:'downSlide'})
-      this.$dispatch('change', new Date(this.curYear, this.curMonth))
+      this.$dispatch('forward', new Date(this.curYear, this.curMonth))
       this.dateSet.shift()
     },
     showLast: function(d, index) {
@@ -86,7 +87,8 @@ export default {
 </script>
 
 <style media="screen">
-.upSlide-transition {
+.upSlide-transition,
+.downSlide-transition {
   opacity: 1;
   transform: translateY(0);
 }
@@ -99,10 +101,6 @@ export default {
   transform: translateY(100%);
 }
 
-.downSlide-transition {
-  opacity: 1;
-  transform: translateY(0);
-}
 .downSlide-enter {
   opacity: 0;
   transform: translateY(100%);

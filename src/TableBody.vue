@@ -36,7 +36,7 @@ export default {
         fontSize: '14px',
         padding: '6px 13px',
         height: '56px',
-        textAlign: 'center',
+        textAlign: 'left',
         position: 'relative',
         wordWrap: 'break-word',
         whiteSpace: 'normal',
