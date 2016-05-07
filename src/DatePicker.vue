@@ -3,7 +3,7 @@
     <text-field :style-obj="mTextStyle"></text-field>
     <dialog :open="true" :wrapper-style="mDialogStyle">
       <div slot="dialogBody">
-        <date-month date="jfiapf"></date-month>
+        <date-month></date-month>
         <div :style="weekRowStyle">
           <div v-for="t in weekShort" track-by="$index" :style="weekColStyle">
             {{t}}
@@ -119,6 +119,9 @@ export default {
     Dialog,
   },
   beforeCompile: function() {
+    this.$on('change', (date) => {
+      this.getMonthDays(date)
+    })
     this.getMonthDays()
   },
   methods: {
@@ -129,8 +132,8 @@ export default {
       resultDate.setDate(resultDate.getDate() - 1)
       return resultDate
     },
-    getMonthDays: function() {
-      var d = new Date(2016, 4, 1)
+    getMonthDays: function(d=new Date(2016, 4, 1)) {
+      this.days = []
       var dayOfWeek = Array(d.getDay()).fill('')
       var lastDate = this.getDaysInMonth()
       var emptyDays = 7 - lastDate.getDay() - 1

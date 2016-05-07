@@ -1,8 +1,8 @@
 <template>
   <div :style="mRootStyle">
-    <icon-button icon-class="leftArrow"></icon-button>
-    <span :style="dateStyle">{{date}}</span>
-    <icon-button icon-class="rightArrow"></icon-button>
+    <icon-button icon-class="leftArrow" @click="handleback"></icon-button>
+    <span v-for="d in dateSet" :transition="d.direction" :style="dateStyle">{{d.date}}</span>
+    <icon-button icon-class="rightArrow" @click="handleforward"></icon-button>
   </div>
 </template>
 
@@ -12,36 +12,106 @@ import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import IconButton from 'IconButton'
 
+const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+  'Oct', 'Nov', 'Dec'];
+
 export default {
   data: function(){
+    const today = new Date()
+    const month = monthList[today.getMonth()]
+    const year = today.getFullYear()
     const styles = {
       root: {
         display: 'flex',
         boxSizing: 'border-box',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        position: 'relative'
       },
       date: {
-        flex: '1',
-        textAlign: 'center'
-      }
+        position: 'absolute',
+        top: '6px',
+        left: '100px',
+        textAlign: 'center',
+        transition: Transitions.easeOut(),
+      },
     }
     return {
       mRootStyle: Object.assign(styles.root, this.styleObj),
-      dateStyle: styles.date
+      dateStyle: styles.date,
+      curYear: year,
+      curMonth: today.getMonth(),
+      curDate: `${month} ${year}`,
+      dateSet: [{date: `${month} ${year}`, direction: 'upSlide'}]
     }
   },
   props: {
     styleObj: Object,
-    date: String
   },
   components: {
     IconButton,
+  },
+  methods: {
+    handleback: function() {
+      this.dateSet.$set(this.dateSet.length-1, {date:this.curDate, direction: 'upSlide'})
+      if (this.curMonth === 0) {
+        this.curMonth = 11
+        this.curYear -= 1
+      } else {
+        this.curMonth -= 1
+      }
+      this.curDate = `${monthList[this.curMonth]} ${this.curYear}`
+      this.dateSet.push({date:this.curDate, direction: 'upSlide'})
+      this.$dispatch('change', new Date(this.curYear, this.curMonth))
+      this.dateSet.shift()
+    },
+    handleforward: function() {
+      this.dateSet.$set(this.dateSet.length-1, {date:this.curDate, direction: 'downSlide'})
+      if (this.curMonth === 11) {
+        this.curMonth = 0
+        this.curYear += 1
+      } else {
+        this.curMonth += 1
+      }
+      this.curDate = `${monthList[this.curMonth]} ${this.curYear}`
+      this.dateSet.push({date:this.curDate, direction:'downSlide'})
+      this.$dispatch('change', new Date(this.curYear, this.curMonth))
+      this.dateSet.shift()
+    },
+    showLast: function(d, index) {
+      return this.dateSet[this.dateSet.length - 1] === d
+    }
   }
 }
 </script>
 
 <style media="screen">
+.upSlide-transition {
+  opacity: 1;
+  transform: translateY(0);
+}
+.upSlide-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+.upSlide-leave {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.downSlide-transition {
+  opacity: 1;
+  transform: translateY(0);
+}
+.downSlide-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+.downSlide-leave {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
 .leftArrow:after,
 .leftArrow:before {
   content: ' ';
