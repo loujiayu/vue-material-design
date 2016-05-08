@@ -9,10 +9,9 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, '../lib'),
-    filename: 'mtv.js',
-    library: 'mtv',
+    filename: 'material-vue.js',
+    library: 'material-vue',
     libraryTarget: 'umd'
-    // publicPath: '/lib/',
   },
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],

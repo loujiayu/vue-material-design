@@ -74,7 +74,7 @@ export default {
         this.open = true
       }
     },
-    clickAway: function() {
+    clickAway: function(event) {
       if (!(this.$el && this.$el.contains(event.target) ) && this.open) {
         this.open = false
       }

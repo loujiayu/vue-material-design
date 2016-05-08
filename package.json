@@ -1,8 +1,21 @@
 {
-  "name": "matervue",
-  "version": "1.0.0",
+  "name": "material-vue",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
+  "keywords": [
+    "vue",
+    "vue-component",
+    "material design",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loujiayu/vue-material-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loujiayu/vue-material-design/issues"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint src && echo \"eslint: no lint errors\"",
@@ -10,8 +23,8 @@
     "build-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
     "start-prod": "webpack --verbose --colors --watch --context examples/ --config examples/webpack-production.config.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "JanLo",
+  "license": "MIT",
   "dependencies": {
     "vue": "^1.0.21"
   },
@@ -27,8 +40,6 @@
     "css-loader": "^0.23.1",
     "eslint": "^2.9.0",
     "eslint-plugin-babel": "^3.2.0",
-    "eslint-plugin-html": "^1.4.0",
-    "eslint-plugin-vue": "^0.1.1",
     "file-loader": "^0.8.5",
     "json-loader": "^0.5.4",
     "transfer-webpack-plugin": "^0.1.4",

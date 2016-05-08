@@ -75,7 +75,7 @@ import PageHeader from "PageHeader"
 import Example from "Example"
 import Property from "Property"
 import desc from "../helpers/property"
-import {IconButton, TableWrapper,TableBody, TableHeader} from "mtv"
+import {IconButton, TableWrapper,TableBody, TableHeader} from "material-vue"
 
 export default {
   data: function() {

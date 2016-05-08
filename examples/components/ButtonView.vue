@@ -23,7 +23,7 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import {BaseButton, TableWrapper,TableBody, TableHeader} from 'mtv'
+import {BaseButton, TableWrapper,TableBody, TableHeader} from 'material-vue'
 
 export default {
   data: function() {

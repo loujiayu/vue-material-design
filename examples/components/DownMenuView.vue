@@ -25,7 +25,7 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import {MenuItem, TableWrapper,TableBody, TableHeader, DownMenu} from 'mtv'
+import {MenuItem, TableWrapper,TableBody, TableHeader, DownMenu} from 'material-vue'
 
 export default {
   data: function() {

@@ -34,7 +34,7 @@
 </template>
 
 <script type="text/javascript">
-import { NavBar, IconButton, MenuItem, MenuBar } from 'mtv.js'
+import { NavBar, IconButton, MenuItem, MenuBar } from 'material-vue.js'
 
 export default {
   components: {

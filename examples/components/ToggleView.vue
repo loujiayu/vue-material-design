@@ -20,7 +20,7 @@ import PageHeader from 'PageHeader'
 import Example from 'Example'
 import Property from 'Property'
 import desc from '../helpers/property'
-import {TableWrapper,TableBody, TableHeader, Toggle} from 'mtv'
+import {TableWrapper,TableBody, TableHeader, Toggle} from 'material-vue'
 
 export default {
   data: function() {
