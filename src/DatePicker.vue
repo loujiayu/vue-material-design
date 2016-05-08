@@ -33,6 +33,7 @@ import Dialog from 'Dialog'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import BaseButton from 'BaseButton'
+import 'utils/polyfill'
 
 import DateMonth from './DateMonth'
 

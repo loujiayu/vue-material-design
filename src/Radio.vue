@@ -3,7 +3,7 @@
     <input :style="mInputStyle" type="checkbox" :id="labelId">
     <radio-checked :trigger="trigger" v-if="!disabled"></radio-checked>
     <radio-unchecked :trigger="trigger" :disabled="disabled"></radio-unchecked>
-    <touch-ripple :style-obj="zoom" v-if="!disabled" :center=true></touch-ripple>
+    <touch-ripple :style-obj="zoom" v-if="!disabled" :center="true"></touch-ripple>
   </div>
 </template>
 

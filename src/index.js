@@ -1,5 +1,5 @@
-export BaseButton from 'BaseButton.vue'
-export NavBar from 'NavBar.vue'
+export BaseButton from 'BaseButton'
+export NavBar from 'NavBar'
 export IconButton from 'IconButton'
 export MenuItem from 'MenuItem'
 export IconMenu from 'IconMenu'

@@ -8,7 +8,7 @@ export default {
     }
   },
   once(el, type, callback, useCapture) {
-    const remove = (event) => {
+    const remove = () => {
       this.off(el, type, callback, useCapture)
       callback.call(el)
     }
@@ -23,6 +23,6 @@ export default {
     up: 38,
     left: 37,
     right: 39,
-    down: 40
-  }
+    down: 40,
+  },
 }

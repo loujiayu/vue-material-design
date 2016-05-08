@@ -18,6 +18,7 @@
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import CheckBox from 'CheckBox'
+import 'utils/polyfill'
 
 export default {
   data: function() {

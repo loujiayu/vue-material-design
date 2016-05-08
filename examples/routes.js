@@ -60,4 +60,7 @@ export default function configRouter (router) {
       component: DatePickerView
     }
   })
+  router.redirect({
+    '/':'components/autocomplete'
+  })
 }
