@@ -16,7 +16,7 @@
 
 <script type="text/javascript">
 import Event from 'utils/events'
-import touchRipple from 'touchRipple'
+import touchRipple from 'touchRipple.vue'
 import Transitions from 'styles/transitions'
 import ColorManipulator from 'styles/colorManipulator';
 import {baseTheme} from 'styles/muiTheme'
