@@ -1,7 +1,7 @@
 {
   "name": "material-vue",
   "version": "0.1.0",
-  "description": "",
+  "description": "Material UI with Vue",
   "main": "./src/index.js",
   "keywords": [
     "vue",
@@ -17,7 +17,7 @@
     "url": "https://github.com/loujiayu/vue-material-design/issues"
   },
   "scripts": {
-    "test": "karma start",
+    "test": "karma start && echo \"test: no test errors\"",
     "lint": "eslint src && echo \"eslint: no lint errors\"",
     "build": "webpack --verbose --colors --display-error-details --watch --config build/webpack.dev.config.js",
     "build-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
