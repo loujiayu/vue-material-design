@@ -39,6 +39,7 @@ export default {
       button: {
         flex: '5',
         lineHeight: '48px',
+        width: '100%'
         // paddingLeft:'20%'
       }
     }

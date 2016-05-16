@@ -28,7 +28,6 @@ export default {
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         height: '100vh',
         zIndex: '2',
-
       },
       content: {
         display: 'flex',
