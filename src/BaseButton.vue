@@ -1,6 +1,7 @@
 <template>
   <div :style="mRootStyle"
-      @focus="handleForcus($event)"
+      v-delayfocus="true"
+      @focus="handleFocus($event)"
       @blur="handleBlur($event)"
       @touchstart="handleTouchStart($event)"
       @touchend="handleTouchEnd($event)"
@@ -21,6 +22,7 @@ import Transitions from 'styles/transitions'
 import ColorManipulator from 'styles/colorManipulator';
 import {baseTheme} from 'styles/muiTheme'
 import {zDepthShadows} from 'styles/common'
+import { delayfocus } from 'utils/directive'
 
 export default {
   data: function() {
@@ -114,9 +116,12 @@ export default {
       this.tabListening = true
     }
   },
+  directives: {
+    'delayfocus': delayfocus
+  },
   methods: {
     // TODO: safari forcus issue..
-    handleForcus: function() {
+    handleFocus: function() {
       // wait for keydown fire
       this.forcusTimeout = setTimeout(() => {
         if (this.tabPressed) {

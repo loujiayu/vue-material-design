@@ -13,14 +13,17 @@ import BaseButton from 'BaseButton'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import Event from 'utils/events'
+import { isIE } from 'utils/util'
 
 export default {
   data: function(){
+    let useFlexbox = isIE() > 9
     const styles = {
       root: {
         minWidth: '288px',
         position: 'fixed',
         justifyContent: 'space-between',
+        MsFlexPack: 'justify',
         bottom: '0',
         willChange: 'transform',
         fontFamily: 'Roboto, sans-serif',
@@ -31,7 +34,7 @@ export default {
                      ${Transitions.easeOut('400ms', 'visibility')}`,
       },
       snack: {
-        display: 'flex',
+        display: useFlexbox ? '-ms-flexbox' : 'flex',
         width: '100%',
         alignItems: 'center'
       },

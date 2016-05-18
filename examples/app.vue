@@ -57,7 +57,14 @@ export default {
         if (running) { return }
         running = true
         requestAnimationFrame(function() {
-          obj.dispatchEvent(new CustomEvent(name))
+          let event
+          if (-1 != navigator.userAgent.indexOf("MSIE")) {
+            event = document.createEvent('CustomEvent')
+            event.initCustomEvent(name, true, true, {})
+          } else {
+            event = new CustomEvent(name)
+          }
+          obj.dispatchEvent(event)
           running = false
         })
       }

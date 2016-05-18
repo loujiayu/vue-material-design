@@ -3,7 +3,6 @@
     @click="handleClick"
     @touchstart="handleTouchStart($event)"
     @touchend="handleTouchEnd($event)"
-    @focus="handleForcus($event)"
   >
     <div v-show="tabPressed" :style="tabRippleStyle" transition="tab"></div>
     <div v-for="ripple in ripples" :style="ripple.style" transition="touch"></div>
@@ -58,6 +57,7 @@ export default {
   },
   methods: {
     handleClick: function(event) {
+      console.log('fire click');
       event.preventDefault()
       this.addRipple(event)
     },

@@ -16,6 +16,7 @@ export default {
         position:'absolute',
         overflow: 'auto',
         maxHeight: '150px',
+        minWidth: '58px',
         willChange: 'transform',
         backgroundColor: 'white',
         zIndex: '1',

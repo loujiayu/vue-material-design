@@ -17,8 +17,11 @@
 import Event from 'utils/events'
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
+import { isIE } from 'utils/util'
+
 export default {
   data: function() {
+    let useFlexbox = isIE() > 9
     const styles = {
       root: {
         position: 'fixed',
@@ -30,9 +33,11 @@ export default {
         zIndex: '2',
       },
       content: {
-        display: 'flex',
+        display: useFlexbox ? '-ms-flexbox' : 'flex',
         justifyContent: 'center',
+        MsFlexPack: 'center',
         alignItems: 'center',
+        MsFlexAlign: 'center',
         width: '100%',
         height: '100%'
       },
@@ -45,7 +50,7 @@ export default {
       action: {
         display: 'block',
         float: 'right',
-        padding: '10px'
+        padding: '10px',
       }
     }
     return {

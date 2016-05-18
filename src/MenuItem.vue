@@ -25,13 +25,15 @@
 <script type="text/javascript">
 import BaseButton from 'BaseButton'
 import IconButton from 'IconButton'
-
+import { isIE } from 'utils/util'
 export default {
   data: function() {
+    let useFlexbox = isIE() > 9
     const styles = {
       root: {
-        display: 'flex',
-        justifyContent: 'space-between'
+        display: useFlexbox ? '-ms-flexbox' : 'flex',
+        justifyContent: 'space-between',
+        MsFlexPack: 'justify',
       },
       icon: {
         flex: '2'

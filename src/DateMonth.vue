@@ -19,21 +19,25 @@ import Transitions from 'styles/transitions'
 import ArrowLeft from 'svg/ArrowLeft'
 import ArrowRight from 'svg/ArrowRight'
 import touchRipple from 'touchRipple'
+import { isIE } from 'utils/util'
 
 const monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
   'Oct', 'Nov', 'Dec'];
 
 export default {
   data: function(){
+    let useFlexbox = isIE() > 9
     const today = new Date()
     const month = monthList[today.getMonth()]
     const year = today.getFullYear()
     const styles = {
       root: {
-        display: 'flex',
+        display: useFlexbox ? '-ms-flexbox' : 'flex',
         boxSizing: 'border-box',
         justifyContent: 'space-between',
+        MsFlexPack: 'justify',
         alignItems: 'center',
+        MsFlexAlign: 'center',
         position: 'relative'
       },
       date: {

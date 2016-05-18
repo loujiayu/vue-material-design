@@ -1,6 +1,7 @@
 <template>
   <div :style="mRootStyle"
-      @focus="handleForcus($event)"
+      v-delayfocus="true"
+      @focus="handleFocus($event)"
       @blur="handleBlur($event)"
       @touchstart="handleTouchStart($event)"
       @touchend="handleTouchEnd($event)"
@@ -27,7 +28,7 @@ import touchRipple from 'touchRipple'
 import {zDepthShadows} from 'styles/common'
 import Tooltip from 'Tooltip'
 import {baseTheme} from 'styles/muiTheme'
-
+import { delayfocus } from 'utils/directive'
 export default {
   data: function() {
     const { button, disabledColor } = baseTheme
@@ -104,8 +105,11 @@ export default {
       this.tabListening = true
     }
   },
+  directives: {
+    'delayfocus': delayfocus
+  },
   methods: {
-    handleForcus: function() {
+    handleFocus: function() {
       // wait for keydown fire
       this.forcusTimeout = setTimeout(() => {
         if (this.tabPressed) {

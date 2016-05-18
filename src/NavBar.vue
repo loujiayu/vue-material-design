@@ -17,13 +17,15 @@
 import BaseButton from 'BaseButton'
 import IconButton from 'IconButton'
 import {baseTheme} from 'styles/muiTheme'
+import { isIE } from 'utils/util'
 
 export default {
   data: function() {
     const {button, navBar} = baseTheme
+    let useFlexbox = isIE() > 9
     const styles = {
       root: {
-        display: 'flex',
+        display: useFlexbox ? '-ms-flexbox' : 'flex',
         position: 'fixed',
         // backgroundColor: '#4fc08d',
         width: '100%',

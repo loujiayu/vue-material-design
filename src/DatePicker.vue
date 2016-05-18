@@ -1,6 +1,6 @@
 <template>
   <div :style="mRootStyle">
-    <text-field :style-obj="mTextStyle" :on-focus="handleForcus" :default-content="selectedString"></text-field>
+    <text-field :style-obj="mTextStyle" :on-focus="handleFocus" :default-content="selectedString"></text-field>
     <dialog :open.sync="open" :wrapper-style="mDialogStyle" v-ref:dialog>
       <div slot="dialogBody">
         <date-month></date-month>
@@ -195,7 +195,7 @@ export default {
         console.log(this.dateSelected);
       }
     },
-    handleForcus: function() {
+    handleFocus: function() {
       this.open = true
     },
     handleCancel: function() {
