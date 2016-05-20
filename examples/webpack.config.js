@@ -17,7 +17,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.vue', '.json'],
     modulesDirectories: [
-      'lib',
+      'dist',
       'components',
       'node_modules'
     ],

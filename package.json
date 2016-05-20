@@ -1,8 +1,13 @@
 {
   "name": "material-vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Material UI with Vue",
-  "main": "./src/index.js",
+  "main": "./lib/material-vue.js",
+  "files":[
+    "src",
+    "dist/material-vue.js",
+    "dist/material-vue.min.js"
+  ],
   "keywords": [
     "vue",
     "vue-component",
@@ -17,9 +22,12 @@
     "url": "https://github.com/loujiayu/vue-material-design/issues"
   },
   "scripts": {
+    "dev": "concurrently --kill-others \"npm run start\"  \"npm run build-examples\"",
     "test": "karma start && echo \"test: no test errors\"",
     "lint": "eslint src && echo \"eslint: no lint errors\"",
-    "build": "webpack --verbose --colors --display-error-details --watch --config build/webpack.dev.config.js",
+    "build": "npm run start && npm run prod",
+    "start": "webpack --verbose --colors --display-error-details --config build/webpack.dev.config.js",
+    "prod": "webpack --display-error-details --config build/webpack.prod.config.js",
     "build-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
     "start-prod": "webpack --verbose --colors --watch --context examples/ --config examples/webpack-production.config.js"
   },
@@ -38,6 +46,7 @@
     "babel-preset-stage-2": "^6.5.0",
     "babel-runtime": "^6.6.1",
     "chai": "^3.5.0",
+    "concurrently": "^2.1.0",
     "css-loader": "^0.23.1",
     "eslint": "^2.9.0",
     "eslint-plugin-babel": "^3.2.0",

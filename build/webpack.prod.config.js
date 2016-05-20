@@ -9,7 +9,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: 'material-vue.js',
+    filename: 'material-vue.min.js',
     library: 'material-vue',
     libraryTarget: 'umd'
   },
@@ -49,7 +49,13 @@ module.exports = {
   plugins: [
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
-      __DEVELOPMENT__: true,
+      __DEVELOPMENT__: false,
     }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ]
 }
