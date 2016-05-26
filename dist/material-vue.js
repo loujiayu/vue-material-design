@@ -72,11 +72,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _BaseButton3 = _interopRequireDefault(_BaseButton2);
 
-	var _NavBar2 = __webpack_require__(61);
+	var _NavBar2 = __webpack_require__(62);
 
 	var _NavBar3 = _interopRequireDefault(_NavBar2);
 
-	var _IconButton2 = __webpack_require__(63);
+	var _IconButton2 = __webpack_require__(64);
 
 	var _IconButton3 = _interopRequireDefault(_IconButton2);
 
@@ -176,7 +176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/BaseButton.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(60)
+	__vue_template__ = __webpack_require__(61)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -230,6 +230,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _directive = __webpack_require__(59);
 
+	var _util = __webpack_require__(60);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
@@ -280,7 +282,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      tabPressed: false,
 	      tabListening: false,
 	      focused: false,
-	      forcusTimeout: null
+	      forcusTimeout: null,
+	      isIE: !!(0, _util.isIE)()
 	    };
 	  },
 	  props: {
@@ -1795,25 +1798,43 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	exports.delayfocus = delayfocus;
-	function delayfocus() {
+	function delayfocus(val) {
+	  if (!val) {
+	    return;
+	  }
 	  var el = this.el;
 	  setTimeout(function () {
 	    el.focus();
-	  });
+	  }, 0);
 	}
 
 /***/ },
 /* 60 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div :style=\"mRootStyle\"\n    v-delayfocus=\"true\"\n    @focus=\"handleFocus($event)\"\n    @blur=\"handleBlur($event)\"\n    @touchstart=\"handleTouchStart($event)\"\n    @touchend=\"handleTouchEnd($event)\"\n    @mouseenter=\"handleMouseEnter\"\n    @mouseleave=\"handleMouseLeave\"\n    @click=\"handleClick\"\n    :tabIndex=\"keyboardFocus ? 0 : -1\">\n  <span v-if=\"label\" :style=\"mLabelStyle\" >{{label}}</span>\n  <span v-if=\"iconClass\" :class=\"iconClass\" :style=\"mIconStyle\"></span>\n  <touch-ripple v-if=\"!disabled && ripple\" :tab-pressed=\"focused\"></touch-ripple>\n</div>\n";
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.isIE = isIE;
+	function isIE() {
+	  var myNav = navigator.userAgent.toLowerCase();
+	  return myNav.indexOf('msie') != -1 ? parseInt(myNav.split('msie')[1]) : false;
+	}
 
 /***/ },
 /* 61 */
+/***/ function(module, exports) {
+
+	module.exports = "\n<div :style=\"mRootStyle\"\n    v-delayfocus=\"isIE\"\n    @focus=\"handleFocus($event)\"\n    @blur=\"handleBlur($event)\"\n    @touchstart=\"handleTouchStart($event)\"\n    @touchend=\"handleTouchEnd($event)\"\n    @mouseenter=\"handleMouseEnter\"\n    @mouseleave=\"handleMouseLeave\"\n    @click=\"handleClick\"\n    :tabIndex=\"keyboardFocus ? 0 : -1\">\n  <span v-if=\"label\" :style=\"mLabelStyle\" >{{label}}</span>\n  <span v-if=\"iconClass\" :class=\"iconClass\" :style=\"mIconStyle\"></span>\n  <touch-ripple v-if=\"!disabled && ripple\" :tab-pressed=\"focused\"></touch-ripple>\n</div>\n";
+
+/***/ },
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(62)
+	__vue_script__ = __webpack_require__(63)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
@@ -1837,7 +1858,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})()}
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1854,13 +1875,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _BaseButton2 = _interopRequireDefault(_BaseButton);
 
-	var _IconButton = __webpack_require__(63);
+	var _IconButton = __webpack_require__(64);
 
 	var _IconButton2 = _interopRequireDefault(_IconButton);
 
 	var _muiTheme = __webpack_require__(55);
 
-	var _util = __webpack_require__(71);
+	var _util = __webpack_require__(60);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1907,16 +1928,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__vue_script__ = __webpack_require__(64)
+	__vue_script__ = __webpack_require__(65)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/IconButton.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(70)
+	__vue_template__ = __webpack_require__(71)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -1935,7 +1956,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	})()}
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1958,7 +1979,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _common = __webpack_require__(58);
 
-	var _Tooltip = __webpack_require__(65);
+	var _Tooltip = __webpack_require__(66);
 
 	var _Tooltip2 = _interopRequireDefault(_Tooltip);
 
@@ -2109,17 +2130,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __vue_script__, __vue_template__
-	__webpack_require__(66)
-	__vue_script__ = __webpack_require__(68)
+	__webpack_require__(67)
+	__vue_script__ = __webpack_require__(69)
 	if (__vue_script__ &&
 	    __vue_script__.__esModule &&
 	    Object.keys(__vue_script__).length > 1) {
 	  console.warn("[vue-loader] src/Tooltip.vue: named exports in *.vue files are ignored.")}
-	__vue_template__ = __webpack_require__(69)
+	__vue_template__ = __webpack_require__(70)
 	module.exports = __vue_script__ || {}
 	if (module.exports.__esModule) module.exports = module.exports.default
 	if (__vue_template__) {
@@ -2138,13 +2159,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	})()}
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(67);
+	var content = __webpack_require__(68);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(46)(content, {});
@@ -2164,7 +2185,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(45)();
@@ -2178,7 +2199,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2273,31 +2294,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports) {
 
 	module.exports = "\n<div :style=\"mRootStyle\" @click=\"handleClick\">\n  {{message}}\n</div>\n";
 
 /***/ },
-/* 70 */
-/***/ function(module, exports) {
-
-	module.exports = "\n<div :style=\"mRootStyle\"\n    v-delayfocus=\"true\"\n    @focus=\"handleFocus($event)\"\n    @blur=\"handleBlur($event)\"\n    @touchstart=\"handleTouchStart($event)\"\n    @touchend=\"handleTouchEnd($event)\"\n    @mouseenter=\"handleMouseEnter\"\n    @mouseleave=\"handleMouseLeave\"\n    @click=\"handleClick\"\n    :tabIndex=\"keyboardFocus ? 0 : -1\">\n  <tooltip\n    v-if=\"tooltip\"\n    :note=\"msg\"\n    :message=\"tooltip\"\n    :vertical-position=\"verticalPosition\"\n    :horizontal-position=\"horizontalPosition\">\n  </tooltip>\n\n  <span :class=\"iconClass\" :style=\"centerStyle\"></span>\n  <touch-ripple v-ref:touch :tab-pressed=\"focused\" v-if=\"!disabled\" :center=\"true\" ></touch-ripple>\n</div>\n";
-
-/***/ },
 /* 71 */
 /***/ function(module, exports) {
 
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.isIE = isIE;
-	function isIE() {
-	  var myNav = navigator.userAgent.toLowerCase();
-	  return myNav.indexOf('msie') != -1 ? parseInt(myNav.split('msie')[1]) : false;
-	}
+	module.exports = "\n<div :style=\"mRootStyle\"\n    v-delayfocus=\"true\"\n    @focus=\"handleFocus($event)\"\n    @blur=\"handleBlur($event)\"\n    @touchstart=\"handleTouchStart($event)\"\n    @touchend=\"handleTouchEnd($event)\"\n    @mouseenter=\"handleMouseEnter\"\n    @mouseleave=\"handleMouseLeave\"\n    @click=\"handleClick\"\n    :tabIndex=\"keyboardFocus ? 0 : -1\">\n  <tooltip\n    v-if=\"tooltip\"\n    :note=\"msg\"\n    :message=\"tooltip\"\n    :vertical-position=\"verticalPosition\"\n    :horizontal-position=\"horizontalPosition\">\n  </tooltip>\n\n  <span :class=\"iconClass\" :style=\"centerStyle\"></span>\n  <touch-ripple v-ref:touch :tab-pressed=\"focused\" v-if=\"!disabled\" :center=\"true\" ></touch-ripple>\n</div>\n";
 
 /***/ },
 /* 72 */
@@ -2351,11 +2357,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _BaseButton2 = _interopRequireDefault(_BaseButton);
 
-	var _IconButton = __webpack_require__(63);
+	var _IconButton = __webpack_require__(64);
 
 	var _IconButton2 = _interopRequireDefault(_IconButton);
 
-	var _util = __webpack_require__(71);
+	var _util = __webpack_require__(60);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2462,7 +2468,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _events2 = _interopRequireDefault(_events);
 
-	var _IconButton = __webpack_require__(63);
+	var _IconButton = __webpack_require__(64);
 
 	var _IconButton2 = _interopRequireDefault(_IconButton);
 
@@ -3139,7 +3145,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _events2 = _interopRequireDefault(_events);
 
-	var _util = __webpack_require__(71);
+	var _util = __webpack_require__(60);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3292,6 +3298,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _directive = __webpack_require__(59);
 
+	var _util = __webpack_require__(60);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
@@ -3371,6 +3379,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      mUnderlineStyle: (0, _assign2.default)(styles.underline, this.underlineStyle),
 	      mForcusUnderlineStyle: styles.forcusUnderline,
 	      isForcused: false,
+	      isIE: !!(0, _util.isIE)(),
 	      show: this.isForcused && this.floatContent && this.hintContent || this.hintContent && !this.defaultContent && !this.floatContent
 	    };
 	  },
@@ -3431,7 +3440,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 103 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div :style=\"mRootStyle\">\n  <label v-if=\"floatContent\" for=\"sp\" :style=\"mFloatStyle\">{{floatContent}}</label>\n  <div :style=\"mHintStyle\" v-show=\"show\" v-if=\"hintContent\">\n    {{hintContent}}\n  </div>\n  <div>\n    <hr :style=\"mUnderlineStyle\" />\n    <hr :style=\"mForcusUnderlineStyle\" />\n  </div>\n  <input :disabled=\"disabled\" type=\"text\" :style=\"mInputStyle\" id=\"sp\" v-delayfocus=\"true\"\n         @focus=\"handleFocus($event)\" @blur=\"handleBlur($event)\"\n         @input=\"handleInput($event)\" :value=\"defaultContent\"/>\n</div>\n";
+	module.exports = "\n<div :style=\"mRootStyle\">\n  <label v-if=\"floatContent\" for=\"sp\" :style=\"mFloatStyle\">{{floatContent}}</label>\n  <div :style=\"mHintStyle\" v-show=\"show\" v-if=\"hintContent\">\n    {{hintContent}}\n  </div>\n  <div>\n    <hr :style=\"mUnderlineStyle\" />\n    <hr :style=\"mForcusUnderlineStyle\" />\n  </div>\n  <input :disabled=\"disabled\" type=\"text\" :style=\"mInputStyle\" id=\"sp\" v-delayfocus=\"isIE\"\n         @focus=\"handleFocus($event)\" @blur=\"handleBlur($event)\"\n         @input=\"handleInput($event)\" :value=\"defaultContent\"/>\n</div>\n";
 
 /***/ },
 /* 104 */
@@ -4951,7 +4960,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _transitions2 = _interopRequireDefault(_transitions);
 
-	var _util = __webpack_require__(71);
+	var _util = __webpack_require__(60);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5858,7 +5867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _touchRipple2 = _interopRequireDefault(_touchRipple);
 
-	var _util = __webpack_require__(71);
+	var _util = __webpack_require__(60);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -8,7 +8,7 @@
       <hr :style="mUnderlineStyle" />
       <hr :style="mForcusUnderlineStyle" />
     </div>
-    <input :disabled="disabled" type="text" :style="mInputStyle" id="sp" v-delayfocus="true"
+    <input :disabled="disabled" type="text" :style="mInputStyle" id="sp" v-delayfocus="isIE"
            @focus="handleFocus($event)" @blur="handleBlur($event)"
            @input="handleInput($event)" :value="defaultContent"/>
   </div>
@@ -19,6 +19,8 @@
 import {zDepthShadows} from 'styles/common'
 import Transitions from 'styles/transitions'
 import { delayfocus } from 'utils/directive'
+import { isIE } from 'utils/util'
+
 export default {
   data: function() {
     const lineStyle = {
@@ -98,6 +100,7 @@ export default {
       mUnderlineStyle: Object.assign(styles.underline, this.underlineStyle),
       mForcusUnderlineStyle: styles.forcusUnderline,
       isForcused: false,
+      isIE: !!isIE(),
       show: (this.isForcused && this.floatContent && this.hintContent) ||
             (this.hintContent && !this.defaultContent && !this.floatContent)
     }

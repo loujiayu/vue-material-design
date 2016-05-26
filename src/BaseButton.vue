@@ -1,6 +1,6 @@
 <template>
   <div :style="mRootStyle"
-      v-delayfocus="true"
+      v-delayfocus="isIE"
       @focus="handleFocus($event)"
       @blur="handleBlur($event)"
       @touchstart="handleTouchStart($event)"
@@ -23,6 +23,7 @@ import ColorManipulator from 'styles/colorManipulator';
 import {baseTheme} from 'styles/muiTheme'
 import {zDepthShadows} from 'styles/common'
 import { delayfocus } from 'utils/directive'
+import { isIE } from 'utils/util'
 
 export default {
   data: function() {
@@ -70,7 +71,8 @@ export default {
       tabPressed: false,
       tabListening: false,
       focused: false,
-      forcusTimeout: null
+      forcusTimeout: null,
+      isIE: !!isIE()
     }
   },
   props: {

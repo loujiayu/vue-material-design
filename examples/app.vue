@@ -115,9 +115,7 @@ export default {
 }
 .header {
   background-color: rgb(41, 43, 38);
-  button {
-    color: #fff;
-  }
+  color: white;
 }
 .router {
   padding: 72px 36px 48px;
