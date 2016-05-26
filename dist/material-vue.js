@@ -184,9 +184,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/BaseButton.vue"
+	  var id = "./BaseButton.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -963,9 +963,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/touchRipple.vue"
+	  var id = "./touchRipple.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -1008,7 +1008,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.tab-transition {\n  -webkit-animation-name: forcus;\n          animation-name: forcus;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n  -webkit-animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n          animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n.tab-enter,\n.tab-leave {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.touch-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 0;\n}\n.touch-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity:1;\n}\n\n@-webkit-keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n\n@keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.tab-transition {\n  -webkit-animation-name: forcus;\n          animation-name: forcus;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n  -webkit-animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n          animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n.tab-enter,\n.tab-leave {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.touch-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 0;\n}\n.touch-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity:1;\n}\n\n@-webkit-keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n\n@keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n", ""]);
 
 	// exports
 
@@ -1826,9 +1826,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/NavBar.vue"
+	  var id = "./NavBar.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -1924,9 +1924,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/IconButton.vue"
+	  var id = "./IconButton.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2127,9 +2127,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/Tooltip.vue"
+	  var id = "./Tooltip.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2172,7 +2172,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.tooltip-transition {\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n.tooltip-enter,\n.tooltip-leave {\n  visibility: hidden;\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.tooltip-transition {\n  visibility: visible;\n  opacity: 1;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}\n.tooltip-enter,\n.tooltip-leave {\n  visibility: hidden;\n  opacity: 0;\n  -webkit-transform: scale(0);\n          transform: scale(0);\n}\n", ""]);
 
 	// exports
 
@@ -2323,9 +2323,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/MenuItem.vue"
+	  var id = "./MenuItem.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2434,9 +2434,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/IconMenu.vue"
+	  var id = "./IconMenu.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2559,9 +2559,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/Popover.vue"
+	  var id = "./Popover.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2604,7 +2604,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.vertical-pop-transition {\n  -webkit-transform: scaleY(1);\n          transform: scaleY(1);\n  opacity: 1;\n  visibility: visible;\n}\n.vertical-pop-leave,\n.vertical-pop-enter {\n  -webkit-transform: scaleY(0);\n          transform: scaleY(0);\n  opacity: 0;\n  visibility: hidden;\n}\n.popover-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n  visibility: visible;\n}\n.popover-leave,\n.popover-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n  visibility: hidden;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.vertical-pop-transition {\n  -webkit-transform: scaleY(1);\n          transform: scaleY(1);\n  opacity: 1;\n  visibility: visible;\n}\n.vertical-pop-leave,\n.vertical-pop-enter {\n  -webkit-transform: scaleY(0);\n          transform: scaleY(0);\n  opacity: 0;\n  visibility: hidden;\n}\n.popover-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n  visibility: visible;\n}\n.popover-leave,\n.popover-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n  visibility: hidden;\n}\n", ""]);
 
 	// exports
 
@@ -2695,9 +2695,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/DownMenu.vue"
+	  var id = "./DownMenu.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2826,9 +2826,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/MenuBar.vue"
+	  var id = "./MenuBar.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -2871,7 +2871,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.mask {\n  top: 0;\n  right: 0;\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -webkit-transition-duration: .5s;\n          transition-duration: .5s;\n}\n.mask-transition {\n  opacity: 1;\n}\n.mask-enter,\n.mask-leave {\n  opacity: 0;\n}\n.slide-transition {\n  -webkit-transform: translateX(0);\n          transform: translateX(0);\n}\n.slide-enter,\n.slide-leave {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.mask {\n  top: 0;\n  right: 0;\n  position: fixed;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  -webkit-transition-property: opacity;\n  transition-property: opacity;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n  -webkit-transition-duration: .5s;\n          transition-duration: .5s;\n}\n.mask-transition {\n  opacity: 1;\n}\n.mask-enter,\n.mask-leave {\n  opacity: 0;\n}\n.slide-transition {\n  -webkit-transform: translateX(0);\n          transform: translateX(0);\n}\n.slide-enter,\n.slide-leave {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n}\n", ""]);
 
 	// exports
 
@@ -3061,9 +3061,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/SnackBar.vue"
+	  var id = "./SnackBar.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3106,7 +3106,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.snack-transition {\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  visibility: visible;\n}\n.snack-enter,\n.snack-leave {\n  visibility: hidden;\n  -webkit-transform: translate(-50%, 80px);\n          transform: translate(-50%, 80px);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.snack-transition {\n  -webkit-transform: translate(-50%, 0);\n          transform: translate(-50%, 0);\n  visibility: visible;\n}\n.snack-enter,\n.snack-leave {\n  visibility: hidden;\n  -webkit-transform: translate(-50%, 80px);\n          transform: translate(-50%, 80px);\n}\n", ""]);
 
 	// exports
 
@@ -3260,9 +3260,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/TextField.vue"
+	  var id = "./TextField.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3451,9 +3451,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/CheckBox.vue"
+	  var id = "./CheckBox.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3567,9 +3567,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/svg/CheckBoxOutline.vue"
+	  var id = "./CheckBoxOutline.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3612,7 +3612,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 	// exports
 
@@ -3693,9 +3693,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/svg/CheckBoxInline.vue"
+	  var id = "./CheckBoxInline.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3738,7 +3738,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n\n.trigger-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n}\n.trigger-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.trigger-leave {\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.trigger-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n}\n.trigger-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.trigger-leave {\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -3818,9 +3818,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/Radio.vue"
+	  var id = "./Radio.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3934,9 +3934,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/svg/RadioChecked.vue"
+	  var id = "./RadioChecked.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -3979,7 +3979,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.trigger-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n}\n.trigger-enter,\n.trigger-leave {\n  -webkit-transform: scale(.5);\n          transform: scale(.5);\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.trigger-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n}\n.trigger-enter,\n.trigger-leave {\n  -webkit-transform: scale(.5);\n          transform: scale(.5);\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -4054,9 +4054,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/svg/RadioUnchecked.vue"
+	  var id = "./RadioUnchecked.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4099,7 +4099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.trigger-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n}\n.trigger-enter,\n.trigger-leave {\n  -webkit-transform: scale(.5);\n          transform: scale(.5);\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.trigger-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n}\n.trigger-enter,\n.trigger-leave {\n  -webkit-transform: scale(.5);\n          transform: scale(.5);\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -4182,9 +4182,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/Toggle.vue"
+	  var id = "./Toggle.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4326,9 +4326,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/TableWrapper.vue"
+	  var id = "./TableWrapper.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4401,9 +4401,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/TableBody.vue"
+	  var id = "./TableBody.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4446,7 +4446,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.selected {\n  background-color: rgb(224, 224, 224);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.selected {\n  background-color: rgb(224, 224, 224);\n}\n", ""]);
 
 	// exports
 
@@ -4636,9 +4636,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/TableHeader.vue"
+	  var id = "./TableHeader.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4741,9 +4741,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/AutoComplete.vue"
+	  var id = "./AutoComplete.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4877,9 +4877,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/Dialog.vue"
+	  var id = "./Dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -4922,7 +4922,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.dialog-transition {\n  opacity: 1;\n  -webkit-transition-property: all;\n  transition-property: all;\n  -webkit-transition-duration: 300ms;\n          transition-duration: 300ms;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);*/\n  transform: scale(1);\n}\n.dialog-leave,\n.dialog-enter {\n  opacity: 0;\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.dialog-transition {\n  opacity: 1;\n  -webkit-transition-property: all;\n  transition-property: all;\n  -webkit-transition-duration: 300ms;\n          transition-duration: 300ms;\n  -webkit-transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);\n          transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);*/\n  transform: scale(1);\n}\n.dialog-leave,\n.dialog-enter {\n  opacity: 0;\n  -webkit-transform: scale(1.1);\n          transform: scale(1.1);\n}\n", ""]);
 
 	// exports
 
@@ -5054,9 +5054,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/DatePicker.vue"
+	  var id = "./DatePicker.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -5099,7 +5099,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.leftSlide-transition,\n.rightSlide-transition {\n  opacity: 1;\n  -webkit-transform: translateX(0);\n          transform: translateX(0);\n}\n.leftSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.leftSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n.rightSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.rightSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.leftSlide-transition,\n.rightSlide-transition {\n  opacity: 1;\n  -webkit-transform: translateX(0);\n          transform: translateX(0);\n}\n.leftSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.leftSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n.rightSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.rightSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -5776,9 +5776,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/DateMonth.vue"
+	  var id = "./DateMonth.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -5821,7 +5821,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n.upSlide-transition,\n.downSlide-transition {\n  opacity: 1;\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n}\n.upSlide-enter {\n  opacity: 0;\n  -webkit-transform: translateY(-100%);\n          transform: translateY(-100%);\n}\n.upSlide-leave {\n  opacity: 0;\n  -webkit-transform: translateY(100%);\n          transform: translateY(100%);\n}\n\n.downSlide-enter {\n  opacity: 0;\n  -webkit-transform: translateY(100%);\n          transform: translateY(100%);\n}\n.downSlide-leave {\n  opacity: 0;\n  -webkit-transform: translateY(-100%);\n          transform: translateY(-100%);\n}\n\n.leftArrow:after,\n.leftArrow:before {\n  content: ' ';\n  position: absolute;\n  height: 0;\n  width: 0;\n  right: 20px;\n  border: solid transparent;\n}\n\n.rightArrow:after,\n.rightArrow:before {\n  content: ' ';\n  position: absolute;\n  height: 0;\n  width: 0;\n  border: solid transparent;\n  left: 20px;\n}\n\n.leftArrow:after {\n  border-right-color: white;\n  border-width: 9px;\n  top: 15px;\n}\n.leftArrow:before {\n  border-right-color: black;\n  border-width: 12px;\n  top: 12px;\n}\n.rightArrow:after {\n  border-left-color: white;\n  border-width: 9px;\n  top: 15px;\n}\n.rightArrow:before {\n  border-left-color: black;\n  border-width: 12px;\n  top: 12px;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.upSlide-transition,\n.downSlide-transition {\n  opacity: 1;\n  -webkit-transform: translateY(0);\n          transform: translateY(0);\n}\n.upSlide-enter {\n  opacity: 0;\n  -webkit-transform: translateY(-100%);\n          transform: translateY(-100%);\n}\n.upSlide-leave {\n  opacity: 0;\n  -webkit-transform: translateY(100%);\n          transform: translateY(100%);\n}\n\n.downSlide-enter {\n  opacity: 0;\n  -webkit-transform: translateY(100%);\n          transform: translateY(100%);\n}\n.downSlide-leave {\n  opacity: 0;\n  -webkit-transform: translateY(-100%);\n          transform: translateY(-100%);\n}\n\n.leftArrow:after,\n.leftArrow:before {\n  content: ' ';\n  position: absolute;\n  height: 0;\n  width: 0;\n  right: 20px;\n  border: solid transparent;\n}\n\n.rightArrow:after,\n.rightArrow:before {\n  content: ' ';\n  position: absolute;\n  height: 0;\n  width: 0;\n  border: solid transparent;\n  left: 20px;\n}\n\n.leftArrow:after {\n  border-right-color: white;\n  border-width: 9px;\n  top: 15px;\n}\n.leftArrow:before {\n  border-right-color: black;\n  border-width: 12px;\n  top: 12px;\n}\n.rightArrow:after {\n  border-left-color: white;\n  border-width: 9px;\n  top: 15px;\n}\n.rightArrow:before {\n  border-left-color: black;\n  border-width: 12px;\n  top: 12px;\n}\n", ""]);
 
 	// exports
 
@@ -5964,9 +5964,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/svg/ArrowLeft.vue"
+	  var id = "./ArrowLeft.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -6033,9 +6033,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
+	  hotAPI.install(require("vue"), false)
 	  if (!hotAPI.compatible) return
-	  var id = "/Users/loujiayu/proj/vue-material-design/src/svg/ArrowRight.vue"
+	  var id = "./ArrowRight.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {

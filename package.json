@@ -22,14 +22,15 @@
     "url": "https://github.com/loujiayu/vue-material-design/issues"
   },
   "scripts": {
-    "dev": "concurrently --kill-others \"npm run start\"  \"npm run build-examples\"",
+    "dev": "concurrently --kill-others \"npm run start\"  \"npm run dev-examples\"",
     "test": "karma start && echo \"test: no test errors\"",
     "lint": "eslint src && echo \"eslint: no lint errors\"",
     "build": "npm run start && npm run prod",
     "start": "webpack --verbose --colors --display-error-details --config build/webpack.dev.config.js",
     "prod": "webpack --display-error-details --config build/webpack.prod.config.js",
-    "build-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
-    "start-prod": "webpack --verbose --colors --watch --context examples/ --config examples/webpack-production.config.js"
+    "dev-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
+    "build-examples": "webpack --verbose --colors --watch --context examples/ --config examples/webpack-production.config.js",
+    "doc": "node examples/build/server.js"
   },
   "author": "JanLo",
   "license": "MIT",
