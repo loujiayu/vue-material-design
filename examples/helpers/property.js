@@ -74,7 +74,9 @@ const onBlur = ['onBlur', 'Function', '', 'callback function that is fired when 
 const onFocus = ['onForcus', 'Function', '', 'callback function that is fired when element has received focus.']
 const completion = ['completion', 'Array', '', 'array of completion.']
 const matchCase = ['matchCase', 'Boolean', 'true','case sensitive if true.']
-const title = ['title', 'String', '','title of Dialog']
+const title = ['title', 'String', '','title of Dialog.']
+const valueProp = ['value', 'String', 'null', 'value the parent element props.']
+
 export default {
   button: [
     disabled('Button'),
@@ -153,6 +155,7 @@ export default {
   textfield: [
     styleObj('Text Field'),
     disabled('Text Field'),
+    valueProp,
     floatStyle,
     hintStyle,
     inputStyle,

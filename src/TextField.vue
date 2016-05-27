@@ -10,7 +10,7 @@
     </div>
     <input :disabled="disabled" type="text" :style="mInputStyle" id="sp" v-delayfocus="isIE"
            @focus="handleFocus($event)" @blur="handleBlur($event)"
-           @input="handleInput($event)" :value="defaultContent"/>
+           @input="handleInput($event)" :value="value || defaultContent"/>
   </div>
 </template>
 
@@ -120,6 +120,7 @@ export default {
     },
     hintContent: String,
     defaultContent: String,
+    value: String,
     onBlur: Function,
     onFocus: Function
   },

@@ -1,6 +1,6 @@
 <template>
   <div :style="mRootStyle">
-    <text-field :style-obj="mTextStyle" :on-focus="handleFocus" :default-content="selectedString"></text-field>
+    <text-field :style-obj="mTextStyle" :on-focus="handleFocus" :value="selectedString"></text-field>
     <dialog :open.sync="open" :wrapper-style="mDialogStyle" v-ref:dialog>
       <div slot="dialogBody">
         <date-month></date-month>
@@ -122,7 +122,7 @@ export default {
       prevSelect: null,
       open: false,
       dateSelected: new Date(),
-      selectedString: ''
+      selectedString: null
     }
   },
   props: {

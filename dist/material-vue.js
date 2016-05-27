@@ -383,7 +383,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.mRootStyle.boxShadow = _common.zDepthShadows[this.shadowDepth];
 	      }
 	    },
-	    handleClick: function handleClick() {
+	    handleClick: function handleClick(event) {
 	      this.tabPressed = false;
 	      this.focused = false;
 	      if (this.disabled) {
@@ -394,9 +394,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else if (this.link) {
 	        console.warn(this.link + ' is not a valid URL');
 	      }
-	      if (this.onClick) {
-	        this.onClick();
-	      }
+	      if (this.onClick) this.onClick(event, this.label);
 	    }
 	  }
 	};
@@ -2675,7 +2673,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 82 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div :style=\"mRootStyle\" v-if=\"open\" :transition=\"verticalAnimation ? 'vertical-pop':'popover'\">\n  <slot name=\"popover\"></slot>\n</div>\n";
+	module.exports = "\n<div :style=\"mRootStyle\" v-show=\"open\" :transition=\"verticalAnimation ? 'vertical-pop':'popover'\">\n  <slot name=\"popover\"></slot>\n</div>\n";
 
 /***/ },
 /* 83 */
@@ -3398,6 +3396,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    },
 	    hintContent: String,
 	    defaultContent: String,
+	    value: String,
 	    onBlur: Function,
 	    onFocus: Function
 	  },
@@ -3440,7 +3439,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 103 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div :style=\"mRootStyle\">\n  <label v-if=\"floatContent\" for=\"sp\" :style=\"mFloatStyle\">{{floatContent}}</label>\n  <div :style=\"mHintStyle\" v-show=\"show\" v-if=\"hintContent\">\n    {{hintContent}}\n  </div>\n  <div>\n    <hr :style=\"mUnderlineStyle\" />\n    <hr :style=\"mForcusUnderlineStyle\" />\n  </div>\n  <input :disabled=\"disabled\" type=\"text\" :style=\"mInputStyle\" id=\"sp\" v-delayfocus=\"isIE\"\n         @focus=\"handleFocus($event)\" @blur=\"handleBlur($event)\"\n         @input=\"handleInput($event)\" :value=\"defaultContent\"/>\n</div>\n";
+	module.exports = "\n<div :style=\"mRootStyle\">\n  <label v-if=\"floatContent\" for=\"sp\" :style=\"mFloatStyle\">{{floatContent}}</label>\n  <div :style=\"mHintStyle\" v-show=\"show\" v-if=\"hintContent\">\n    {{hintContent}}\n  </div>\n  <div>\n    <hr :style=\"mUnderlineStyle\" />\n    <hr :style=\"mForcusUnderlineStyle\" />\n  </div>\n  <input :disabled=\"disabled\" type=\"text\" :style=\"mInputStyle\" id=\"sp\" v-delayfocus=\"isIE\"\n         @focus=\"handleFocus($event)\" @blur=\"handleBlur($event)\"\n         @input=\"handleInput($event)\" :value=\"value || defaultContent\"/>\n</div>\n";
 
 /***/ },
 /* 104 */
@@ -4782,6 +4781,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _Popover2 = _interopRequireDefault(_Popover);
 
+	var _events = __webpack_require__(41);
+
+	var _events2 = _interopRequireDefault(_events);
+
 	var _common = __webpack_require__(58);
 
 	var _transitions = __webpack_require__(54);
@@ -4808,6 +4811,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      mRootStyle: (0, _assign2.default)(styles.root, this.styleObj),
 	      mMenuStyle: (0, _assign2.default)(styles.menu, this.menuStyle),
 	      open: false,
+	      value: null,
 	      inputValue: ''
 	    };
 	  },
@@ -4840,17 +4844,25 @@ return /******/ (function(modules) { // webpackBootstrap
 	    TextField: _TextField2.default,
 	    Popover: _Popover2.default
 	  },
+	  ready: function ready() {
+	    _events2.default.on(window, 'click', this.clickAway);
+	  },
+	  destroyed: function destroyed() {
+	    _events2.default.off(window, 'click', this.clickAway);
+	  },
 	  methods: {
+	    handleClick: function handleClick(event, label) {
+	      this.value = label;
+	      this.open = false;
+	    },
 	    handleInput: function handleInput(event) {
 	      var value = event.target.value;
 	      this.inputValue = this.matchCase ? value : value.toLowerCase();
 	      this.open = value ? true : false;
 	    },
-	    handleBlur: function handleBlur() {
-	      this.open = false;
-
-	      if (this.onBlur) {
-	        this.onBlur();
+	    clickAway: function clickAway(event) {
+	      if (!this.$refs.popover.$el.contains(event.target) && this.open) {
+	        this.open = false;
 	      }
 	    },
 	    defaultFilter: function defaultFilter(comp) {
@@ -4865,7 +4877,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 147 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div :style=\"mRootStyle\"\n     @input=\"handleInput($event)\"\n     >\n  <text-field\n    :style-obj=\"mTextStyle\"\n    :float-style=\"floatStyle\"\n    :hint-style=\"hintStyle\"\n    :input-style=\"inputStyle\"\n    :underline-style=\"underlineStyle\"\n    :forcusUnderline-style=\"forcusUnderlineStyle\"\n    :background-color=\"backgroundColor\"\n    :float-content=\"floatContent\"\n    :disabled=\"disabled\"\n    :hint-content=\"hintContent\"\n    :default-content=\"defaultContent\"\n    :on-blur=\"handleBlur\"\n    :on-focus=\"onFocus\"\n  >\n  </text-field>\n  <popover :open=\"open\" :style-obj=\"mMenuStyle\" v-if=\"!disabled\" :vertical-animation=\"true\">\n    <menu-item v-for=\"comp in completion | filterBy defaultFilter \" :label=\"comp\" slot=\"popover\"></menu-item>\n  </popover>\n</div>\n";
+	module.exports = "\n<div :style=\"mRootStyle\"\n     @input=\"handleInput($event)\"\n     >\n  <text-field\n    :style-obj=\"mTextStyle\"\n    :float-style=\"floatStyle\"\n    :hint-style=\"hintStyle\"\n    :input-style=\"inputStyle\"\n    :underline-style=\"underlineStyle\"\n    :forcusUnderline-style=\"forcusUnderlineStyle\"\n    :background-color=\"backgroundColor\"\n    :float-content=\"floatContent\"\n    :disabled=\"disabled\"\n    :hint-content=\"hintContent\"\n    :default-content=\"defaultContent\"\n    :on-blur=\"onBlur\"\n    :on-focus=\"onFocus\"\n    :value=\"value\"\n  >\n  </text-field>\n  <popover :open=\"open\" :style-obj=\"mMenuStyle\" v-if=\"!disabled\" :vertical-animation=\"true\" v-ref:popover>\n    <menu-item v-for=\"comp in completion | filterBy defaultFilter \"\n               :label=\"comp\"\n               slot=\"popover\"\n               :key=\"comp\"\n               :label-on-click=\"handleClick\">\n    </menu-item>\n  </popover>\n</div>\n";
 
 /***/ },
 /* 148 */
@@ -5242,7 +5254,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      prevSelect: null,
 	      open: false,
 	      dateSelected: new Date(),
-	      selectedString: ''
+	      selectedString: null
 	    };
 	  },
 	  props: {
@@ -6103,7 +6115,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 192 */
 /***/ function(module, exports) {
 
-	module.exports = "\n<div :style=\"mRootStyle\">\n  <text-field :style-obj=\"mTextStyle\" :on-focus=\"handleFocus\" :default-content=\"selectedString\"></text-field>\n  <dialog :open.sync=\"open\" :wrapper-style=\"mDialogStyle\" v-ref:dialog>\n    <div slot=\"dialogBody\">\n      <date-month></date-month>\n      <div :style=\"weekRowStyle\">\n        <div v-for=\"t in weekShort\" track-by=\"$index\" :style=\"weekColStyle\">\n          {{t}}\n        </div>\n      </div>\n      <div :style=\"calendarStyle\">\n        <div v-for=\"calender in calenders\" :transition=\"calender.direction\" :style=\"calInnerStyle\">\n          <div v-for=\"row in calender.days\" :style=\"rowStyle\">\n            <div key v-for=\"col in row\" track-by=\"$index\" :style=\"colStyle\" @click=\"handleClick($event)\">\n              <div :style=\"dayStyle\">\n              </div>\n              <span :style=\"numStyle\">{{col}}</span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <base-button label=\"CANCEL\" slot=\"dialogAction\" :on-click=\"handleCancel\"></base-button>\n    <base-button label=\"OK\" slot=\"dialogAction\" :on-click=\"handleOK\"></base-button>\n  </dialog>\n</div>\n";
+	module.exports = "\n<div :style=\"mRootStyle\">\n  <text-field :style-obj=\"mTextStyle\" :on-focus=\"handleFocus\" :value=\"selectedString\"></text-field>\n  <dialog :open.sync=\"open\" :wrapper-style=\"mDialogStyle\" v-ref:dialog>\n    <div slot=\"dialogBody\">\n      <date-month></date-month>\n      <div :style=\"weekRowStyle\">\n        <div v-for=\"t in weekShort\" track-by=\"$index\" :style=\"weekColStyle\">\n          {{t}}\n        </div>\n      </div>\n      <div :style=\"calendarStyle\">\n        <div v-for=\"calender in calenders\" :transition=\"calender.direction\" :style=\"calInnerStyle\">\n          <div v-for=\"row in calender.days\" :style=\"rowStyle\">\n            <div key v-for=\"col in row\" track-by=\"$index\" :style=\"colStyle\" @click=\"handleClick($event)\">\n              <div :style=\"dayStyle\">\n              </div>\n              <span :style=\"numStyle\">{{col}}</span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n    <base-button label=\"CANCEL\" slot=\"dialogAction\" :on-click=\"handleCancel\"></base-button>\n    <base-button label=\"OK\" slot=\"dialogAction\" :on-click=\"handleOK\"></base-button>\n  </dialog>\n</div>\n";
 
 /***/ }
 /******/ ])

@@ -2,7 +2,7 @@
   <div>
     <page-header :title="title" :description="description"></page-header>
     <example :code-html="html">
-      <text-field slot="ex" :style-obj="exStyle" default-content="haha" ></text-field>
+      <text-field slot="ex" :style-obj="exStyle" default-content="haha" value="value"></text-field>
       <text-field slot="ex" :style-obj="exStyle" float-content="float content" ></text-field>
       <text-field slot="ex" :style-obj="exStyle" hint-content="hint content" ></text-field>
       <text-field slot="ex" :style-obj="exStyle" float-content="float content" hint-content="hint content" ></text-field>
@@ -34,7 +34,7 @@ export default {
       exStyle: {
         display: 'block',
       },
-      html: '<text-field default-content="haha" ></text-field> \
+      html: '<text-field default-content="haha" value="value"></text-field> \
              \n<text-field float-content="float content" ></text-field> \
              \n<text-field hint-content="hint content" ></text-field> \
              \n<text-field float-content="float content" hint-content="hint content" ></text-field> \

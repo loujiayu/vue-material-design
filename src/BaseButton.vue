@@ -171,7 +171,7 @@ export default {
         this.mRootStyle.boxShadow = zDepthShadows[this.shadowDepth]
       }
     },
-    handleClick: function() {
+    handleClick: function(event) {
       this.tabPressed = false
       this.focused = false
       if (this.disabled) {
@@ -182,7 +182,7 @@ export default {
       } else if (this.link) {
         console.warn(`${this.link} is not a valid URL`)
       }
-      if (this.onClick) {this.onClick()}
+      if (this.onClick) this.onClick(event, this.label)
     }
   }
 }

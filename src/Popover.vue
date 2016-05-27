@@ -1,5 +1,5 @@
 <template>
-  <div :style="mRootStyle" v-if="open" :transition="verticalAnimation ? 'vertical-pop':'popover'">
+  <div :style="mRootStyle" v-show="open" :transition="verticalAnimation ? 'vertical-pop':'popover'">
     <slot name="popover"></slot>
   </div>
 </template>
