@@ -1,0 +1,73 @@
+{
+  "name": "material-vue",
+  "version": "0.1.2",
+  "description": "Material UI with Vue",
+  "main": "./lib/material-vue.js",
+  "files":[
+    "src",
+    "dist/material-vue.js",
+    "dist/material-vue.min.js"
+  ],
+  "keywords": [
+    "vue",
+    "vue-component",
+    "material design",
+    "material-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/loujiayu/vue-material-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/loujiayu/vue-material-design/issues"
+  },
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run start\"  \"npm run dev-examples\"",
+    "test": "karma start && echo \"test: no test errors\"",
+    "lint": "eslint src && echo \"eslint: no lint errors\"",
+    "build": "npm run start && npm run prod",
+    "start": "webpack --verbose --colors --display-error-details --config build/webpack.dev.config.js",
+    "prod": "webpack --display-error-details --config build/webpack.prod.config.js",
+    "dev-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
+    "build-examples": "webpack --verbose --colors --context examples/ --config examples/webpack-production.config.js",
+    "doc": "node examples/build/server.js"
+  },
+  "author": "JanLo",
+  "license": "MIT",
+  "dependencies": {
+    "vue": "^1.0.21"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^6.0.4",
+    "babel-loader": "^6.2.4",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-2": "^6.5.0",
+    "babel-runtime": "^6.6.1",
+    "chai": "^3.5.0",
+    "concurrently": "^2.1.0",
+    "css-loader": "^0.23.1",
+    "eslint": "^2.9.0",
+    "eslint-plugin-babel": "^3.2.0",
+    "file-loader": "^0.8.5",
+    "json-loader": "^0.5.4",
+    "karma": "^0.13.22",
+    "karma-mocha": "^1.0.1",
+    "karma-mocha-reporter": "^2.0.3",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.7",
+    "transfer-webpack-plugin": "^0.1.4",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.3.2",
+    "vue-html-loader": "^1.2.0",
+    "vue-loader": "^8.2.3",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
