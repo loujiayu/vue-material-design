@@ -1,2 +1,8 @@
 node_modules/
 npm-debug.log
+examples/build/less
+examples/build/scss
+examples/build/HELP-US-OUT.txt
+examples/build/package.json
+examples/build/README.md
+examples/build/.npmignore
