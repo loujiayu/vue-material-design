@@ -40,3 +40,6 @@ npm install
 npm run build-examples
 ```
 then open in browser [localhost:3000](localhost:3000)
+
+## Contributing
+Appreciate any contribution you make.

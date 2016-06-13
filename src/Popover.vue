@@ -37,9 +37,6 @@ export default {
     open: Boolean,
     verticalAnimation: Boolean
   },
-  destroyed: function() {
-    console.log('fpaisfnpasnfaiupnfawinfaiwniwnfiasnfiai');
-  }
 }
 </script>
 <style media="screen">

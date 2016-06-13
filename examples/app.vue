@@ -3,7 +3,7 @@
     <nav-bar>
       <icon-button icon-class="fa fa-bars fa-2x fa-hover anti-color" slot="leftNav" @click="handleClick"></icon-button>
       <span slot="title" class="">title</span>
-      <icon-button icon-class="fa fa-github fa-2x anti-color" slot="rightNav"></icon-button>
+      <icon-button icon-class="fa fa-github fa-2x anti-color" slot="rightNav" link="https://github.com/loujiayu/vue-material-design"></icon-button>
     </nav-bar>
     <menu-bar :open.sync="open" v-ref:sidebar :docked="!small">
       <menu-item class="header item"

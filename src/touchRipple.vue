@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     handleClick: function(event) {
-      console.log('fire click');
       event.preventDefault()
       this.addRipple(event)
     },

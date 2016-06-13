@@ -8,7 +8,7 @@
       </div>
       <div slot="ex">
         <icon-button icon-class="fa fa-bell-o fa-2x" slot="ex"></icon-button>
-        <icon-button icon-class="fa fa-bell-o fa-2x" slot="ex" :disabled=true></icon-button>
+        <icon-button icon-class="fa fa-bell-o fa-2x" slot="ex" :disabled="true"></icon-button>
       </div>
       <div slot="ex">
         <icon-button
