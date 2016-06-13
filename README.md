@@ -32,6 +32,7 @@ export default {
 git clone https://github.com/loujiayu/vue-material-design.git
 cd vue-material-design
 npm install
+npm run build
 ```
 
 ## Demo
@@ -40,9 +41,6 @@ npm install
 npm run build-examples
 ```
 then open in browser [localhost:3000](localhost:3000)
-<<<<<<< HEAD
-=======
 
 ## Contributing
 Appreciate any contribution you make.
->>>>>>> gh-pages
