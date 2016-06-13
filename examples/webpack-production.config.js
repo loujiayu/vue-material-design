@@ -44,6 +44,6 @@ module.exports = {
   devtool: '#source-map',
   plugins: [
     new webpack.NoErrorsPlugin(),
-    new TransferWebpackPlugin([{from: 'src'}])
+    new TransferWebpackPlugin([{from: 'src'}, {from: 'node_modules/font-awesome'}])
   ]
 }

@@ -192,7 +192,6 @@ export default {
         node.style.opacity = '1'
         this.prevSelect = node
         this.dateSelected.setDate(parent.textContent.trim())
-        console.log(this.dateSelected);
       }
     },
     handleFocus: function() {

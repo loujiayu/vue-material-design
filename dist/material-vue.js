@@ -1009,7 +1009,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.tab-transition {\n  -webkit-animation-name: forcus;\n          animation-name: forcus;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n  -webkit-animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n          animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n.tab-enter,\n.tab-leave {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.touch-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 0;\n}\n.touch-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity:1;\n}\n\n@-webkit-keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n\n@keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.tab-transition {\n  -webkit-animation-name: forcus;\n          animation-name: forcus;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n  -webkit-animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n          animation-timing-function: cubic-bezier(.42, 0, .58, 1);\n  -webkit-animation-iteration-count: infinite;\n          animation-iteration-count: infinite;\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n}\n.tab-enter,\n.tab-leave {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n}\n.touch-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 0;\n}\n.touch-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity:1;\n}\n\n@-webkit-keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n\n@keyframes forcus{\n  0% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n  50% {\n    -webkit-transform: scale(.65);\n            transform: scale(.65);\n  }\n  100% {\n    -webkit-transform: scale(0.5);\n            transform: scale(0.5);\n  }\n}\n", ""]);
 
 	// exports
 
@@ -1361,7 +1361,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  methods: {
 	    handleClick: function handleClick(event) {
-	      console.log('fire click');
 	      event.preventDefault();
 	      this.addRipple(event);
 	    },
@@ -2608,7 +2607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.vertical-pop-transition {\n  -webkit-transform: scaleY(1);\n          transform: scaleY(1);\n  opacity: 1;\n  visibility: visible;\n}\n.vertical-pop-leave,\n.vertical-pop-enter {\n  -webkit-transform: scaleY(0);\n          transform: scaleY(0);\n  opacity: 0;\n  visibility: hidden;\n}\n.popover-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n  visibility: visible;\n}\n.popover-leave,\n.popover-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n  visibility: hidden;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.vertical-pop-transition {\n  -webkit-transform: scaleY(1);\n          transform: scaleY(1);\n  opacity: 1;\n  visibility: visible;\n}\n.vertical-pop-leave,\n.vertical-pop-enter {\n  -webkit-transform: scaleY(0);\n          transform: scaleY(0);\n  opacity: 0;\n  visibility: hidden;\n}\n.popover-transition {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  opacity: 1;\n  visibility: visible;\n}\n.popover-leave,\n.popover-enter {\n  -webkit-transform: scale(0);\n          transform: scale(0);\n  opacity: 0;\n  visibility: hidden;\n}\n", ""]);
 
 	// exports
 
@@ -2663,9 +2662,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    styleObj: Object,
 	    open: Boolean,
 	    verticalAnimation: Boolean
-	  },
-	  destroyed: function destroyed() {
-	    console.log('fpaisfnpasnfaiupnfawinfaiwniwnfiasnfiai');
 	  }
 	};
 
@@ -5120,7 +5116,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.leftSlide-transition,\n.rightSlide-transition {\n  opacity: 1;\n  -webkit-transform: translateX(0);\n          transform: translateX(0);\n}\n.leftSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.leftSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n.rightSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.rightSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n", ""]);
+	exports.push([module.id, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.leftSlide-transition,\n.rightSlide-transition {\n  opacity: 1;\n  -webkit-transform: translateX(0);\n          transform: translateX(0);\n}\n.leftSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.leftSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n.rightSlide-enter {\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%);\n  opacity: 0;\n}\n.rightSlide-leave {\n  -webkit-transform: translateX(100%);\n          transform: translateX(100%);\n  opacity: 0;\n}\n", ""]);
 
 	// exports
 
@@ -5326,7 +5322,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        node.style.opacity = '1';
 	        this.prevSelect = node;
 	        this.dateSelected.setDate(parent.textContent.trim());
-	        console.log(this.dateSelected);
 	      }
 	    },
 	    handleFocus: function handleFocus() {

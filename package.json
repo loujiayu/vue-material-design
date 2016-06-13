@@ -26,10 +26,10 @@
     "test": "karma start && echo \"test: no test errors\"",
     "lint": "eslint src && echo \"eslint: no lint errors\"",
     "build": "npm run start && npm run prod",
-    "start": "webpack --verbose --colors --watch --display-error-details --config build/webpack.dev.config.js",
+    "start": "webpack --verbose --colors --display-error-details --config build/webpack.dev.config.js",
     "prod": "webpack --display-error-details --config build/webpack.prod.config.js",
     "dev-examples": "webpack-dev-server --verbose --watch --context examples/ --config  examples/webpack.config.js",
-    "build-examples": "webpack --verbose --colors --watch --context examples/ --config examples/webpack-production.config.js",
+    "build-examples": "webpack --verbose --colors --context examples/ --config examples/webpack-production.config.js",
     "doc": "node examples/build/server.js"
   },
   "author": "JanLo",

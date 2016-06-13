@@ -1,3 +1,13 @@
 node_modules/
+<<<<<<< HEAD
 examples/build/
 npm-debug.log
+=======
+npm-debug.log
+examples/build/less
+examples/build/scss
+examples/build/HELP-US-OUT.txt
+examples/build/package.json
+examples/build/README.md
+examples/build/.npmignore
+>>>>>>> gh-pages
