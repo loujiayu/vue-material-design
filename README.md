@@ -39,8 +39,9 @@ npm run build
 
 ```
 npm run build-examples
+npm run doc
 ```
-then open in browser [localhost:3000](localhost:3000)
+then open in browser [localhost:8000](http://localhost:8000)
 
 ## Contributing
 Appreciate any contribution you make.
